@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <div class="HomeBody">
-      <Header />
       <HomeHero />
     </div>
     <div class="HomeBg"></div>
@@ -9,7 +8,6 @@
 </template>
 
 <script setup>
-import Header from "@/components/Shared/Header.vue";
 import HomeHero from "@/components/Home/HomeHero.vue";
 </script>
 
@@ -22,9 +20,10 @@ import HomeHero from "@/components/Home/HomeHero.vue";
   min-height: 100vh;
   max-width: var(--layoutWidth);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--layoutPadding);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .HomeBg {
   position: absolute;

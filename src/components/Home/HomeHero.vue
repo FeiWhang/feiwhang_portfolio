@@ -1,6 +1,10 @@
 <template>
-  <div class="HomeHero">
-    <div class="HomeHero__left">
+  <div
+    class="HomeHero"
+    :class="'HomeHero--' + screen.type.value"
+    :style="heroStyle"
+  >
+    <div class="HomeHero__left" :class="'HomeHero__left--' + screen.type.value">
       <img
         src="@/assets/hero_mobile.svg"
         alt=""
@@ -24,7 +28,8 @@
         class="HomeHero__subtitle"
         :class="'HomeHero__subtitle--' + screen.type.value"
       >
-        Computer Science student at MUIC based in Bangkok
+        {{ "Computer Science student at MUIC" }}
+        {{ screen.width.value >= 600 ? " based in Bangkok" : "" }}
       </p>
       <LinkGo
         to="/contact"
@@ -36,7 +41,6 @@
         fontSize="var(--fontS)"
       />
     </div>
-
     <img
       src="@/assets/hero.svg"
       alt=""
@@ -48,10 +52,16 @@
 </template>
 
 <script setup>
-import { inject } from "vue";
+import { inject, computed } from "vue";
 import LinkGo from "@/components/Shared/LinkGo.vue";
 
 const screen = inject("screen");
+const heroStyle = computed(() => {
+  return {
+    "--screenWidth":
+      Math.min(Math.max(parseInt(screen.width.value), 0), 1620) + "px",
+  };
+});
 </script>
 
 <style lang="scss" scoped>
@@ -60,10 +70,16 @@ const screen = inject("screen");
   justify-content: space-between;
   align-items: center;
   margin: auto 0;
-  padding-bottom: 128px;
+
   &__left {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    &--sm,
+    &--xs {
+      align-items: center;
+    }
   }
   &__imgMobile {
     display: none;
@@ -71,11 +87,11 @@ const screen = inject("screen");
     margin-bottom: 32px;
     &--sm {
       display: block;
-      width: 450px;
+      width: calc(var(--screenWidth) / 1.75);
     }
     &--xs {
       display: block;
-      width: 250px;
+      width: calc(var(--screenWidth) / 1.5);
     }
   }
   &__greet {
@@ -103,16 +119,18 @@ const screen = inject("screen");
       font-size: 64px;
     }
     &--lg {
-      font-size: 48px;
+      font-size: 56px;
     }
     &--md {
       font-size: 40px;
     }
     &--sm {
       font-size: 48px;
+      text-align: center;
     }
     &--xs {
       font-size: 28px;
+      text-align: center;
     }
   }
   &__subtitle {
@@ -125,18 +143,18 @@ const screen = inject("screen");
       font-size: 18px;
     }
     &--xs {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
   &__img {
     &--xl {
-      width: 800px;
+      width: calc(var(--screenWidth) / 1.25);
     }
     &--lg {
-      width: 666px;
+      width: calc(var(--screenWidth) / 1.38);
     }
     &--md {
-      width: 475px;
+      width: calc(var(--screenWidth) / 2);
     }
     &--sm {
       display: none;

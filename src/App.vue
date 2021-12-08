@@ -1,21 +1,13 @@
 <template>
-  <router-view :style="appStyle" />
+  <div :style="appStyle">
+    <Header />
+    <router-view />
+  </div>
 </template>
 
 <script setup>
+import Header from "@/components/Shared/Header.vue";
 import { computed, onMounted, onUnmounted, ref, provide } from "vue";
-
-const appStyle = {
-  "--layoutWidth": "1620px",
-  "--lightPurple": "#8E6FE2",
-  "--purple": "#7253C6",
-  "--textColor": "#0A2540",
-  "--fontL": "36px",
-  "--fontM": "24px",
-  "--fontS": "18px",
-  "--pillPaddingL": "16px 40px",
-  "--pillPaddingM": "10px 24px",
-};
 
 const width = ref(window.innerWidth);
 
@@ -33,6 +25,19 @@ const type = computed(() => {
 });
 
 provide("screen", { width, type });
+
+const appStyle = {
+  "--layoutWidth": "1620px",
+  "--layoutPadding": width.value > 1264 ? "20px" : "12px",
+  "--lightPurple": "#8E6FE2",
+  "--purple": "#7253C6",
+  "--textColor": "#0A2540",
+  "--fontL": "36px",
+  "--fontM": "24px",
+  "--fontS": "18px",
+  "--pillPaddingL": "16px 40px",
+  "--pillPaddingM": "10px 24px",
+};
 </script>
 
 <style>

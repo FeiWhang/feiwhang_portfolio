@@ -77,7 +77,7 @@
     font-size: var(--fontS);
     padding: var(--pillPaddingL);
     border-radius: 32px;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
   }
   &__cta:hover {
     background-color: var(--lightPurple);

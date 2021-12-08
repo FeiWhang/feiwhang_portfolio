@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import Header from "@/components/Header/Header.vue";
+import Header from "@/components/Shared/Header.vue";
 import HomeHero from "@/components/Home/HomeHero.vue";
 </script>
 
@@ -26,7 +26,6 @@ import HomeHero from "@/components/Home/HomeHero.vue";
   display: flex;
   flex-direction: column;
 }
-
 .HomeBg {
   position: absolute;
   left: 0;
@@ -40,16 +39,5 @@ import HomeHero from "@/components/Home/HomeHero.vue";
   background-position: 100% 0;
   background-repeat: no-repeat;
   background-size: cover;
-}
-@keyframes bgChange {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 100% 0;
-  }
-  100% {
-    background-position: 50% 0;
-  }
 }
 </style>

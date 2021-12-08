@@ -64,7 +64,7 @@ export default {
   font-size: var(--fontSize);
   font-weight: 500;
   letter-spacing: 0.2px;
-  transition: opacity, background-color 0.2s ease-in-out;
+  transition: opacity, background-color 0.3s ease-in-out;
   span {
     display: inline-block;
   }
@@ -82,7 +82,7 @@ export default {
   height: 2px;
   margin-left: 8px;
   border-radius: 32px;
-  transition: transform, background-color 0.2s ease-in-out;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
   background-color: transparent;
 }
 

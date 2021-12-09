@@ -3,6 +3,7 @@
     <Header />
     <Home />
     <About />
+    <Portfolio />
   </div>
 </template>
 
@@ -11,6 +12,7 @@ import Header from "@/components/Shared/Header.vue";
 import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
+import Portfolio from "@/views/Portfolio.vue";
 import { provide } from "vue";
 
 const screen = getScreen();
@@ -22,6 +24,7 @@ const appStyle = {
   "--layoutPadding": screen.width.value > 1264 ? "20px" : "12px",
   "--lightPurple": "#8E6FE2",
   "--purple": "#7253C6",
+  "--textColorLight": "#fdfdff",
   "--textColor": "#0A2540",
   "--fontL": "36px",
   "--fontM": "24px",
@@ -33,12 +36,15 @@ const appStyle = {
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
 #app {
   font-family: Nunito;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  background-color: #fdfdff;
+  background-color: var(--textColorLight);
 }
 
 * {

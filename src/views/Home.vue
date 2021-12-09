@@ -1,6 +1,6 @@
 <template>
   <div id="Home">
-    <div class="Home__bg" :class="'home__bg--' + screen.type.value"></div>
+    <div class="Home__bg" :class="'Home__bg--' + screen.type.value"></div>
     <HomeBody />
   </div>
 </template>
@@ -16,7 +16,7 @@ const screen = inject("screen");
 #Home {
   min-height: 100vh;
   position: relative;
-  &__bg {
+  .Home__bg {
     position: absolute;
     left: 0;
     top: 0;
@@ -31,7 +31,7 @@ const screen = inject("screen");
       filter: blur(100px);
     }
     &--xs {
-      opacity: 0.4;
+      opacity: 0.3;
       filter: blur(80px);
     }
   }

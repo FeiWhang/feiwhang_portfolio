@@ -31,16 +31,28 @@
         {{ "Computer Science student at MUIC" }}
         {{ screen.width.value >= 600 ? " based in Bangkok" : "" }}
       </p>
-      <LinkGo
-        to="/contact"
-        title="Contact Me"
-        bgColor="var(--purple)"
-        hoverColor="var(--lightPurple)"
-        padding="var(--pillPaddingM)"
-        elemColor="white"
-        fontSize="var(--fontS)"
-        class="HomeHero__cta"
-      />
+      <div class="HomeHero__ctaContainer">
+        <LinkGo
+          to="/contact"
+          title="Contact me"
+          bgColor="var(--purple)"
+          hoverColor="var(--lightPurple)"
+          padding="var(--pillPaddingS)"
+          elemColor="var(--textColorLight)"
+          fontSize="var(--fontS)"
+          class="HomeHero__cta"
+        />
+        <LinkGo
+          to="/portfolio"
+          title="My projects"
+          bgColor="transparent"
+          hoverColor="transparent"
+          padding="var(--pillPaddingS)"
+          elemColor="var(--textColor)"
+          fontSize="var(--fontS)"
+          class="HomeHero__cta"
+        />
+      </div>
     </div>
     <img
       src="@/assets/hero.svg"
@@ -115,10 +127,10 @@ const heroStyle = computed(() => {
     }
   }
   &__title {
-    animation: heroTextFrame 0.8s ease-in-out 0.1s forwards;
+    animation: heroTextFrame 0.75s ease-in-out 0.1s forwards;
     opacity: 0;
     font-size: 64px;
-    font-weight: 500;
+    font-weight: 600;
     &--xl {
       font-size: 64px;
     }
@@ -138,7 +150,7 @@ const heroStyle = computed(() => {
     }
   }
   &__subtitle {
-    animation: heroTextFrame 1.05s ease-in-out forwards;
+    animation: heroTextFrame 1s ease-in-out forwards;
     opacity: 0;
     font-size: 20px;
     margin-bottom: 32px;
@@ -151,6 +163,10 @@ const heroStyle = computed(() => {
     &--xs {
       font-size: 16px;
     }
+  }
+  &__ctaContainer {
+    display: flex;
+    column-gap: 8px;
   }
   &__cta {
     animation: heroTextFrame 1.15s ease-in-out forwards;

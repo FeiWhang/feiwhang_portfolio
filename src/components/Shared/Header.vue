@@ -1,45 +1,36 @@
 <template>
   <div class="Header" :style="headerStyle">
     <div class="Header__container">
-      <router-link class="Header__navItem" exact to="/">
-        <h1 class="Header__logo">fw</h1>
-      </router-link>
+      <a href="#Home" class="Header__logo">fw</a>
       <div class="Header__nav" :class="'Header__nav--' + screen.type.value">
-        <router-link class="Header__navItem" active-class="active" exact to="/">
-          <span>Home</span>
-        </router-link>
-        <router-link
+        <a
+          href="#Home"
           class="Header__navItem"
-          active-class="active"
-          exact
-          to="/about"
+          :class="hash == '' || hash == '#Home' ? 'active' : ''"
+          @click="hash = '#Home'"
+          >Home</a
         >
-          <span>About</span>
-        </router-link>
-        <router-link
+        <a
+          href="#About"
           class="Header__navItem"
-          active-class="active"
-          exact
-          to="/portfolio"
+          :class="hash == '#About' ? 'active' : ''"
+          @click="hash = '#About'"
+          >About</a
         >
-          <span>Portfolio</span>
-        </router-link>
-        <router-link
+        <a
+          href="#Portfolio"
           class="Header__navItem"
-          active-class="active"
-          exact
-          to="/tools"
+          :class="hash == '#Portfolio' ? 'active' : ''"
+          @click="hash = '#Portfolio'"
+          >Portfolio</a
         >
-          <span>Tools</span>
-        </router-link>
-        <router-link
+        <a
+          href="#Contact"
           class="Header__navItem"
-          active-class="active"
-          exact
-          to="/contact"
+          :class="hash == '#Contact' ? 'active' : ''"
+          @click="hash = '#Contact'"
+          >Contact</a
         >
-          <span>Contact</span>
-        </router-link>
       </div>
       <button class="Header__cta" :class="'Header__cta--' + screen.type.value">
         Download CV
@@ -49,8 +40,8 @@
 </template>
 
 <script setup>
-import { inject, computed } from "vue";
-
+import { inject, computed, ref } from "vue";
+const hash = ref(location.hash);
 const screen = inject("screen");
 const headerStyle = computed(() => {
   return {
@@ -78,14 +69,18 @@ const headerStyle = computed(() => {
     justify-content: space-between;
     align-items: center;
   }
+  a {
+    text-decoration: none;
+  }
   &__logo {
+    color: var(--textColor);
     font-size: var(--fontL);
     font-weight: 600;
   }
   &__nav {
     display: flex;
     justify-content: center;
-    column-gap: 50px;
+    column-gap: 4rem;
     &--sm,
     &--xs {
       display: none;
@@ -103,9 +98,9 @@ const headerStyle = computed(() => {
     cursor: pointer;
     border: none;
     background-color: var(--purple);
-    color: white;
+    color: var(--textColorLight);
     font-size: var(--fontS);
-    padding: var(--pillPaddingL);
+    padding: var(--pillPaddingM);
     border-radius: 32px;
     transition: background-color 0.3s ease-in-out;
     &--sm,

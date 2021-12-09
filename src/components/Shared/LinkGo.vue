@@ -62,7 +62,7 @@ export default {
   background-color: var(--bgColor);
   padding: var(--padding);
   font-size: var(--fontSize);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.2px;
   transition: opacity, background-color 0.3s ease-in-out;
   span {

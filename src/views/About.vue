@@ -1,76 +1,14 @@
 <template>
   <div id="About">
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
-    <h1>This is an about page</h1>
+    <AboutBody />
   </div>
 </template>
+<script setup>
+import AboutBody from "@/components/About/AboutBody.vue";
+</script>
+
+<style lang="scss" scoped>
+#About {
+  min-height: 100vh;
+}
+</style>

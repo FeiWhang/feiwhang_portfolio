@@ -1,5 +1,5 @@
 <template>
-  <div class="Header">
+  <div class="Header" :style="headerStyle">
     <div class="Header__container">
       <router-link class="Header__navItem" exact to="/">
         <h1 class="Header__logo">fw</h1>
@@ -49,20 +49,27 @@
 </template>
 
 <script setup>
-import { inject } from "vue";
+import { inject, computed } from "vue";
 
 const screen = inject("screen");
+const headerStyle = computed(() => {
+  return {
+    "--bgOpacity": screen.scroll.value > 200 ? 0.98 : 0,
+  };
+});
 </script>
 
 <style lang="scss" scoped>
 .Header {
   z-index: 10;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
-
-  padding: 32px 0;
+  padding: 2vh 0;
+  animation: showHeader 0.88s ease-in-out forwards;
+  background-color: rgba($color: #fdfdff, $alpha: var(--bgOpacity));
+  transition: background-color 0.5s ease-in-out;
   &__container {
     max-width: var(--layoutWidth);
     padding: 0 var(--layoutPadding);
@@ -103,11 +110,23 @@ const screen = inject("screen");
     transition: background-color 0.3s ease-in-out;
     &--sm,
     &--xs {
-      padding: var(--pillPaddingM);
+      font-size: 16px;
+      padding: var(--pillPaddingS);
     }
   }
   &__cta:hover {
     background-color: var(--lightPurple);
+  }
+  // animation
+  @keyframes showHeader {
+    0% {
+      opacity: 0;
+      transform: translateY(-8vh);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 </style>

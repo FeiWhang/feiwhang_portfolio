@@ -1,42 +1,39 @@
 <template>
-  <div class="home">
-    <div class="HomeBody">
-      <HomeHero />
-    </div>
-    <div class="HomeBg"></div>
+  <div id="Home">
+    <div class="Home__bg" :class="'home__bg--' + screen.type.value"></div>
+    <HomeBody />
   </div>
 </template>
 
 <script setup>
-import HomeHero from "@/components/Home/HomeHero.vue";
+import { inject } from "vue";
+import HomeBody from "@/components/Home/HomeBody.vue";
+
+const screen = inject("screen");
 </script>
 
 <style lang="scss" scoped>
-.home {
+#Home {
   min-height: 100vh;
   position: relative;
-}
-.HomeBody {
-  min-height: 100vh;
-  max-width: var(--layoutWidth);
-  margin: 0 auto;
-  padding: 0 var(--layoutPadding);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.HomeBg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  min-height: 100vh;
-  filter: blur(200px);
-  opacity: 0.15;
-  z-index: -1;
-  background-image: url("../assets/home_bg.png");
-  background-position: 100% 0;
-  background-repeat: no-repeat;
-  background-size: cover;
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(200px);
+    opacity: 0.1;
+    background-image: url("../assets/home_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    &--sm {
+      filter: blur(100px);
+    }
+    &--xs {
+      opacity: 0.4;
+      filter: blur(80px);
+    }
+  }
 }
 </style>

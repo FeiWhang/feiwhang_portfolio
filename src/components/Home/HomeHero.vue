@@ -39,6 +39,7 @@
         padding="var(--pillPaddingM)"
         elemColor="white"
         fontSize="var(--fontS)"
+        class="HomeHero__cta"
       />
     </div>
     <img
@@ -70,7 +71,6 @@ const heroStyle = computed(() => {
   justify-content: space-between;
   align-items: center;
   margin: auto 0;
-
   &__left {
     display: flex;
     flex-direction: column;
@@ -85,16 +85,18 @@ const heroStyle = computed(() => {
     display: none;
     margin: 0 auto;
     margin-bottom: 32px;
+    animation: heroImgFrame 0.88s ease-in-out forwards;
     &--sm {
       display: block;
       width: calc(var(--screenWidth) / 1.75);
     }
     &--xs {
       display: block;
-      width: calc(var(--screenWidth) / 1.5);
+      width: calc(var(--screenWidth) / 1.8);
     }
   }
   &__greet {
+    animation: heroTextFrame 0.7s ease-in-out forwards;
     font-weight: 400;
     &--xl {
       font-size: 36px;
@@ -113,6 +115,8 @@ const heroStyle = computed(() => {
     }
   }
   &__title {
+    animation: heroTextFrame 0.8s ease-in-out 0.1s forwards;
+    opacity: 0;
     font-size: 64px;
     font-weight: 500;
     &--xl {
@@ -134,6 +138,8 @@ const heroStyle = computed(() => {
     }
   }
   &__subtitle {
+    animation: heroTextFrame 1.05s ease-in-out forwards;
+    opacity: 0;
     font-size: 20px;
     margin-bottom: 32px;
     &--md {
@@ -146,9 +152,14 @@ const heroStyle = computed(() => {
       font-size: 16px;
     }
   }
+  &__cta {
+    animation: heroTextFrame 1.15s ease-in-out forwards;
+    opacity: 0;
+  }
   &__img {
+    animation: heroImgFrame 0.88s ease-in-out forwards;
     &--xl {
-      width: calc(var(--screenWidth) / 1.25);
+      width: 90%;
     }
     &--lg {
       width: calc(var(--screenWidth) / 1.38);
@@ -161,6 +172,27 @@ const heroStyle = computed(() => {
     }
     &--xs {
       display: none;
+    }
+  }
+  // animation
+  @keyframes heroImgFrame {
+    0% {
+      opacity: 0;
+      transform: translateX(20vw);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes heroTextFrame {
+    0% {
+      opacity: 0;
+      transform: translateY(15vh);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }

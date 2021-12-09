@@ -1,28 +1,13 @@
 <template>
-  <div
-    class="HomeHero"
-    :class="'HomeHero--' + screen.type.value"
-    :style="heroStyle"
-  >
+  <div class="HomeHero" :class="'HomeHero--' + screen.type.value">
     <div class="HomeHero__left" :class="'HomeHero__left--' + screen.type.value">
-      <img
-        src="@/assets/hero_mobile.svg"
-        alt=""
-        class="HomeHero__imgMobile"
-        :class="'HomeHero__imgMobile--' + screen.type.value"
-        draggable="false"
-      />
-      <h2
-        class="HomeHero__greet"
-        :class="'HomeHero__greet--' + screen.type.value"
-      >
-        Hi, I
-      </h2>
+      <HeroImg v-if="['xs', 'sm'].includes(screen.type.value)" />
       <h1
         class="HomeHero__title"
         :class="'HomeHero__title--' + screen.type.value"
       >
-        Design, <br />Develop & <br />Deliver great experience
+        Design, <br v-if="!['xs', 'sm'].includes(screen.type.value)" />Develop &
+        <br />Deliver great experience
       </h1>
       <p
         class="HomeHero__subtitle"
@@ -39,7 +24,7 @@
           hoverColor="var(--lightPurple)"
           padding="var(--pillPaddingS)"
           elemColor="var(--textColorLight)"
-          fontSize="var(--fontS)"
+          fontSize="var(--fontXS)"
           class="HomeHero__cta"
         />
         <LinkGo
@@ -49,32 +34,21 @@
           hoverColor="transparent"
           padding="var(--pillPaddingS)"
           elemColor="var(--textColor)"
-          fontSize="var(--fontS)"
+          fontSize="var(--fontXS)"
           class="HomeHero__cta"
         />
       </div>
     </div>
-    <img
-      src="@/assets/hero.svg"
-      alt=""
-      class="HomeHero__img"
-      :class="'HomeHero__img--' + screen.type.value"
-      draggable="false"
-    />
+    <HeroImg v-if="['md', 'lg', 'xl'].includes(screen.type.value)" />
   </div>
 </template>
 
 <script setup>
-import { inject, computed } from "vue";
+import { inject } from "vue";
 import LinkGo from "@/components/Shared/LinkGo.vue";
+import HeroImg from "@/components/Home/HeroImg.vue";
 
 const screen = inject("screen");
-const heroStyle = computed(() => {
-  return {
-    "--screenWidth":
-      Math.min(Math.max(parseInt(screen.width.value), 0), 1620) + "px",
-  };
-});
 </script>
 
 <style lang="scss" scoped>
@@ -91,39 +65,6 @@ const heroStyle = computed(() => {
     &--sm,
     &--xs {
       align-items: center;
-    }
-  }
-  &__imgMobile {
-    display: none;
-    margin: 0 auto;
-    margin-bottom: 32px;
-    animation: heroImgFrame 0.88s ease-in-out forwards;
-    &--sm {
-      display: block;
-      width: calc(var(--screenWidth) / 1.75);
-    }
-    &--xs {
-      display: block;
-      width: calc(var(--screenWidth) / 1.8);
-    }
-  }
-  &__greet {
-    animation: heroTextFrame 0.7s ease-in-out forwards;
-    font-weight: 400;
-    &--xl {
-      font-size: 36px;
-    }
-    &--lg {
-      font-size: 32px;
-    }
-    &--md {
-      font-size: 24px;
-    }
-    &--sm {
-      font-size: 20px;
-    }
-    &--xs {
-      font-size: 22px;
     }
   }
   &__title {
@@ -152,7 +93,7 @@ const heroStyle = computed(() => {
   &__subtitle {
     animation: heroTextFrame 1s ease-in-out forwards;
     opacity: 0;
-    font-size: 20px;
+    font-size: var(--fontS);
     margin-bottom: 32px;
     &--md {
       font-size: 18px;
@@ -172,35 +113,8 @@ const heroStyle = computed(() => {
     animation: heroTextFrame 1.15s ease-in-out forwards;
     opacity: 0;
   }
-  &__img {
-    animation: heroImgFrame 0.88s ease-in-out forwards;
-    &--xl {
-      width: 90%;
-    }
-    &--lg {
-      width: calc(var(--screenWidth) / 1.38);
-    }
-    &--md {
-      width: calc(var(--screenWidth) / 2);
-    }
-    &--sm {
-      display: none;
-    }
-    &--xs {
-      display: none;
-    }
-  }
+
   // animation
-  @keyframes heroImgFrame {
-    0% {
-      opacity: 0;
-      transform: translateX(20vw);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
   @keyframes heroTextFrame {
     0% {
       opacity: 0;

@@ -23,7 +23,7 @@ const screen = inject("screen");
     width: 100%;
     height: 100%;
     filter: blur(200px);
-    opacity: 0.1;
+    opacity: 0.125;
     background-image: url("../assets/home_bg.png");
     background-repeat: no-repeat;
     background-size: cover;

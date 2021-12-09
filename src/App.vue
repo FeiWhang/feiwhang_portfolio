@@ -29,6 +29,7 @@ const appStyle = {
   "--fontL": "36px",
   "--fontM": "24px",
   "--fontS": "18px",
+  "--fontXS": "16px",
   "--pillPaddingL": "16px 40px",
   "--pillPaddingM": "10px 24px",
   "--pillPaddingS": "8px 16px",

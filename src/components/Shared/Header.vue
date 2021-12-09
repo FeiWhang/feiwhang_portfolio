@@ -32,9 +32,14 @@
           >Contact</a
         >
       </div>
-      <button class="Header__cta" :class="'Header__cta--' + screen.type.value">
-        Download CV
-      </button>
+      <div class="Header__actionContainer">
+        <button
+          class="Header__cta"
+          :class="'Header__cta--' + screen.type.value"
+        >
+          Download CV
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -88,6 +93,7 @@ const headerStyle = computed(() => {
   }
   &__navItem {
     font-size: var(--fontS);
+    font-weight: 500;
     color: var(--textColor);
     text-decoration: none;
     &.active {
@@ -99,7 +105,7 @@ const headerStyle = computed(() => {
     border: none;
     background-color: var(--purple);
     color: var(--textColorLight);
-    font-size: var(--fontS);
+    font-size: var(--fontXS);
     padding: var(--pillPaddingM);
     border-radius: 32px;
     transition: background-color 0.3s ease-in-out;

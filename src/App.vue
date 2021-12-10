@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import Header from "@/components/Shared/Header.vue";
+import Header from "@/components/Header/Header.vue";
 import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
@@ -21,7 +21,9 @@ provide("screen", screen);
 
 const appStyle = {
   "--layoutWidth": "1620px",
-  "--layoutPadding": screen.width.value > 1264 ? "20px" : "12px",
+  "--layoutPadding": screen.width.value > 1264 ? "20px" : "16px",
+  "--extraLightPurple": "#FAF8FF",
+  "--lighterPurple": "#D5C6FF",
   "--lightPurple": "#8E6FE2",
   "--purple": "#7253C6",
   "--textColorLight": "#fdfdff",
@@ -30,9 +32,11 @@ const appStyle = {
   "--fontM": "24px",
   "--fontS": "18px",
   "--fontXS": "16px",
+  "--fontXXS": "14px",
   "--pillPaddingL": "16px 40px",
   "--pillPaddingM": "10px 24px",
   "--pillPaddingS": "8px 16px",
+  "--bgTransition": " background-color 0.3s ease-in-out",
 };
 </script>
 
@@ -58,6 +62,7 @@ html {
   font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url("../public/fonts/nunito-v20-latin-regular.eot"); /* IE9 Compat Modes */
   src: local(""),
     url("../public/fonts/nunito-v20-latin-regular.eot?#iefix")
@@ -76,6 +81,7 @@ html {
   font-family: "Nunito";
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url("../public/fonts/nunito-v20-latin-500.eot"); /* IE9 Compat Modes */
   src: local(""),
     url("../public/fonts/nunito-v20-latin-500.eot?#iefix")
@@ -94,6 +100,7 @@ html {
   font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
   src: url("../public/fonts/nunito-v20-latin-600.eot"); /* IE9 Compat Modes */
   src: local(""),
     url("../public/fonts/nunito-v20-latin-600.eot?#iefix")

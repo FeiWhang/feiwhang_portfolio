@@ -18,8 +18,8 @@
       </p>
       <div class="HomeHero__ctaContainer">
         <LinkGo
-          to="/contact"
-          title="Contact me"
+          to="/portfolio"
+          title="My projects"
           bgColor="var(--purple)"
           hoverColor="var(--lightPurple)"
           padding="var(--pillPaddingS)"
@@ -28,8 +28,8 @@
           class="HomeHero__cta"
         />
         <LinkGo
-          to="/portfolio"
-          title="My projects"
+          to="/contact"
+          title="Contact me"
           bgColor="transparent"
           hoverColor="transparent"
           padding="var(--pillPaddingS)"

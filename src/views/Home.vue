@@ -1,13 +1,20 @@
 <template>
-  <div id="Home">
-    <div class="Home__bg" :class="'Home__bg--' + screen.type.value"></div>
-    <HomeBody />
-  </div>
+  <section id="Home">
+    <div
+      class="HomeBg"
+      :class="'HomeBg--' + screen.type.value"
+      key="HomeBg"
+      rel="preload"
+    ></div>
+    <div class="HomeContainer">
+      <HomeHero />
+    </div>
+  </section>
 </template>
 
 <script setup>
 import { inject } from "vue";
-import HomeBody from "@/components/Home/HomeBody.vue";
+import HomeHero from "@/components/Home/HomeHero.vue";
 
 const screen = inject("screen");
 </script>
@@ -16,7 +23,7 @@ const screen = inject("screen");
 #Home {
   min-height: 100vh;
   position: relative;
-  .Home__bg {
+  .HomeBg {
     position: absolute;
     left: 0;
     top: 0;
@@ -24,7 +31,7 @@ const screen = inject("screen");
     height: 100%;
     filter: blur(200px);
     opacity: 0.2;
-    background-image: url("../assets/home_bg.png");
+    background-image: url("../assets/home_bg.webp");
     background-repeat: no-repeat;
     background-size: cover;
     &--sm {
@@ -34,6 +41,15 @@ const screen = inject("screen");
       opacity: 0.3;
       filter: blur(80px);
     }
+  }
+  .HomeContainer {
+    min-height: 100vh;
+    max-width: var(--layoutWidth);
+    margin: 0 auto;
+    padding: 0 var(--layoutPadding);
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 }
 </style>

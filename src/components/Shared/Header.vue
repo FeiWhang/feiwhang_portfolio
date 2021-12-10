@@ -46,6 +46,7 @@
 
 <script setup>
 import { inject, computed, ref } from "vue";
+
 const hash = ref(location.hash);
 const screen = inject("screen");
 const headerStyle = computed(() => {
@@ -63,7 +64,8 @@ const headerStyle = computed(() => {
   right: 0;
   top: 0;
   padding: 2vh 0;
-  animation: showHeader 0.88s ease-in-out forwards;
+  animation: 0.88s ease-in-out forwards moveDown;
+  -webkit-animation: 0.88s ease-in-out forwards moveDown;
   background-color: rgba($color: #fdfdff, $alpha: var(--bgOpacity));
   transition: background-color 0.5s ease-in-out;
   &__container {
@@ -119,7 +121,18 @@ const headerStyle = computed(() => {
     background-color: var(--lightPurple);
   }
   // animation
-  @keyframes showHeader {
+  @keyframes moveDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-8vh);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  //webkit
+  @-webkit-keyframes showHeader {
     0% {
       opacity: 0;
       transform: translateY(-8vh);

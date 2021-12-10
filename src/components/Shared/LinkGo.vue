@@ -1,15 +1,23 @@
 <template>
   <div class="LinkGo" :style="linkStyle">
-    <a class="Link" :href="to" :target="target" rel="noopener">
+    <a
+      class="Link"
+      :class="'Link--' + screen.type.value"
+      :href="to"
+      :target="target"
+      rel="noopener"
+    >
       <span>
         {{ title }}
       </span>
-      <div class="iconBars"></div>
+      <div class="IconBars" :class="'IconBars--' + screen.type.value"></div>
     </a>
   </div>
 </template>
 
 <script>
+import { inject } from "vue";
+
 export default {
   name: "LinkGo",
   props: [
@@ -43,6 +51,10 @@ export default {
       };
     },
   },
+  setup() {
+    const screen = inject("screen");
+    return { screen };
+  },
 };
 </script>
 
@@ -68,15 +80,19 @@ export default {
   span {
     display: inline-block;
   }
-  .iconBars::before,
-  ::after {
-    background-color: var(--elemColor);
+  &:hover {
+    background-color: var(--hoverColor);
+    .IconBars {
+      background-color: var(--elemColor);
+      transform: translateX(3px);
+      &--xs {
+        background-color: transparent;
+        transform: none;
+      }
+    }
   }
 }
-.Link:hover {
-  background-color: var(--hoverColor);
-}
-.Link .iconBars {
+.IconBars {
   display: flex;
   width: 9px;
   height: 2px;
@@ -84,28 +100,25 @@ export default {
   border-radius: 32px;
   transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
   background-color: transparent;
-}
-
-.Link .iconBars::before,
-.Link .iconBars::after {
-  content: "";
-  position: absolute;
-  width: 8px;
-  height: 2px;
-  margin: 0 0 0 16px;
-  border-radius: 32px;
-}
-
-.Link .iconBars::before {
-  transform: translateX(-16px) rotate(45deg) translateY(-3.5px);
-}
-
-.Link .iconBars::after {
-  transform: translateX(-16px) rotate(-45deg) translateY(3.5px);
-}
-
-.Link:hover .iconBars {
-  background-color: var(--elemColor);
-  transform: translateX(3px);
+  &--xs,
+  &--sm {
+    transition: none;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 2px;
+    margin: 0 0 0 16px;
+    border-radius: 8px;
+    background-color: var(--elemColor);
+  }
+  &::before {
+    transform: translateX(-16px) rotate(45deg) translateY(-3.5px);
+  }
+  &::after {
+    transform: translateX(-16px) rotate(-45deg) translateY(3.5px);
+  }
 }
 </style>

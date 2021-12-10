@@ -1,5 +1,9 @@
 <template>
-  <div :class="'HeroImg--' + screen.type.value" :style="imgStyle">
+  <div
+    class="HeroImg"
+    :class="'HeroImg--' + screen.type.value"
+    :style="imgStyle"
+  >
     <svg viewBox="0 0 555 520" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="DevelopeImg">
         <g id="CodeBoard">
@@ -411,46 +415,33 @@ const imgStyle = computed(() => {
 <style lang="scss" scoped>
 .HeroImg {
   svg {
-    animation: heroImgFrame 0.88s ease-in-out forwards;
+    animation: 0.88s ease-in-out forwards inFromRight;
   }
-  &--xl {
-    width: 90%;
-  }
-  &--lg {
-    width: calc(var(--screenWidth) / 1.38);
-  }
-  &--md {
-    width: calc(var(--screenWidth) / 2);
-  }
-  &--sm {
-    width: calc(var(--screenWidth) / 1.75);
-  }
-  &--xs {
-    width: calc(var(--screenWidth) / 1.8);
-  }
+  width: 88%;
   &--xl,
   &--lg,
   &--md {
     #globe_center {
-      animation: globeFrame 1.23s ease-in-out infinite alternate;
+      animation: 1.23s ease-in-out infinite alternate hovering;
+      -webkit-animation: 1.23s ease-in-out infinite alternate hovering;
     }
     #globe_shadow {
       transform: scale(1);
       transform-origin: 50% 50%;
       transform-box: fill-box;
-      animation: globeShadowFrame 1.23s ease-in-out infinite alternate;
+      animation: 1.23s ease-in-out infinite alternate scaleFade;
     }
     #cloud1 {
-      animation: cloud1Frame 2.46s ease-in-out infinite;
+      animation: 2.46s ease-in-out infinite cloud1Frame;
     }
     #cloud2 {
-      animation: cloud2Frame 2.46s ease-in-out infinite;
+      animation: 2.46s ease-in-out infinite cloud2Frame;
     }
   }
 }
 
 // animation
-@keyframes heroImgFrame {
+@keyframes inFromRight {
   0% {
     opacity: 0;
     transform: translateX(20vw);
@@ -460,7 +451,7 @@ const imgStyle = computed(() => {
     transform: translateX(0);
   }
 }
-@keyframes globeFrame {
+@keyframes hovering {
   0% {
     transform: translateY(16px);
   }
@@ -468,7 +459,7 @@ const imgStyle = computed(() => {
     transform: translateY(0);
   }
 }
-@keyframes globeShadowFrame {
+@keyframes scaleFade {
   0% {
     opacity: 0.25;
     transform: scale(1);
@@ -484,27 +475,76 @@ const imgStyle = computed(() => {
 }
 @keyframes cloud1Frame {
   0% {
-    transform: translateX(0px);
+    transform: translateX(0);
     opacity: 1;
   }
   50% {
     transform: translateX(-8px);
   }
   100% {
-    transform: translateX(0px);
+    transform: translateX(0);
     opacity: 1;
   }
 }
 @keyframes cloud2Frame {
   0% {
-    transform: translateX(0px);
+    transform: translateX(0);
     opacity: 1;
   }
   50% {
     transform: translateX(8px);
   }
   100% {
-    transform: translateX(0px);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+// webkit
+@-webkit-keyframes hovering {
+  0% {
+    transform: translateY(16px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes scaleFade {
+  0% {
+    opacity: 0.25;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+  }
+  100% {
+    opacity: 0.125;
+    transform: scale(1.25);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+  }
+}
+@-webkit-keyframes cloud1Frame {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes cloud2Frame {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
     opacity: 1;
   }
 }

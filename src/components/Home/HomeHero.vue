@@ -68,7 +68,8 @@ const screen = inject("screen");
     }
   }
   &__title {
-    animation: heroTextFrame 0.75s ease-in-out 0.1s forwards;
+    animation: 0.75s ease-in-out 0.1s forwards fromBelow;
+    -webkit-animation: 0.75s ease-in-out 0.1s forwards fromBelow;
     opacity: 0;
     font-size: 64px;
     font-weight: 600;
@@ -91,7 +92,8 @@ const screen = inject("screen");
     }
   }
   &__subtitle {
-    animation: heroTextFrame 1s ease-in-out forwards;
+    animation: 1s ease-in-out forwards fromBelow;
+    -webkit-animation: 1s ease-in-out forwards fromBelow;
     opacity: 0;
     font-size: var(--fontS);
     margin-bottom: 32px;
@@ -110,12 +112,24 @@ const screen = inject("screen");
     column-gap: 8px;
   }
   &__cta {
-    animation: heroTextFrame 1.15s ease-in-out forwards;
+    animation: 1.15s ease-in-out forwards fromBelow;
+    -webkit-animation: 1.15s ease-in-out forwards fromBelow;
     opacity: 0;
   }
 
   // animation
-  @keyframes heroTextFrame {
+  @keyframes fromBelow {
+    0% {
+      opacity: 0;
+      transform: translateY(15vh);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  //webkit
+  @-webkit-keyframes fromBelow {
     0% {
       opacity: 0;
       transform: translateY(15vh);

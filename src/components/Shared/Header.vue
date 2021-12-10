@@ -51,7 +51,7 @@ const hash = ref(location.hash);
 const screen = inject("screen");
 const headerStyle = computed(() => {
   return {
-    "--bgOpacity": screen.scroll.value > 200 ? 0.98 : 0,
+    "--bgOpacity": screen.scroll.value > window.innerHeight * 0.1 ? 0.98 : 0,
   };
 });
 </script>
@@ -63,9 +63,10 @@ const headerStyle = computed(() => {
   left: 0;
   right: 0;
   top: 0;
-  padding: 2vh 0;
-  animation: 0.88s ease-in-out forwards moveDown;
-  -webkit-animation: 0.88s ease-in-out forwards moveDown;
+  padding: 1.88vh 0;
+  animation: moveDown 0.88s ease-in-out forwards;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
   background-color: rgba($color: #fdfdff, $alpha: var(--bgOpacity));
   transition: background-color 0.5s ease-in-out;
   &__container {
@@ -87,17 +88,20 @@ const headerStyle = computed(() => {
   &__nav {
     display: flex;
     justify-content: center;
-    column-gap: 4rem;
     &--sm,
     &--xs {
       display: none;
     }
   }
   &__navItem {
-    font-size: var(--fontS);
+    text-align: center;
+    font-size: var(--fontXS);
     font-weight: 500;
     color: var(--textColor);
     text-decoration: none;
+    width: 8rem;
+    padding: 8px 0;
+    border-radius: 32px;
     &.active {
       color: var(--purple);
     }
@@ -124,22 +128,11 @@ const headerStyle = computed(() => {
   @keyframes moveDown {
     0% {
       opacity: 0;
-      transform: translateY(-8vh);
+      transform: translate3d(0, -8vh, 0);
     }
     100% {
       opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  //webkit
-  @-webkit-keyframes showHeader {
-    0% {
-      opacity: 0;
-      transform: translateY(-8vh);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 }

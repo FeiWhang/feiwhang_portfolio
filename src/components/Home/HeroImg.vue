@@ -4,7 +4,12 @@
     :class="'HeroImg--' + screen.type.value"
     :style="imgStyle"
   >
-    <svg viewBox="0 0 555 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 555 520"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      id="HeroVector"
+    >
       <g id="DevelopeImg">
         <g id="CodeBoard">
           <path
@@ -414,29 +419,42 @@ const imgStyle = computed(() => {
 
 <style lang="scss" scoped>
 .HeroImg {
-  svg {
-    animation: 0.88s ease-in-out forwards inFromRight;
-  }
-  width: 88%;
   &--xl,
   &--lg,
   &--md {
-    #globe_center {
-      animation: 1.23s ease-in-out infinite alternate hovering;
-      -webkit-animation: 1.23s ease-in-out infinite alternate hovering;
-    }
-    #globe_shadow {
-      transform: scale(1);
-      transform-origin: 50% 50%;
-      transform-box: fill-box;
-      animation: 1.23s ease-in-out infinite alternate scaleFade;
-    }
-    #cloud1 {
-      animation: 2.46s ease-in-out infinite cloud1Frame;
-    }
-    #cloud2 {
-      animation: 2.46s ease-in-out infinite cloud2Frame;
-    }
+    width: 88%;
+  }
+  &--sm,
+  &--xs {
+    width: 77%;
+  }
+}
+
+#HeroVector {
+  animation: 0.88s ease-in-out forwards inFromRight;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  #globe_center {
+    animation: 1.23s ease-in-out infinite alternate hovering;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+  #globe_shadow {
+    animation: scaleFade 1.23s ease-in-out infinite alternate;
+    transform: scale(1) translateZ(0);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    backface-visibility: hidden;
+  }
+  #cloud1 {
+    animation: moveLeft 2.46s ease-in-out infinite alternate;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+  #cloud2 {
+    animation: moveRight 2.46s ease-in-out infinite alternate;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -444,108 +462,55 @@ const imgStyle = computed(() => {
 @keyframes inFromRight {
   0% {
     opacity: 0;
-    transform: translateX(20vw);
+    transform: translate3d(20vw, 0, 0);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 @keyframes hovering {
   0% {
-    transform: translateY(16px);
+    transform: translate3d(0, 16px, 0);
   }
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 @keyframes scaleFade {
   0% {
     opacity: 0.25;
-    transform: scale(1);
+    transform: scale(1) translateZ(0);
     transform-origin: 50% 50%;
     transform-box: fill-box;
   }
   100% {
     opacity: 0.125;
-    transform: scale(1.25);
+    transform: scale(1.25) translateZ(0);
     transform-origin: 50% 50%;
     transform-box: fill-box;
   }
 }
-@keyframes cloud1Frame {
+@keyframes moveLeft {
   0% {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateX(-8px);
+    transform: translate3d(-8px, 0, 0);
   }
   100% {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
-@keyframes cloud2Frame {
+@keyframes moveRight {
   0% {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateX(8px);
+    transform: translate3d(8px, 0, 0);
   }
   100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-// webkit
-@-webkit-keyframes hovering {
-  0% {
-    transform: translateY(16px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@-webkit-keyframes scaleFade {
-  0% {
-    opacity: 0.25;
-    transform: scale(1);
-    transform-origin: 50% 50%;
-    transform-box: fill-box;
-  }
-  100% {
-    opacity: 0.125;
-    transform: scale(1.25);
-    transform-origin: 50% 50%;
-    transform-box: fill-box;
-  }
-}
-@-webkit-keyframes cloud1Frame {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(-8px);
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes cloud2Frame {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(8px);
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 </style>

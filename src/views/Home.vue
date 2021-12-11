@@ -45,8 +45,9 @@ const screen = inject("screen");
   .HomeContainer {
     min-height: 100vh;
     max-width: var(--layoutWidth);
-    margin: 0 auto;
+    margin: auto;
     padding: 0 var(--layoutPadding);
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     position: relative;

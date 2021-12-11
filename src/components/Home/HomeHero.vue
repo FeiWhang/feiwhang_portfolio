@@ -57,6 +57,7 @@ const screen = inject("screen");
   justify-content: space-between;
   align-items: center;
   margin: auto 0;
+  color: var(--textColor);
   &__left {
     display: flex;
     flex-direction: column;

@@ -1,5 +1,5 @@
 <template>
-  <div :style="appStyle">
+  <div class="AppContainer" :style="appStyle">
     <Header />
     <Home />
     <About />
@@ -13,34 +13,42 @@ import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Portfolio from "@/views/Portfolio.vue";
-import { provide } from "vue";
+import { provide, ref, computed } from "vue";
 
 const screen = getScreen();
+// detect user dark theme and set to default
+const isDark = ref(window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+const appStyle = computed(() => {
+  return {
+    "--layoutWidth": "1620px",
+    "--layoutPadding": screen.width.value > 1264 ? "20px" : "16px",
+    "--extraLightPurple": "#FAF8FF",
+    "--lighterPurple": "#D5C6FF",
+    "--lightPurple": "#8E6FE2",
+    "--purple": "#7253C6",
+    "--darkPurple": "#24285B",
+    "--textColorLight": "#fdfdff",
+    "--textColorDark": "#0A2540",
+    "--textColor": isDark.value ? "#fdfdff" : "#0A2540",
+    "--bgColor": isDark.value ? "#2D2D2E" : "#f6f2ff",
+    "--fontL": "36px",
+    "--fontM": "24px",
+    "--fontS": "18px",
+    "--fontXS": "16px",
+    "--fontXXS": "14px",
+    "--pillPaddingL": "16px 40px",
+    "--pillPaddingM": "10px 24px",
+    "--pillPaddingS": "8px 16px",
+    "--bgTransition": " background-color 0.3s ease-in-out",
+  };
+});
 
 provide("screen", screen);
-
-const appStyle = {
-  "--layoutWidth": "1620px",
-  "--layoutPadding": screen.width.value > 1264 ? "20px" : "16px",
-  "--extraLightPurple": "#FAF8FF",
-  "--lighterPurple": "#D5C6FF",
-  "--lightPurple": "#8E6FE2",
-  "--purple": "#7253C6",
-  "--textColorLight": "#fdfdff",
-  "--textColor": "#0A2540",
-  "--fontL": "36px",
-  "--fontM": "24px",
-  "--fontS": "18px",
-  "--fontXS": "16px",
-  "--fontXXS": "14px",
-  "--pillPaddingL": "16px 40px",
-  "--pillPaddingM": "10px 24px",
-  "--pillPaddingS": "8px 16px",
-  "--bgTransition": " background-color 0.3s ease-in-out",
-};
+provide("isDark", isDark);
 </script>
 
-<style>
+<style lang="scss">
 html {
   scroll-behavior: smooth;
 }
@@ -49,7 +57,11 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  background-color: var(--textColorLight);
+}
+
+.AppContainer {
+  background-color: var(--bgColor);
+  transition: var(--bgTransition);
 }
 
 * {

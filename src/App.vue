@@ -44,6 +44,7 @@ const appStyle = computed(() => {
     "--fontS": "18px",
     "--fontXS": "16px",
     "--fontXXS": "15px",
+    "--fontXXXS": "14px",
     "--pillPaddingL": "16px 40px",
     "--pillPaddingM": "10px 24px",
     "--pillPaddingS": "8px 16px",

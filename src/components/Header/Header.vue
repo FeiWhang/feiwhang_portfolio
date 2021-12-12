@@ -1,119 +1,188 @@
 <template>
-  <header class="Header" :style="headerStyle">
-    <div class="Header__container">
-      <a href="#Home" class="Header__logo">fw</a>
-      <nav class="Header__nav" v-if="!['sm', 'xs'].includes(screen.type.value)">
-        <HeaderNav />
-      </nav>
-      <div class="Header__action">
-        <div
-          class="Header__userTheme"
-          :class="isDark ? 'Header__userTheme--active' : ''"
-          @click="setTheme()"
-          title="Toggle dark mode"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            v-if="!isDark"
-          >
-            <path
-              d="M12.1065 19.713C16.3075 19.713 19.713 16.3074 19.713 12.1065C19.713 7.90554 16.3075 4.5 12.1065 4.5C7.90554 4.5 4.5 7.90554 4.5 12.1065C4.5 16.3074 7.90554 19.713 12.1065 19.713Z"
-              fill="#FFD200"
-            />
-            <path
-              opacity="0.15"
-              d="M11.8896 23.7791C18.456 23.7791 23.7791 18.456 23.7791 11.8896C23.7791 5.32314 18.456 0 11.8896 0C5.32314 0 0 5.32314 0 11.8896C0 18.456 5.32314 23.7791 11.8896 23.7791Z"
-              fill="#FFD200"
-            />
-          </svg>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            v-if="isDark"
-          >
-            <path
-              d="M15.624 17.6392C16.045 17.6392 16.4646 17.5917 16.875 17.4977C15.8354 18.3571 14.5736 18.9024 13.2368 19.07C11.8999 19.2376 10.5431 19.0206 9.3245 18.4443C8.10594 17.868 7.07588 16.9562 6.35446 15.8152C5.63304 14.6742 5.25 13.351 5.25 12C5.25 10.649 5.63304 9.32582 6.35446 8.18481C7.07588 7.04381 8.10594 6.13199 9.3245 5.55571C10.5431 4.97943 11.8999 4.76244 13.2368 4.93004C14.5736 5.09765 15.8354 5.64294 16.875 6.50232C16.1021 6.32291 15.3 6.30948 14.5216 6.46291C13.7431 6.61633 13.0058 6.93313 12.358 7.39252C11.7103 7.85191 11.1668 8.44349 10.7632 9.12842C10.3596 9.81335 10.1051 10.5761 10.0163 11.3667C9.92746 12.1573 10.0064 12.9577 10.248 13.7155C10.4895 14.4733 10.8882 15.1713 11.4177 15.7637C11.9473 16.3561 12.5959 16.8294 13.3208 17.1526C14.0458 17.4759 14.8307 17.6417 15.624 17.6392V17.6392Z"
-              fill="#AA94E7"
-            />
-            <path
-              opacity="0.15"
-              d="M11.8896 23.7791C18.456 23.7791 23.7791 18.456 23.7791 11.8896C23.7791 5.32314 18.456 0 11.8896 0C5.32314 0 0 5.32314 0 11.8896C0 18.456 5.32314 23.7791 11.8896 23.7791Z"
-              fill="#AA94E7"
-            />
-          </svg>
-          <p>{{ isDark ? "Dark" : "Light" }}</p>
-        </div>
-
-        <button
-          class="Header__cta"
-          :class="'Header__cta--' + screen.type.value"
+  <transition name="moveUpDown">
+    <header class="Header" :style="headerStyle" v-if="showHeader">
+      <div class="Header__container">
+        <a href="#Home" class="Header__logo">fw</a>
+        <nav
+          class="Header__nav"
           v-if="!['sm', 'xs'].includes(screen.type.value)"
-          title="Download resume pdf file"
         >
-          Download CV
-        </button>
-        <a
-          class="Header__navButton"
-          v-if="['sm', 'xs'].includes(screen.type.value)"
-          @click="isMobileNavOpened = !isMobileNavOpened"
-        >
-          <svg width="16" height="10" viewBox="0 0 16 10">
-            <title>Open mobile navigation</title>
-            <g fill="var(--textColor)" fill-rule="evenodd">
-              <rect y="8" width="16" height="2" rx="1"></rect>
-              <rect y="4" width="16" height="2" rx="1"></rect>
-              <rect width="16" height="2" rx="1"></rect>
-            </g>
-          </svg>
-        </a>
-      </div>
-    </div>
-    <transition name="fadeScale">
-      <nav
-        class="Header__mobileNav"
-        v-if="isMobileNavOpened"
-        :class="'opened' ? isMobileNavOpened : ''"
-        @wheel.prevent
-        @touchmove.prevent
-        @scroll.prevent
-      >
-        <div class="Header__mobileCard">
-          <a
-            class="Header__mobileClose"
-            @click="isMobileNavOpened = !isMobileNavOpened"
+          <HeaderNav />
+        </nav>
+        <div class="Header__action">
+          <div
+            class="Header__userTheme"
+            :class="isDark ? 'Header__userTheme--dark' : ''"
+            @click="setTheme()"
+            title="Toggle dark mode"
           >
-            <svg width="16" height="10" viewBox="0 0 16 10">
-              <title>Close mobile navigation</title>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              v-if="!isDark"
+            >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M12.4283 0.248461C12.5772 0.400341 12.6606 0.604537 12.6606 0.817211C12.6606 1.02989 12.5772 1.23408 12.4283 1.38596L8.98332 4.83909L12.4364 8.28409C12.5894 8.43708 12.6754 8.64459 12.6754 8.86096C12.6754 9.07733 12.5894 9.28484 12.4364 9.43784C12.2835 9.59083 12.0759 9.67678 11.8596 9.67678C11.6432 9.67678 11.4357 9.59083 11.2827 9.43784L7.8377 5.98471L4.3927 9.43784C4.2397 9.59083 4.03219 9.67678 3.81582 9.67678C3.59945 9.67678 3.39195 9.59083 3.23895 9.43784C3.08595 9.28484 3 9.07733 3 8.86096C3 8.64459 3.08595 8.43708 3.23895 8.28409L6.69207 4.83909L3.23895 1.39409C3.08595 1.24109 3 1.03358 3 0.817211C3 0.600841 3.08595 0.393333 3.23895 0.240336C3.39195 0.0873394 3.59945 0.001387 3.81582 0.001387C4.03219 0.001387 4.2397 0.0873394 4.3927 0.240336L7.8377 3.69346L11.2827 0.240336C11.3582 0.164182 11.4481 0.103737 11.5471 0.0624871C11.6461 0.0212375 11.7523 0 11.8596 0C11.9668 0 12.073 0.0212375 12.172 0.0624871C12.2711 0.103737 12.3609 0.164182 12.4364 0.240336L12.4283 0.248461Z"
-                fill="var(--textColor)"
+                opacity="0.15"
+                d="M11.8896 23.7791C18.456 23.7791 23.7791 18.456 23.7791 11.8896C23.7791 5.32314 18.456 0 11.8896 0C5.32314 0 0 5.32314 0 11.8896C0 18.456 5.32314 23.7791 11.8896 23.7791Z"
+                fill="#FFD200"
+              />
+              <path
+                d="M8.40625 20.656L10.5938 18.406C9.8125 18.2498 9.09375 17.9373 8.4375 17.4998L8.40625 20.656Z"
+                fill="#FFE62E"
+              />
+              <path
+                d="M15.5938 3.34363L13.4062 5.59363C14.1875 5.74988 14.9063 6.06238 15.5625 6.49988L15.5938 3.34363"
+                fill="#FFE62E"
+              />
+              <path
+                d="M3.34378 15.5938L6.50003 15.5625C6.06253 14.9063 5.75003 14.1875 5.59378 13.4062L3.34378 15.5938Z"
+                fill="#FFE62E"
+              />
+              <path
+                d="M20.6563 8.40625L17.5001 8.4375C17.9063 9.09375 18.2188 9.8125 18.4063 10.5938L20.6563 8.40625Z"
+                fill="#FFE62E"
+              />
+              <path
+                d="M3.34378 8.40625L5.59378 10.5938C5.75003 9.8125 6.06253 9.09375 6.50003 8.4375L3.34378 8.40625"
+                fill="#FFE62E"
+              />
+              <path
+                d="M20.6563 15.5938L18.4063 13.4062C18.2501 14.1875 17.9376 14.9063 17.5001 15.5625L20.6563 15.5938Z"
+                fill="#FFE62E"
+              />
+              <path
+                d="M8.40625 3.34363L8.4375 6.49988C9.09375 6.09363 9.8125 5.78113 10.5938 5.59363L8.40625 3.34363"
+                fill="#FFE62E"
+              />
+              <path
+                d="M15.5938 20.656L15.5625 17.4998C14.9063 17.9373 14.1875 18.2498 13.4062 18.406L15.5938 20.656Z"
+                fill="#FFE62E"
+              />
+              <path
+                d="M6.62503 15.75L5.37503 18.6563L8.28128 17.4062C7.62503 16.9375 7.06253 16.375 6.62503 15.75Z"
+                fill="#FFCE31"
+              />
+              <path
+                d="M17.375 8.25012L18.625 5.34387L15.75 6.59387C16.375 7.06262 16.9375 7.62512 17.375 8.25012Z"
+                fill="#FFCE31"
+              />
+              <path
+                d="M5.5625 10.8436L2.625 11.9999L5.5625 13.1561C5.46875 12.7811 5.4375 12.4061 5.4375 11.9999C5.4375 11.5936 5.46875 11.2186 5.5625 10.8436Z"
+                fill="#FFCE31"
+              />
+              <path
+                d="M18.4375 13.1561L21.375 11.9999L18.4375 10.8436C18.5 11.2186 18.5625 11.6249 18.5625 11.9999C18.5625 12.4061 18.5312 12.7811 18.4375 13.1561Z"
+                fill="#FFCE31"
+              />
+              <path
+                d="M8.24997 6.62488L5.34372 5.37488L6.59372 8.28113C7.06247 7.62488 7.62497 7.06238 8.24997 6.62488Z"
+                fill="#FFCE31"
+              />
+              <path
+                d="M15.75 17.375L18.6563 18.625L17.4062 15.7188C16.9375 16.375 16.375 16.9375 15.75 17.375Z"
+                fill="#FFCE31"
+              />
+              <path
+                d="M13.1563 5.5625L12 2.625L10.8438 5.5625C11.2188 5.5 11.625 5.4375 12 5.4375C12.375 5.4375 12.7813 5.46875 13.1563 5.5625Z"
+                fill="#FFCE31"
+              />
+              <path
+                d="M10.8438 18.4375L12 21.375L13.1563 18.4375C12.7813 18.5312 12.4063 18.5625 12 18.5625C11.5938 18.5625 11.2188 18.5312 10.8438 18.4375Z"
+                fill="#FFCE31"
+              />
+              <path
+                d="M12 17.9375C15.2792 17.9375 17.9375 15.2792 17.9375 12C17.9375 8.72081 15.2792 6.0625 12 6.0625C8.72081 6.0625 6.0625 8.72081 6.0625 12C6.0625 15.2792 8.72081 17.9375 12 17.9375Z"
+                fill="#FFCE31"
               />
             </svg>
-          </a>
-          <nav class="Header__mobileLink">
-            <HeaderNav />
-            <br />
-            <button
-              class="Header__cta"
-              :class="'Header__cta--' + screen.type.value"
-              title="Download resume pdf file"
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              v-if="isDark"
             >
-              Download CV
-            </button>
-          </nav>
+              <path
+                d="M17.9151 17.2054C18.3698 17.0836 18.8093 16.9107 19.2252 16.6899C18.3521 17.9228 17.1476 18.8794 15.7522 19.4481C14.3569 20.0168 12.8282 20.1742 11.3445 19.9019C9.86074 19.6296 8.48311 18.9388 7.37227 17.9101C6.26143 16.8814 5.46316 15.5573 5.07055 14.092C4.67794 12.6268 4.70717 11.0809 5.15485 9.63461C5.60253 8.18833 6.45021 6.90129 7.59899 5.9236C8.74778 4.94591 10.1503 4.31786 11.6431 4.1127C13.1359 3.90754 14.6573 4.13372 16.0299 4.76488C15.1429 4.79402 14.2727 5.01159 13.4764 5.4033C12.6801 5.79501 11.9757 6.352 11.4095 7.0377C10.8434 7.7234 10.4282 8.52231 10.1913 9.38197C9.95439 10.2416 9.90109 11.1426 10.0349 12.0257C10.1687 12.9088 10.4866 13.7541 10.9678 14.506C11.4489 15.258 12.0823 15.8996 12.8265 16.3888C13.5707 16.878 14.4088 17.2036 15.2858 17.3444C16.1628 17.4851 17.0588 17.4378 17.9151 17.2054V17.2054Z"
+                fill="#AA94E7"
+              />
+              <path
+                opacity="0.15"
+                d="M11.8896 23.7791C18.456 23.7791 23.7791 18.456 23.7791 11.8896C23.7791 5.32314 18.456 0 11.8896 0C5.32314 0 0 5.32314 0 11.8896C0 18.456 5.32314 23.7791 11.8896 23.7791Z"
+                fill="#AA94E7"
+              />
+            </svg>
+
+            <p>{{ isDark ? "Dark" : "Light" }}</p>
+          </div>
+          <button
+            class="Header__cta"
+            :class="'Header__cta--' + screen.type.value"
+            v-if="!['sm', 'xs'].includes(screen.type.value)"
+            title="Download resume pdf file"
+          >
+            Resume
+          </button>
+          <a
+            class="Header__navButton"
+            v-if="['sm', 'xs'].includes(screen.type.value)"
+            @click="isMobileNavOpened = !isMobileNavOpened"
+          >
+            <svg viewBox="0 0 16 10">
+              <title>Open mobile navigation</title>
+              <g fill="var(--textColor)" fill-rule="evenodd">
+                <rect y="8" width="16" height="2" rx="1"></rect>
+                <rect y="4" width="16" height="2" rx="1"></rect>
+                <rect width="16" height="2" rx="1"></rect>
+              </g>
+            </svg>
+          </a>
         </div>
-      </nav>
-    </transition>
-  </header>
+      </div>
+      <transition name="fadeScale">
+        <nav
+          class="Header__mobileNav"
+          v-if="isMobileNavOpened"
+          :class="'opened' ? isMobileNavOpened : ''"
+          @wheel.prevent
+          @touchmove.prevent
+          @scroll.prevent
+        >
+          <div class="Header__mobileCard">
+            <a
+              class="Header__mobileClose"
+              @click="isMobileNavOpened = !isMobileNavOpened"
+            >
+              <svg viewBox="0 0 16 10">
+                <title>Close mobile navigation</title>
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12.4283 0.248461C12.5772 0.400341 12.6606 0.604537 12.6606 0.817211C12.6606 1.02989 12.5772 1.23408 12.4283 1.38596L8.98332 4.83909L12.4364 8.28409C12.5894 8.43708 12.6754 8.64459 12.6754 8.86096C12.6754 9.07733 12.5894 9.28484 12.4364 9.43784C12.2835 9.59083 12.0759 9.67678 11.8596 9.67678C11.6432 9.67678 11.4357 9.59083 11.2827 9.43784L7.8377 5.98471L4.3927 9.43784C4.2397 9.59083 4.03219 9.67678 3.81582 9.67678C3.59945 9.67678 3.39195 9.59083 3.23895 9.43784C3.08595 9.28484 3 9.07733 3 8.86096C3 8.64459 3.08595 8.43708 3.23895 8.28409L6.69207 4.83909L3.23895 1.39409C3.08595 1.24109 3 1.03358 3 0.817211C3 0.600841 3.08595 0.393333 3.23895 0.240336C3.39195 0.0873394 3.59945 0.001387 3.81582 0.001387C4.03219 0.001387 4.2397 0.0873394 4.3927 0.240336L7.8377 3.69346L11.2827 0.240336C11.3582 0.164182 11.4481 0.103737 11.5471 0.0624871C11.6461 0.0212375 11.7523 0 11.8596 0C11.9668 0 12.073 0.0212375 12.172 0.0624871C12.2711 0.103737 12.3609 0.164182 12.4364 0.240336L12.4283 0.248461Z"
+                  fill="var(--textColor)"
+                />
+              </svg>
+            </a>
+            <nav class="Header__mobileLink">
+              <HeaderNav />
+              <br />
+              <button
+                class="Header__cta"
+                :class="'Header__cta--' + screen.type.value"
+                title="Download resume pdf file"
+              >
+                Download CV
+              </button>
+            </nav>
+          </div>
+        </nav>
+      </transition>
+    </header>
+  </transition>
 </template>
 
 <script setup>
@@ -121,6 +190,7 @@ import { inject, ref, provide, computed } from "vue";
 import HeaderNav from "./HeaderNav.vue";
 
 const screen = inject("screen");
+const showHeader = inject("showHeader");
 const isMobileNavOpened = ref(false);
 
 const isDark = inject("isDark");
@@ -151,12 +221,11 @@ provide("isMobileNavOpened", isMobileNavOpened);
   right: 0;
   top: 0;
   padding: 1.23vh 0;
-  animation: moveDown 0.88s ease-in-out forwards;
   transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
   background: var(--headerBgColor);
   transition: var(--bgTransition);
   &__container {
+    min-width: 314px;
     max-width: var(--layoutWidth);
     padding: 0 var(--layoutPadding);
     margin: 0 auto;
@@ -172,6 +241,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
     font-size: var(--fontL);
     font-weight: 600;
     letter-spacing: 2px;
+    min-width: 123px;
   }
   &__nav {
     display: flex;
@@ -190,12 +260,12 @@ provide("isMobileNavOpened", isMobileNavOpened);
     margin-right: 16px;
     padding: 3px 8px;
     border-radius: 16px;
-    background-color: rgba($color: #fff, $alpha: 0.69);
+    background-color: rgba($color: #000, $alpha: 0.0234);
     p {
       font-size: var(--fontXXXS);
       color: var(--textColor);
     }
-    &--active {
+    &--dark {
       background-color: rgba($color: #000, $alpha: 0.123);
     }
   }
@@ -215,9 +285,13 @@ provide("isMobileNavOpened", isMobileNavOpened);
   }
   &__navButton {
     cursor: pointer;
-    padding: 6px 16px;
-    border-radius: 16px;
-    background-color: rgba($color: #000, $alpha: 0.069);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px;
+    svg {
+      width: 24px;
+    }
   }
   &__mobileNav {
     position: fixed;
@@ -239,17 +313,13 @@ provide("isMobileNavOpened", isMobileNavOpened);
     padding-bottom: 36px;
   }
   &__mobileClose {
-    position: fixed;
-    top: 16px;
-    right: 16px;
     cursor: pointer;
-    padding: 6px 16px;
-    border-radius: 16px;
-    background-color: rgba($color: #000, $alpha: 0.069);
-    transition: var(--bgTransition);
-    margin-left: 12px;
-    &:hover {
-      background-color: rgba($color: #000, $alpha: 0.039);
+    position: fixed;
+    top: 24px;
+    right: 20px;
+    padding: 4px;
+    svg {
+      width: 24px;
     }
   }
   &__mobileLink {
@@ -265,6 +335,14 @@ provide("isMobileNavOpened", isMobileNavOpened);
   }
 }
 // animation
+.moveUpDown-enter-active {
+  animation: moveDown 0.55s ease-in-out;
+  backface-visibility: hidden;
+}
+.moveUpDown-leave-active {
+  animation: moveUp 0.55s ease-in-out;
+  backface-visibility: hidden;
+}
 .fadeScale-enter-active {
   animation: moveIn 0.25s ease-in-out;
   backface-visibility: hidden;
@@ -275,12 +353,18 @@ provide("isMobileNavOpened", isMobileNavOpened);
 }
 @keyframes moveDown {
   0% {
-    opacity: 0;
     transform: translate3d(0, -8vh, 0);
   }
   100% {
-    opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes moveUp {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, -8vh, 0);
   }
 }
 @keyframes moveIn {

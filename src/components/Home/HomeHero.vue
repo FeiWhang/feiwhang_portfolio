@@ -63,13 +63,12 @@ const screen = inject("screen");
   align-items: center;
   margin: auto 0;
   color: var(--textColor);
-
   &__title {
     animation: fromBelow 0.88s ease-in-out 0.1s forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;
-    font-size: 64px;
+    font-size: 56px;
     font-weight: 600;
     text-align: center;
     &--lg {

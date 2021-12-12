@@ -15,7 +15,8 @@ import About from "@/components/About/About.vue";
 // import Portfolio from "@/views/Portfolio.vue";
 import { provide, ref, computed } from "vue";
 
-const screen = getScreen();
+const showHeader = ref(true);
+const screen = getScreen(showHeader);
 
 // set default dark to device theme
 const isDark = ref(window.matchMedia("(prefers-color-scheme: dark)").matches);
@@ -54,6 +55,7 @@ const appStyle = computed(() => {
 
 provide("screen", screen);
 provide("isDark", isDark);
+provide("showHeader", showHeader);
 </script>
 
 <style lang="scss">

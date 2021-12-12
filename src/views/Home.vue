@@ -16,11 +16,13 @@ const isDark = inject("isDark");
 
 <style lang="scss" scoped>
 #Home {
-  min-height: 100vh;
+  min-width: 314px;
+  min-height: 700px;
+  height: 100vh;
   position: relative;
   .Home__bg {
     position: absolute;
-    left: 0;
+    left: 0%;
     top: 0;
     width: 100%;
     height: 100%;

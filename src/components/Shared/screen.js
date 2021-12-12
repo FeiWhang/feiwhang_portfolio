@@ -16,11 +16,10 @@ export default function getScreen() {
   });
 
   const type = computed(() => {
-    if (width.value < 600) return "xs";
-    if (width.value >= 600 && width.value < 960) return "sm";
-    if (width.value >= 960 && width.value < 1264) return "md";
-    if (width.value >= 1264 && width.value < 1620) return "lg";
-    if (width.value >= 1620) return "xl";
+    if (width.value <= 600) return "xs";
+    if (width.value > 600 && width.value <= 960) return "sm";
+    if (width.value > 960 && width.value <= 1264) return "md";
+    if (width.value > 1264) return "lg";
     return null;
   });
 

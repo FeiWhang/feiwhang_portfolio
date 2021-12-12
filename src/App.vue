@@ -11,7 +11,7 @@
 import Header from "@/components/Header/Header.vue";
 import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
-import About from "@/views/About.vue";
+import About from "@/components/About/About.vue";
 // import Portfolio from "@/views/Portfolio.vue";
 import { provide, ref, computed } from "vue";
 
@@ -27,8 +27,8 @@ if (userTheme) {
 
 const appStyle = computed(() => {
   return {
-    "--layoutWidth": "1620px",
-    "--layoutPadding": screen.width.value > 1264 ? "20px" : "16px",
+    "--layoutWidth": "1264px",
+    "--layoutPadding": "16px",
     "--extraLightPurple": "#FAF8FF",
     "--lighterPurple": "#D5C6FF",
     "--lightPurple": "#8E6FE2",
@@ -70,6 +70,7 @@ html {
 .AppContainer {
   background-color: var(--bgColor);
   transition: var(--bgTransition);
+  color: var(--textColor);
 }
 
 * {

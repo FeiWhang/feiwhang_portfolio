@@ -55,6 +55,7 @@
           class="Header__cta"
           :class="'Header__cta--' + screen.type.value"
           v-if="!['sm', 'xs'].includes(screen.type.value)"
+          title="Download resume pdf file"
         >
           Download CV
         </button>
@@ -104,6 +105,7 @@
             <button
               class="Header__cta"
               :class="'Header__cta--' + screen.type.value"
+              title="Download resume pdf file"
             >
               Download CV
             </button>

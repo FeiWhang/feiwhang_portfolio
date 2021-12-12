@@ -429,23 +429,14 @@ const imgStyle = computed(() => {
 
 <style lang="scss" scoped>
 .HeroImg {
-  &--xl,
-  &--lg {
-    width: 88%;
-  }
-  &--md {
-    width: 55%;
-  }
-  &--sm {
-    width: 69%;
-  }
+  width: 55%;
   &--xs {
-    width: 77%;
+    width: 69%;
   }
 }
 
 #HeroVector {
-  animation: 0.88s ease-in-out forwards inFromRight;
+  animation: 1.23s ease-in-out forwards inFromRight;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   #globe_center {

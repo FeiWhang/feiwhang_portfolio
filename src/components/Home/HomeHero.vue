@@ -1,46 +1,49 @@
 <template>
   <div class="HomeHero" :class="'HomeHero--' + screen.type.value">
-    <div class="HomeHero__left" :class="'HomeHero__left--' + screen.type.value">
-      <HeroImg v-if="['xs', 'sm', 'md'].includes(screen.type.value)" />
-      <h1
-        class="HomeHero__title"
-        :class="'HomeHero__title--' + screen.type.value"
+    <HeroImg />
+    <h1
+      class="HomeHero__title"
+      :class="'HomeHero__title--' + screen.type.value"
+    >
+      Design, Develop &
+      <br v-if="['xs', 'sm', 'md'].includes(screen.type.value)" />Deliver great
+      experience
+    </h1>
+    <p
+      class="HomeHero__subtitle"
+      :class="'HomeHero__subtitle--' + screen.type.value"
+    >
+      {{ "Computer Science student at " }}
+      <a
+        href="https://muic.mahidol.ac.th/"
+        target="_blank"
+        title="External link to MUIC website"
+        >MUIC</a
       >
-        Design,
-        <br v-if="!['xs', 'sm', 'md'].includes(screen.type.value)" />Develop &
-        <br />Deliver great experience
-      </h1>
-      <p
-        class="HomeHero__subtitle"
-        :class="'HomeHero__subtitle--' + screen.type.value"
-      >
-        {{ "Computer Science student at MUIC" }}
-        {{ screen.width.value >= 600 ? " based in Bangkok" : "" }}
-      </p>
-      <div class="HomeHero__ctaContainer">
-        <LinkGo
-          to="#portfolio"
-          title="My projects"
-          bgColor="var(--purple)"
-          hoverColor="var(--lightPurple)"
-          padding="var(--pillPaddingS)"
-          elemColor="var(--textColorLight)"
-          fontSize="var(--fontXS)"
-          class="HomeHero__cta"
-        />
-        <LinkGo
-          to="#contact"
-          title="Contact me"
-          bgColor="transparent"
-          hoverColor="transparent"
-          padding="var(--pillPaddingS)"
-          elemColor="var(--textColor)"
-          fontSize="var(--fontXS)"
-          class="HomeHero__cta"
-        />
-      </div>
+      {{ screen.width.value >= 600 ? " based in Bangkok" : "" }}
+    </p>
+    <div class="HomeHero__ctaContainer">
+      <LinkGo
+        to="#portfolio"
+        title="My projects"
+        bgColor="var(--purple)"
+        hoverColor="var(--lightPurple)"
+        padding="var(--pillPaddingS)"
+        elemColor="var(--textColorLight)"
+        fontSize="var(--fontXS)"
+        class="HomeHero__cta"
+      />
+      <LinkGo
+        to="#contact"
+        title="Contact me"
+        bgColor="transparent"
+        hoverColor="transparent"
+        padding="var(--pillPaddingS)"
+        elemColor="var(--textColor)"
+        fontSize="var(--fontXS)"
+        class="HomeHero__cta"
+      />
     </div>
-    <HeroImg v-if="['lg', 'xl'].includes(screen.type.value)" />
   </div>
 </template>
 
@@ -55,49 +58,35 @@ const screen = inject("screen");
 <style lang="scss" scoped>
 .HomeHero {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin: auto 0;
   color: var(--textColor);
-  &__left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    &--md,
-    &--sm,
-    &--xs {
-      align-items: center;
-    }
-  }
+
   &__title {
-    animation: fromBelow 0.75s ease-in-out 0.1s forwards;
+    animation: fromBelow 0.88s ease-in-out 0.1s forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;
     font-size: 64px;
     font-weight: 600;
-    &--xl {
-      font-size: 64px;
-    }
+    text-align: center;
     &--lg {
       font-size: 56px;
     }
     &--md {
       font-size: 56px;
-      text-align: center;
     }
     &--sm {
       font-size: 48px;
-      text-align: center;
     }
     &--xs {
       font-size: 28px;
-      text-align: center;
     }
   }
   &__subtitle {
-    animation: fromBelow 1s ease-in-out forwards;
+    animation: fromBelow 1.11s ease-in-out forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;
@@ -112,13 +101,19 @@ const screen = inject("screen");
     &--xs {
       font-size: 16px;
     }
+    a {
+      text-decoration: none;
+      font-size: var(--fontS);
+      color: var(--textColor);
+      font-weight: 600;
+    }
   }
   &__ctaContainer {
     display: flex;
     column-gap: 8px;
   }
   &__cta {
-    animation: fromBelow 1.15s ease-in-out forwards;
+    animation: fromBelow 1.23s ease-in-out forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;
@@ -128,7 +123,7 @@ const screen = inject("screen");
   @keyframes fromBelow {
     0% {
       opacity: 0;
-      transform: translate3d(0, 15vh, 0);
+      transform: translate3d(0, 20vh, 0);
     }
     100% {
       opacity: 1;

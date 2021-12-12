@@ -1,5 +1,5 @@
 <template>
-  <div class="AboutBody">
+  <div id="About">
     <AboutCard />
   </div>
 </template>
@@ -9,10 +9,10 @@ import AboutCard from "@/components/About/AboutCard.vue";
 </script>
 
 <style lang="scss" scoped>
-.AboutBody {
-  min-height: 100vh;
+#About {
+  min-height: 50vh;
   max-width: var(--layoutWidth);
-  margin: 0 auto;
+  margin: 2rem auto;
   padding: 0 var(--layoutPadding);
 }
 </style>

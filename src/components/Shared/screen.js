@@ -8,7 +8,7 @@ export default function getScreen(showHeader) {
   const onScrollChange = () => {
     showHeader.value =
       scroll.value >= window.scrollY ||
-      window.scrollY < 0.25 * window.innerHeight;
+      window.scrollY < 0.1 * window.innerHeight;
     return (scroll.value = window.scrollY);
   };
   onMounted(() => {

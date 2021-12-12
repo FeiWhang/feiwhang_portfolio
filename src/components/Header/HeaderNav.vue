@@ -58,11 +58,11 @@ const isMobileNavOpened = inject("isMobileNavOpened");
   font-weight: 500;
   color: var(--textColor);
   text-decoration: none;
-  width: 8rem;
+  width: 6.9rem;
   padding: 8px 0;
   border-radius: 32px;
   &.active {
-    color: var(--lightPurple);
+    color: var(--activeTextColor);
   }
 }
 </style>

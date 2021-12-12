@@ -1,7 +1,9 @@
 <template>
   <div class="AboutCard">
-    <h2 class="AboutCard__header">About me</h2>
-    <hr class="AboutCard__hr" />
+    <h2 class="AboutCard__header">
+      About me
+      <hr class="AboutCard__hr" />
+    </h2>
     <div class="AboutCard__body">
       <img
         src="../../assets/profile.webp"
@@ -12,7 +14,7 @@
         <ul class="AboutCard__info">
           <li class="AboutCard__infoItem">
             <label>NAME</label>
-            <span>KANTINAN WHANGSUPHADILOK</span>
+            <span>Kantinan Whangsuphadilok</span>
           </li>
           <li class="AboutCard__infoItem">
             <label>MAJOR</label>
@@ -27,6 +29,7 @@
           I’d like to go by the name ‘feiwhang’. Fei is my nickname and whang
           come from my lastname which in Thai means hope.
         </p>
+        <br />
         <p class="AboutCard__text">
           I’m a passionate and enthusiast front-end developer. I am excited to
           use my creativity to deliver a delightful experience to the user.
@@ -48,22 +51,32 @@
 .AboutCard {
   display: flex;
   flex-direction: column;
-  max-width: 680px;
+  margin: 0 auto;
+  max-width: 669px;
+  row-gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: -4px -4px 12px rgba($color: #fff, $alpha: 0.12345),
+    4px 4px 12px rgba($color: #000, $alpha: 0.69);
+  background-color: var(--secondBgColor);
   &__header {
     font-size: var(--fontM);
+    color: var(--lightPurple);
+    margin-bottom: 8px;
   }
   &__hr {
     height: 2px;
-    background-color: #ece4ff;
+    background-color: var(--lightestPurple);
     border: none;
     border-radius: 4px;
   }
   &__body {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    column-gap: 24px;
   }
   &__profileImg {
-    width: 128px;
+    width: 175px;
   }
   &__info {
     display: flex;
@@ -72,9 +85,10 @@
     li {
       float: left;
       margin-bottom: 12px;
+      font-size: var(--fontS);
     }
     label {
-      width: 69px;
+      width: 88px;
       float: left;
       text-align: left;
       font-weight: 600;
@@ -84,6 +98,9 @@
       text-align: left;
       position: relative;
     }
+  }
+  &__text {
+    font-size: var(--fontXS);
   }
 }
 </style>

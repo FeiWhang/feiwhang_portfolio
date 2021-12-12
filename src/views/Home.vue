@@ -17,8 +17,7 @@ const isDark = inject("isDark");
 <style lang="scss" scoped>
 #Home {
   min-width: 314px;
-  min-height: 700px;
-  height: 100vh;
+  min-height: 600px;
   position: relative;
   .Home__bg {
     position: absolute;
@@ -29,20 +28,19 @@ const isDark = inject("isDark");
     background-image: url("../assets/home_bg.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-    opacity: 0.2345;
-    transition: opacity 0.25s ease-in-out;
+    background-position: center bottom;
+    opacity: 0.55;
+    transition: opacity 0.345s ease-in-out;
     &--dark {
-      opacity: 0.069;
+      opacity: 0.03;
     }
   }
-
   .HomeContainer {
     height: 100vh;
     max-width: var(--layoutWidth);
     margin: auto;
     padding: 0 var(--layoutPadding);
-    padding-top: 1rem;
+    padding-top: 1.88rem;
     display: flex;
     flex-direction: column;
     position: relative;

@@ -2,14 +2,83 @@
   <transition name="moveUpDown">
     <header class="Header" :style="headerStyle" v-if="showHeader">
       <div class="Header__container">
-        <a href="#Home" class="Header__logo">fw</a>
-        <nav
-          class="Header__nav"
-          v-if="!['sm', 'xs'].includes(screen.type.value)"
-        >
-          <HeaderNav />
-        </nav>
+        <a href="#Home" class="Header__logo">
+          <svg
+            viewBox="0 0 64 36"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="Logo">
+              <g id="F">
+                <path
+                  id="F1"
+                  d="M4 6V30"
+                  stroke="#8E6FE2"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  id="F2"
+                  d="M10 6H23"
+                  stroke="#8E6FE2"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  id="F3"
+                  d="M10 17H14.5H19"
+                  stroke="#8E6FE2"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <g id="W">
+                <path
+                  id="W1"
+                  d="M32 6L35.5 18"
+                  stroke="#8E6FE2"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  id="W2"
+                  d="M39 30L46 6"
+                  stroke="#8E6FE2"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  id="W3"
+                  d="M46 6L49.5 18"
+                  stroke="#8E6FE2"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  id="W4"
+                  d="M53 30L60 6"
+                  stroke="#8E6FE2"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </g>
+          </svg>
+        </a>
         <div class="Header__action">
+          <nav
+            class="Header__nav"
+            v-if="!['sm', 'xs'].includes(screen.type.value)"
+          >
+            <HeaderNav />
+          </nav>
           <div
             class="Header__userTheme"
             :class="isDark ? 'Header__userTheme--dark' : ''"
@@ -116,7 +185,6 @@
                 fill="#AA94E7"
               />
             </svg>
-
             <p>{{ isDark ? "Dark" : "Light" }}</p>
           </div>
           <button
@@ -175,7 +243,7 @@
                 :class="'Header__cta--' + screen.type.value"
                 title="Download resume pdf file"
               >
-                Download CV
+                Resume
               </button>
             </nav>
           </div>
@@ -204,8 +272,8 @@ const headerStyle = computed(() => {
     "--headerBgColor":
       screen.scroll.value > window.innerHeight * 0.1
         ? isDark.value
-          ? "#272729"
-          : "#F8F7FD"
+          ? "#272729F5"
+          : "#F8F7FDF3"
         : "transparent",
   };
 });
@@ -220,10 +288,11 @@ provide("isMobileNavOpened", isMobileNavOpened);
   left: 0;
   right: 0;
   top: 0;
-  padding: 1.23vh 0;
+  padding: 12px 0;
   transform: translate3d(0, 0, 0);
   background: var(--headerBgColor);
   transition: var(--bgTransition);
+  backdrop-filter: blur(4px);
   &__container {
     min-width: 314px;
     max-width: var(--layoutWidth);
@@ -237,21 +306,26 @@ provide("isMobileNavOpened", isMobileNavOpened);
     text-decoration: none;
   }
   &__logo {
-    color: var(--textColor);
+    color: var(--lightPurple);
     font-size: var(--fontL);
     font-weight: 600;
     letter-spacing: 2px;
-    min-width: 123px;
+    svg {
+      display: block;
+      margin: auto;
+      width: 64px;
+    }
   }
   &__nav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
   }
   &__action {
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    column-gap: 8px;
   }
   &__userTheme {
     display: flex;
@@ -260,7 +334,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
     margin-right: 16px;
     padding: 3px 8px;
     border-radius: 16px;
-    background-color: rgba($color: #000, $alpha: 0.0234);
+    background-color: rgba($color: #fff, $alpha: 0.55);
     p {
       font-size: var(--fontXXXS);
       color: var(--textColor);
@@ -275,10 +349,12 @@ provide("isMobileNavOpened", isMobileNavOpened);
     background-color: var(--purple);
     color: var(--textColorLight);
     font-size: var(--fontXS);
-    font-weight: 500;
+    font-weight: 600;
     padding: var(--pillPaddingM);
     border-radius: 32px;
     transition: var(--bgTransition);
+    letter-spacing: 0.2px;
+    font-family: Nunito;
     &:hover {
       background-color: var(--lightPurple);
     }
@@ -336,11 +412,11 @@ provide("isMobileNavOpened", isMobileNavOpened);
 }
 // animation
 .moveUpDown-enter-active {
-  animation: moveDown 0.55s ease-in-out;
+  animation: moveDown 0.345s ease-in-out;
   backface-visibility: hidden;
 }
 .moveUpDown-leave-active {
-  animation: moveUp 0.55s ease-in-out;
+  animation: moveUp 0.345s ease-in-out;
   backface-visibility: hidden;
 }
 .fadeScale-enter-active {

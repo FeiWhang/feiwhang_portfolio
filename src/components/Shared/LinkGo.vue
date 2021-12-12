@@ -76,7 +76,7 @@ export default {
   font-size: var(--fontSize);
   font-weight: 600;
   letter-spacing: 0.2px;
-  transition: all 0.3s ease-in-out;
+  transition: var(--bgTransition);
   span {
     display: inline-block;
   }
@@ -98,7 +98,7 @@ export default {
   height: 2px;
   margin-left: 8px;
   border-radius: 32px;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.25s ease-in-out, var(--bgTransition);
   background-color: transparent;
   &--xs,
   &--sm {

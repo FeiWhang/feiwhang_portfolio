@@ -29,8 +29,8 @@ if (userTheme) {
 const appStyle = computed(() => {
   return {
     "--layoutWidth": "1264px",
-    "--layoutPadding": "16px",
-    "--extraLightPurple": "#FAF8FF",
+    "--layoutPadding": screen.width.value > 1264 ? "32px" : "16px",
+    "--lightestPurple": "#ece4ff",
     "--lighterPurple": "#D5C6FF",
     "--lightPurple": "#8E6FE2",
     "--purple": "#7253C6",
@@ -38,6 +38,7 @@ const appStyle = computed(() => {
     "--textColorLight": "#fdfdff",
     "--textColorDark": "#0A2540",
     "--textColor": isDark.value ? "#fdfdff" : "#0A2540",
+    "--activeTextColor": isDark.value ? "#D5C6FF" : "#7253C6",
     "--bgColor": isDark.value ? "#2d2d2e" : "#f6f2ff",
     "--secondBgColor": isDark.value ? "#272729" : "#F8F7FD",
     "--fontL": "36px",
@@ -67,6 +68,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
+  text-align: left;
 }
 
 .AppContainer {

@@ -1,19 +1,60 @@
 <template>
-  <header class="Header">
+  <header class="Header" :style="headerStyle">
     <div class="Header__container">
       <a href="#Home" class="Header__logo">{f/w}</a>
       <nav class="Header__nav" v-if="!['sm', 'xs'].includes(screen.type.value)">
         <HeaderNav />
       </nav>
       <div class="Header__action">
-        <div
-          class="Header__toggle"
-          :class="isDark ? 'Header__toggle--active' : ''"
-          @click="isDark = !isDark"
-          title="Toggle dark mode"
-        >
-          <i></i>
+        <div class="Header__userTheme">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            v-if="!isDark"
+          >
+            <path
+              d="M12.1065 19.713C16.3075 19.713 19.713 16.3074 19.713 12.1065C19.713 7.90554 16.3075 4.5 12.1065 4.5C7.90554 4.5 4.5 7.90554 4.5 12.1065C4.5 16.3074 7.90554 19.713 12.1065 19.713Z"
+              fill="#FFD200"
+            />
+            <path
+              opacity="0.15"
+              d="M11.8896 23.7791C18.456 23.7791 23.7791 18.456 23.7791 11.8896C23.7791 5.32314 18.456 0 11.8896 0C5.32314 0 0 5.32314 0 11.8896C0 18.456 5.32314 23.7791 11.8896 23.7791Z"
+              fill="#FFD200"
+            />
+          </svg>
+
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            v-if="isDark"
+          >
+            <path
+              d="M15.624 17.6392C16.045 17.6392 16.4646 17.5917 16.875 17.4977C15.8354 18.3571 14.5736 18.9024 13.2368 19.07C11.8999 19.2376 10.5431 19.0206 9.3245 18.4443C8.10594 17.868 7.07588 16.9562 6.35446 15.8152C5.63304 14.6742 5.25 13.351 5.25 12C5.25 10.649 5.63304 9.32582 6.35446 8.18481C7.07588 7.04381 8.10594 6.13199 9.3245 5.55571C10.5431 4.97943 11.8999 4.76244 13.2368 4.93004C14.5736 5.09765 15.8354 5.64294 16.875 6.50232C16.1021 6.32291 15.3 6.30948 14.5216 6.46291C13.7431 6.61633 13.0058 6.93313 12.358 7.39252C11.7103 7.85191 11.1668 8.44349 10.7632 9.12842C10.3596 9.81335 10.1051 10.5761 10.0163 11.3667C9.92746 12.1573 10.0064 12.9577 10.248 13.7155C10.4895 14.4733 10.8882 15.1713 11.4177 15.7637C11.9473 16.3561 12.5959 16.8294 13.3208 17.1526C14.0458 17.4759 14.8307 17.6417 15.624 17.6392V17.6392Z"
+              fill="#AA94E7"
+            />
+            <path
+              opacity="0.15"
+              d="M11.8896 23.7791C18.456 23.7791 23.7791 18.456 23.7791 11.8896C23.7791 5.32314 18.456 0 11.8896 0C5.32314 0 0 5.32314 0 11.8896C0 18.456 5.32314 23.7791 11.8896 23.7791Z"
+              fill="#AA94E7"
+            />
+          </svg>
+
+          <div
+            class="Header__toggle"
+            :class="isDark ? 'Header__toggle--active' : ''"
+            @click="setTheme()"
+            title="Toggle dark mode"
+          >
+            <i></i>
+          </div>
         </div>
+
         <button
           class="Header__cta"
           :class="'Header__cta--' + screen.type.value"
@@ -78,12 +119,29 @@
 </template>
 
 <script setup>
-import { inject, ref, provide } from "vue";
+import { inject, ref, provide, computed } from "vue";
 import HeaderNav from "./HeaderNav.vue";
 
 const screen = inject("screen");
 const isMobileNavOpened = ref(false);
+
 const isDark = inject("isDark");
+function setTheme() {
+  // save user-theme to storage, get after next reload
+  localStorage.setItem("user-theme", isDark.value ? "light" : "dark");
+  isDark.value = !isDark.value;
+}
+const headerStyle = computed(() => {
+  return {
+    "--headerBgColor":
+      screen.scroll.value > window.innerHeight * 0.1
+        ? isDark.value
+          ? "#272729"
+          : "#F8F7FD"
+        : "transparent",
+  };
+});
+
 provide("isMobileNavOpened", isMobileNavOpened);
 </script>
 
@@ -98,7 +156,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
   animation: moveDown 0.88s ease-in-out forwards;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-  background-color: var(--bgColor);
+  background: var(--headerBgColor);
   transition: var(--bgTransition);
   &__container {
     max-width: var(--layoutWidth);
@@ -115,6 +173,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
     color: var(--textColor);
     font-size: var(--fontL);
     font-weight: 600;
+    letter-spacing: 2px;
   }
   &__nav {
     display: flex;
@@ -126,6 +185,12 @@ provide("isMobileNavOpened", isMobileNavOpened);
     align-items: center;
     justify-content: flex-end;
   }
+  &__userTheme {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    margin-right: 8px;
+  }
   &__toggle {
     position: relative;
     background-color: rgba($color: #222, $alpha: 0.3);
@@ -133,7 +198,6 @@ provide("isMobileNavOpened", isMobileNavOpened);
     height: 24px;
     border-radius: 24px;
     box-shadow: inset 0 0 4px rgba($color: #222, $alpha: 0.18);
-    margin-right: 16px;
     i {
       position: absolute;
       top: 0;
@@ -190,7 +254,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
     display: flex;
     flex-direction: column;
     height: 95%;
-    background: var(--bgColor);
+    background: var(--secondBgColor);
     border-radius: 12px;
     box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
       0 18px 36px -18px rgba(0, 0, 0, 0.3);
@@ -245,7 +309,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
 @keyframes moveIn {
   0% {
     opacity: 0;
-    transform: translate3d(100vw, 0, 0);
+    transform: translate3d(-100vw, 0, 0);
     transform-origin: right;
   }
   100% {
@@ -260,7 +324,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
     transform-origin: right;
   }
   100% {
-    transform: translate3d(100vw, 0, 0);
+    transform: translate3d(-100vw, 0, 0);
     transform-origin: right;
   }
 }

@@ -1,12 +1,13 @@
 <template>
   <div class="HomeHero" :class="'HomeHero--' + screen.type.value">
     <div class="HomeHero__left" :class="'HomeHero__left--' + screen.type.value">
-      <HeroImg v-if="['xs', 'sm'].includes(screen.type.value)" />
+      <HeroImg v-if="['xs', 'sm', 'md'].includes(screen.type.value)" />
       <h1
         class="HomeHero__title"
         :class="'HomeHero__title--' + screen.type.value"
       >
-        Design, <br v-if="!['xs', 'sm'].includes(screen.type.value)" />Develop &
+        Design,
+        <br v-if="!['xs', 'sm', 'md'].includes(screen.type.value)" />Develop &
         <br />Deliver great experience
       </h1>
       <p
@@ -18,7 +19,7 @@
       </p>
       <div class="HomeHero__ctaContainer">
         <LinkGo
-          to="/portfolio"
+          to="#portfolio"
           title="My projects"
           bgColor="var(--purple)"
           hoverColor="var(--lightPurple)"
@@ -28,7 +29,7 @@
           class="HomeHero__cta"
         />
         <LinkGo
-          to="/contact"
+          to="#contact"
           title="Contact me"
           bgColor="transparent"
           hoverColor="transparent"
@@ -39,7 +40,7 @@
         />
       </div>
     </div>
-    <HeroImg v-if="['md', 'lg', 'xl'].includes(screen.type.value)" />
+    <HeroImg v-if="['lg', 'xl'].includes(screen.type.value)" />
   </div>
 </template>
 
@@ -63,6 +64,7 @@ const screen = inject("screen");
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
+    &--md,
     &--sm,
     &--xs {
       align-items: center;
@@ -82,7 +84,8 @@ const screen = inject("screen");
       font-size: 56px;
     }
     &--md {
-      font-size: 40px;
+      font-size: 56px;
+      text-align: center;
     }
     &--sm {
       font-size: 48px;

@@ -3,7 +3,7 @@
     <Header />
     <Home />
     <About />
-    <Portfolio />
+    <!-- <Portfolio /> -->
   </div>
 </template>
 
@@ -12,12 +12,18 @@ import Header from "@/components/Header/Header.vue";
 import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
-import Portfolio from "@/views/Portfolio.vue";
+// import Portfolio from "@/views/Portfolio.vue";
 import { provide, ref, computed } from "vue";
 
 const screen = getScreen();
-// detect user dark theme and set to default
+
+// set default dark to device theme
 const isDark = ref(window.matchMedia("(prefers-color-scheme: dark)").matches);
+// detect user-theme and set to isDark
+const userTheme = localStorage.getItem("user-theme");
+if (userTheme) {
+  userTheme === "dark" ? (isDark.value = true) : (isDark.value = false);
+}
 
 const appStyle = computed(() => {
   return {
@@ -31,12 +37,13 @@ const appStyle = computed(() => {
     "--textColorLight": "#fdfdff",
     "--textColorDark": "#0A2540",
     "--textColor": isDark.value ? "#fdfdff" : "#0A2540",
-    "--bgColor": isDark.value ? "#2D2D2E" : "#f6f2ff",
+    "--bgColor": isDark.value ? "#2d2d2e" : "#f6f2ff",
+    "--secondBgColor": isDark.value ? "#272729" : "#F8F7FD",
     "--fontL": "36px",
     "--fontM": "24px",
     "--fontS": "18px",
     "--fontXS": "16px",
-    "--fontXXS": "14px",
+    "--fontXXS": "15px",
     "--pillPaddingL": "16px 40px",
     "--pillPaddingM": "10px 24px",
     "--pillPaddingS": "8px 16px",

@@ -1,11 +1,11 @@
 <template>
-  <div class="PortfolioBody"></div>
+  <div class="ProjectBody"></div>
 </template>
 
 <script setup></script>
 
 <style lang="scss" scoped>
-.PortfolioBody {
+.ProjectBody {
   min-height: 100vh;
   max-width: var(--layoutWidth);
   margin: 0 auto;

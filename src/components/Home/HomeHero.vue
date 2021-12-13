@@ -24,8 +24,8 @@
     </p>
     <div class="HomeHero__ctaContainer">
       <LinkGo
-        to="#portfolio"
-        title="My projects"
+        to="#Project"
+        title="My Project"
         bgColor="var(--purple)"
         hoverColor="var(--lightPurple)"
         padding="var(--pillPaddingS)"

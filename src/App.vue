@@ -1,22 +1,32 @@
 <template>
   <div class="AppContainer" :style="appStyle">
-    <Header />
-    <Home />
-    <About />
-    <!-- <Portfolio /> -->
+    <Loading v-if="isLoading" />
+    <div class="content" v-if="!isLoading">
+      <Header />
+      <Home />
+      <!-- <About /> -->
+      <!-- <Project /> -->
+    </div>
   </div>
 </template>
 
 <script setup>
+import Loading from "@/components/Shared/Loading.vue";
 import Header from "@/components/Header/Header.vue";
 import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
-import About from "@/components/About/About.vue";
-// import Portfolio from "@/views/Portfolio.vue";
-import { provide, ref, computed } from "vue";
+// import About from "@/components/About/About.vue";
+// import Project from "@/views/Project.vue";
+import { provide, ref, computed, onMounted } from "vue";
 
-const showHeader = ref(true);
-const screen = getScreen(showHeader);
+const isLoading = ref(true);
+onMounted(() => {
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 2750);
+});
+
+const screen = getScreen();
 
 // set default dark to device theme
 const isDark = ref(window.matchMedia("(prefers-color-scheme: dark)").matches);
@@ -54,14 +64,18 @@ const appStyle = computed(() => {
   };
 });
 
+document
+  .querySelector("body")
+  .setAttribute("style", "background:" + appStyle.value["--bgColor"]);
+
 provide("screen", screen);
 provide("isDark", isDark);
-provide("showHeader", showHeader);
 </script>
 
 <style lang="scss">
 html {
   scroll-behavior: smooth;
+  background-color: none;
 }
 #app {
   font-family: Nunito;

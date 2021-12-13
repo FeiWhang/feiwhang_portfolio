@@ -1,14 +1,14 @@
 <template>
-  <div id="Portfolio">
-    <PortfolioBody />
+  <div id="Project">
+    <ProjectBody />
   </div>
 </template>
 <script setup>
-import PortfolioBody from "@/components/Portfolio/PortfolioBody.vue";
+import ProjectBody from "@/components/Project/ProjectBody.vue";
 </script>
 
 <style lang="scss" scoped>
-#Portfolio {
+#Project {
   min-height: 100vh;
 }
 </style>

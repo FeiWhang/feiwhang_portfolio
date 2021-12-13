@@ -22,15 +22,15 @@
     About</a
   >
   <a
-    href="#Portfolio"
+    href="#Project"
     class="NavLink"
-    :class="hash == '#Portfolio' ? 'active' : ''"
+    :class="hash == '#Project' ? 'active' : ''"
     @click="
-      hash = '#Portfolio';
+      hash = '#Project';
       isMobileNavOpened = false;
     "
   >
-    Portfolio</a
+    Project</a
   >
   <a
     href="#Contact"

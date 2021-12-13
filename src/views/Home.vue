@@ -30,9 +30,12 @@ const isDark = inject("isDark");
     background-size: cover;
     background-position: center bottom;
     opacity: 0.55;
-    transition: opacity 0.345s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    --opacity: 0.55;
     &--dark {
       opacity: 0.03;
+      --opacity: 0.03;
     }
   }
   .HomeContainer {
@@ -44,6 +47,15 @@ const isDark = inject("isDark");
     display: flex;
     flex-direction: column;
     position: relative;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: var(--opacity);
   }
 }
 </style>

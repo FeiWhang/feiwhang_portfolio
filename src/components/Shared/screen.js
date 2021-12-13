@@ -1,14 +1,11 @@
 import { computed, onMounted, onUnmounted, ref } from "vue";
 
-export default function getScreen(showHeader) {
+export default function getScreen() {
   const width = ref(window.innerWidth);
   const scroll = ref(window.scrollY);
 
   const onWidthChange = () => (width.value = window.innerWidth);
   const onScrollChange = () => {
-    showHeader.value =
-      scroll.value >= window.scrollY ||
-      window.scrollY < 0.1 * window.innerHeight;
     return (scroll.value = window.scrollY);
   };
   onMounted(() => {

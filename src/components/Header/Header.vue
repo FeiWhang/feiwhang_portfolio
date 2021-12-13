@@ -1,7 +1,11 @@
 <template>
   <header class="Header" :style="headerStyle">
     <div class="Header__container">
-      <a href="#Home" class="Header__logo">
+      <a
+        href="#Home"
+        class="Header__logo"
+        :class="'Header__logo--' + screen.type.value"
+      >
         <svg viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="Logo">
             <g id="F">
@@ -313,6 +317,16 @@ provide("isMobileNavOpened", isMobileNavOpened);
       display: block;
       margin: auto;
       width: 64px;
+    }
+    &--sm {
+      svg {
+        width: 56px;
+      }
+    }
+    &--xs {
+      svg {
+        width: 48px;
+      }
     }
   }
   &__nav {

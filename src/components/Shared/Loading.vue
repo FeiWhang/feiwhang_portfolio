@@ -82,59 +82,61 @@
     margin: auto;
     width: min(25vw, 256px);
     animation: zoomFadeAway 0.5s ease-in-out 2.1s forwards;
+    backface-visibility: hidden;
   }
 }
 
 // animation
-$duration: 0.5s;
+$durationL: 0.6s;
+$durationS: 0.3s;
 $delay: 0.25s;
 #F1 {
   --len: 24;
   stroke-dashoffset: var(--len);
   stroke-dasharray: var(--len);
-  animation: dash $duration ease-in-out forwards;
+  animation: dash $durationL ease-in-out forwards;
   backface-visibility: hidden;
 }
 #F2 {
   --len: 13;
   stroke-dashoffset: var(--len);
   stroke-dasharray: var(--len);
-  animation: dash $duration ease-in-out calc($delay * 1) forwards;
+  animation: dash $durationS ease-in-out calc($delay * 1) forwards;
   backface-visibility: hidden;
 }
 #F3 {
   --len: 9;
   stroke-dashoffset: var(--len);
   stroke-dasharray: var(--len);
-  animation: dash $duration ease-in-out calc($delay * 2) forwards;
+  animation: dash $durationS ease-in-out calc($delay * 2) forwards;
   backface-visibility: hidden;
 }
 #W1 {
   --len: 12.5;
   stroke-dashoffset: var(--len);
   stroke-dasharray: var(--len);
-  animation: dash $duration ease-in-out calc($delay * 3) forwards;
+  animation: dash $durationS ease-in-out calc($delay * 3) forwards;
   backface-visibility: hidden;
 }
 #W2 {
   --len: 25;
   stroke-dashoffset: var(--len);
   stroke-dasharray: var(--len);
-  animation: dash $duration ease-in-out calc($delay * 4) forwards;
+  animation: dash $durationL ease-in-out calc($delay * 4) forwards;
   backface-visibility: hidden;
 }
 #W3 {
   --len: 12.5;
   stroke-dashoffset: var(--len);
   stroke-dasharray: var(--len);
-  animation: dash $duration ease-in-out calc($delay * 5) forwards;
+  animation: dash $durationS ease-in-out calc($delay * 6) forwards;
   backface-visibility: hidden;
 }
 #W4 {
   --len: 25;
   stroke-dashoffset: var(--len);
   stroke-dasharray: var(--len);
-  animation: dash $duration ease-in-out calc($delay * 6) forwards;
+  animation: dash $durationL ease-in-out calc($delay * 6.5) forwards;
   backface-visibility: hidden;
 }
 @keyframes dash {

@@ -43,7 +43,6 @@ const isDark = inject("isDark");
     max-width: var(--layoutWidth);
     margin: auto;
     padding: 0 var(--layoutPadding);
-    padding-top: 1.88rem;
     display: flex;
     flex-direction: column;
     position: relative;

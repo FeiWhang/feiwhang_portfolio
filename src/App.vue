@@ -1,12 +1,10 @@
 <template>
-  <div class="AppContainer" :style="appStyle">
-    <Loading v-if="isLoading" />
-    <div class="content" v-if="!isLoading">
-      <Header />
-      <Home />
-      <!-- <About /> -->
-      <!-- <Project /> -->
-    </div>
+  <Loading v-if="isLoading" />
+  <div id="content" v-if="!isLoading" :style="contentStyle">
+    <Header />
+    <Home />
+    <About />
+    <!-- <Project /> -->
   </div>
 </template>
 
@@ -15,11 +13,11 @@ import Loading from "@/components/Shared/Loading.vue";
 import Header from "@/components/Header/Header.vue";
 import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
-// import About from "@/components/About/About.vue";
+import About from "@/components/About/About.vue";
 // import Project from "@/views/Project.vue";
 import { provide, ref, computed, onMounted } from "vue";
 
-const isLoading = ref(true);
+const isLoading = ref(false);
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false;
@@ -36,24 +34,27 @@ if (userTheme) {
   userTheme === "dark" ? (isDark.value = true) : (isDark.value = false);
 }
 
-const appStyle = computed(() => {
+const contentStyle = computed(() => {
   return {
     "--layoutWidth": "1264px",
+    "--secondLayoutWidth": "960px",
     "--layoutPadding": screen.width.value > 1264 ? "32px" : "16px",
     "--lightestPurple": "#ece4ff",
     "--lighterPurple": "#D5C6FF",
     "--lightPurple": "#8E6FE2",
     "--purple": "#7253C6",
     "--darkPurple": "#24285B",
+    "--greyPurple": "#E6E2EE",
     "--textColorLight": "#fdfdff",
     "--textColorDark": "#0A2540",
     "--textColor": isDark.value ? "#fdfdff" : "#0A2540",
+    "--fadeColor": isDark.value ? "#ece4ff10" : "#ece4ff",
     "--activeTextColor": isDark.value ? "#D5C6FF" : "#7253C6",
     "--bgColor": isDark.value ? "#2d2d2e" : "#f6f2ff",
     "--secondBgColor": isDark.value ? "#272729" : "#F8F7FD",
-    "--fontL": "36px",
-    "--fontM": "24px",
-    "--fontS": "18px",
+    "--fontL": screen.type.value != "xs" ? "36px" : "32px",
+    "--fontM": screen.type.value != "xs" ? "24px" : "20px",
+    "--fontS": screen.type.value != "xs" ? "18px" : "16px",
     "--fontXS": "16px",
     "--fontXXS": "15px",
     "--fontXXXS": "14px",
@@ -66,7 +67,7 @@ const appStyle = computed(() => {
 
 document
   .querySelector("body")
-  .setAttribute("style", "background:" + appStyle.value["--bgColor"]);
+  .setAttribute("style", "background:" + contentStyle.value["--bgColor"]);
 
 provide("screen", screen);
 provide("isDark", isDark);
@@ -83,17 +84,18 @@ html {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   text-align: left;
-}
-
-.AppContainer {
-  background-color: var(--bgColor);
-  transition: var(--bgTransition);
-  color: var(--textColor);
+  letter-spacing: 0.2px;
 }
 
 * {
   padding: 0;
   margin: 0;
+}
+
+#content {
+  background-color: var(--bgColor);
+  transition: var(--bgTransition);
+  color: var(--textColor);
 }
 
 /* nunito-regular - latin */

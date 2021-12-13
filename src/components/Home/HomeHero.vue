@@ -13,7 +13,7 @@
       class="HomeHero__subtitle"
       :class="'HomeHero__subtitle--' + screen.type.value"
     >
-      {{ "Computer Science student at " }}
+      {{ "A Computer Science student at " }}
       <a
         href="https://muic.mahidol.ac.th/"
         target="_blank"
@@ -71,6 +71,7 @@ const screen = inject("screen");
     font-size: 56px;
     font-weight: 600;
     text-align: center;
+    margin-bottom: 8px;
     &--lg {
       font-size: 56px;
     }
@@ -90,7 +91,7 @@ const screen = inject("screen");
     backface-visibility: hidden;
     opacity: 0;
     font-size: var(--fontS);
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     &--md {
       font-size: 18px;
     }

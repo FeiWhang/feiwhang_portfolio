@@ -1,6 +1,6 @@
 <template>
-  <section id="Home">
-    <div class="Home__bg" :class="isDark ? 'Home__bg--dark' : ''"></div>
+  <section id="home">
+    <div class="Home__bg"></div>
     <div class="HomeContainer">
       <HomeHero />
     </div>
@@ -8,14 +8,11 @@
 </template>
 
 <script setup>
-import { inject } from "vue";
 import HomeHero from "@/components/Home/HomeHero.vue";
-
-const isDark = inject("isDark");
 </script>
 
 <style lang="scss" scoped>
-#Home {
+#home {
   min-width: 314px;
   min-height: 600px;
   position: relative;
@@ -29,14 +26,7 @@ const isDark = inject("isDark");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
-    opacity: 0.55;
-    transition: opacity 0.5s ease-in-out;
     animation: fadeIn 1.5s ease-in-out forwards;
-    --opacity: 0.55;
-    &--dark {
-      opacity: 0.03;
-      --opacity: 0.03;
-    }
   }
   .HomeContainer {
     height: calc(var(--vh) * 100);
@@ -55,7 +45,7 @@ const isDark = inject("isDark");
     opacity: 0;
   }
   to {
-    opacity: var(--opacity);
+    opacity: 0.069;
   }
 }
 </style>

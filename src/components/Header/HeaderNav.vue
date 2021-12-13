@@ -1,6 +1,6 @@
 <template>
   <a
-    href="#Home"
+    href="#home"
     class="NavLink"
     :class="hash == '' || hash == '#Home' ? 'active' : ''"
     @click="
@@ -11,7 +11,7 @@
     Home</a
   >
   <a
-    href="#About"
+    href="#about"
     class="NavLink"
     :class="hash == '#About' ? 'active' : ''"
     @click="
@@ -22,7 +22,7 @@
     About</a
   >
   <a
-    href="#Project"
+    href="#project"
     class="NavLink"
     :class="hash == '#Project' ? 'active' : ''"
     @click="
@@ -33,7 +33,7 @@
     Project</a
   >
   <a
-    href="#Contact"
+    href="#contact"
     class="NavLink"
     :class="hash == '#Contact' ? 'active' : ''"
     @click="

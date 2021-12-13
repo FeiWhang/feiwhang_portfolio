@@ -471,7 +471,7 @@ const imgStyle = computed(() => {
 @keyframes inFromRight {
   0% {
     opacity: 0;
-    transform: translate3d(20vw, 0, 0);
+    transform: translate3d(max(-20vw, -200px), 0, 0);
   }
   100% {
     opacity: 1;

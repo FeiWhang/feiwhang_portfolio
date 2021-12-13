@@ -4,6 +4,7 @@
     <Header />
     <Home />
     <About />
+    <div class="tmp"></div>
     <!-- <Project /> -->
   </div>
 </template>
@@ -39,7 +40,7 @@ const contentStyle = computed(() => {
     "--layoutWidth": "1264px",
     "--secondLayoutWidth": "960px",
     "--layoutPadding": screen.width.value > 1264 ? "32px" : "16px",
-    "--sectionSpace": "4rem",
+    "--sectionSpace": "5rem",
     "--lightestPurple": "#ece4ff",
     "--lighterPurple": "#D5C6FF",
     "--lightPurple": "#8E6FE2",
@@ -92,6 +93,9 @@ html {
 * {
   padding: 0;
   margin: 0;
+}
+.tmp {
+  min-height: 100vh;
 }
 
 #content {
@@ -156,5 +160,16 @@ html {
       format("truetype"),
     /* Safari, Android, iOS */
       url("../public/fonts/nunito-v20-latin-600.svg#Nunito") format("svg"); /* Legacy iOS */
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10vh, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 </style>

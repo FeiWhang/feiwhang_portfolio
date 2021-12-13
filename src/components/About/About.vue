@@ -1,10 +1,10 @@
 <template>
-  <section id="About" class="About">
+  <section id="about" class="About">
     <div class="AboutContainer">
-      <h2 class="About__subheader">About me</h2>
-      <h1 class="About__header">Front-End Developer</h1>
+      <h2 class="About__subtitle">About me</h2>
+      <h1 class="About__title">Front-End Developer</h1>
       <div class="About__body" :class="'About__body--' + screen.type.value">
-        <div class="About__text">
+        <section class="About__text">
           <p>
             <span
               ><svg
@@ -65,19 +65,20 @@
             my lastname which in Thai means hope.
           </p>
           <p>
-            I’m a <span>passionate</span> and <span>enthusiast</span> front-end
-            developer. I design and develop websites with the main focus of user
-            experience. User can expect a <span>modern</span> website with a fun
-            <span>animation</span> to create even more
-            <span>impactful experience</span>.
+            I’m a <span>passionate</span> and
+            <span>enthusiastic</span> front-end developer. I design and develop
+            websites with the main focus of user experience. User can expect a
+            <span>modern</span> website with a fun <span>animation</span> to
+            create even more <span>impactful experience</span>.
           </p>
           <p>
             My first ever project is to redesign one of my friend’s business
             website. It makes me realize how <span>powerful</span> a good
             <span>design</span> can be.
           </p>
-        </div>
+        </section>
         <picture
+          id="profile"
           class="About__profile"
           :class="'About__profile--' + screen.type.value"
         >
@@ -141,17 +142,14 @@
 </template>
 
 <script setup>
-import { inject } from "vue";
+import { inject, onMounted } from "vue";
+import { observeAbout } from "@/components/Shared/observer.js";
 
 const screen = inject("screen");
+onMounted(() => observeAbout());
 </script>
 
 <style lang="scss" scoped>
-#About {
-  max-width: var(--layoutWidth);
-  margin: 0 auto;
-  padding: 0 var(--layoutPadding);
-}
 .AboutContainer {
   margin: 0 auto;
   min-width: 300px;
@@ -159,14 +157,25 @@ const screen = inject("screen");
   padding: var(--sectionSpace) 0;
 }
 .About {
-  &__subheader {
+  max-width: var(--layoutWidth);
+  margin: 0 auto;
+  padding: 0 var(--layoutPadding);
+  &__subtitle {
     font-size: var(--fontS);
     font-weight: 600;
-    color: var(--activeTextColor);
+    color: var(--lightPurple);
     margin-bottom: 20px;
+    opacity: 0;
+    &--animated {
+      animation: fadeUp 0.88s ease-in-out 0.22s forwards;
+    }
   }
-  &__header {
+  &__title {
     font-size: var(--fontL);
+    opacity: 0;
+    &--animated {
+      animation: fadeUp 0.88s ease-in-out 0.44s forwards;
+    }
   }
   &__body {
     display: flex;
@@ -187,6 +196,10 @@ const screen = inject("screen");
     row-gap: 16px;
     font-size: var(--fontS);
     font-weight: 400;
+    opacity: 0;
+    &--animated {
+      animation: fadeUp 0.88s ease-in-out 0.66s forwards;
+    }
     span {
       color: var(--activeTextColor);
       svg {
@@ -196,6 +209,20 @@ const screen = inject("screen");
   }
   &__profile {
     position: relative;
+    opacity: 0;
+    &--animated {
+      animation: fadeUp 0.88s ease-in-out 1s forwards;
+    }
+    &--sm {
+      svg {
+        width: 250px;
+      }
+    }
+    &--xs {
+      svg {
+        width: 222px;
+      }
+    }
     svg {
       width: 288px;
       #profile_main {
@@ -235,16 +262,6 @@ const screen = inject("screen");
       }
       hr {
         opacity: 1;
-      }
-    }
-    &--sm {
-      svg {
-        width: 250px;
-      }
-    }
-    &--xs {
-      svg {
-        width: 222px;
       }
     }
   }

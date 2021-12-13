@@ -5,9 +5,7 @@ export default function getScreen() {
   const scroll = ref(window.scrollY);
 
   const onWidthChange = () => (width.value = window.innerWidth);
-  const onScrollChange = () => {
-    return (scroll.value = window.scrollY);
-  };
+  const onScrollChange = () => (scroll.value = window.scrollY);
   onMounted(() => {
     window.addEventListener("resize", onWidthChange);
     window.addEventListener("scroll", onScrollChange);

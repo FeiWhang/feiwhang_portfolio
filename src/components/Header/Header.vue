@@ -392,7 +392,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
     left: 0;
     z-index: 10;
     width: 100vw;
-    height: calc(var(--vh) * 100);
+    height: 100vh;
   }
   &__mobileCard {
     display: flex;

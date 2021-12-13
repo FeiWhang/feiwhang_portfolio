@@ -3,14 +3,13 @@ function observeAbout() {
   const aboutCallback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const subtitle = entry.target.querySelector(".About__subtitle");
-        const title = entry.target.querySelector(".About__title");
-        const text = entry.target.querySelector(".About__text");
-        subtitle.classList.add("About__subtitle--animated");
-        title.classList.add("About__title--animated");
-        text.classList.add("About__text--animated");
+        const subtitle = document.getElementsByClassName("About__subtitle")[0];
+        const title = document.getElementsByClassName("About__title")[0];
+        const text = document.getElementsByClassName("About__text")[0];
+        subtitle.style.animation = "fadeUp 0.88s ease-in-out 0.22s forwards";
+        title.style.animation = "fadeUp 0.88s ease-in-out 0.44s forwards";
+        text.style.animation = "fadeUp 0.88s ease-in-out 0.88s forwards";
         observer.unobserve(about);
-        console.log("reach about");
       }
     });
   };
@@ -21,14 +20,12 @@ function observeAbout() {
   // profile is a special case
   // for mobile this section is in the bottom
   // need to wait for it into viewport sep.
-  const profile = document.querySelector("#profile");
-  console.log(profile);
+  const profile = document.getElementById("profile");
   const profileCallBack = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        profile.classList.add("About__profile--animated");
+        profile.style.animation = "fadeUp 0.88s ease-in-out 1s forwards";
         observer.unobserve(profile);
-        console.log("reach profile");
       }
     });
   };

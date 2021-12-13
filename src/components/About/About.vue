@@ -60,16 +60,14 @@
               </svg>
             </span>
             My name is Kantinan Whangsuphadilok. I’m a third year computer
-            science student at Mahidol University International College. I
-            prefer the name ‘FeiWhang’. Fei is my nickname and Whang come from
-            my lastname which in Thai means hope.
+            science student at Mahidol University International College.
           </p>
           <p>
             I’m a <span>passionate</span> and
             <span>enthusiastic</span> front-end developer. I design and develop
-            websites with the main focus of user experience. User can expect a
-            <span>modern</span> website with a fun <span>animation</span> to
-            create even more <span>impactful experience</span>.
+            applications with the main focus on user experience. User can expect
+            a <span>modern</span> UI with a fun <span>animation</span> to create
+            even more <span>impactful experience</span>.
           </p>
           <p>
             My first ever project is to redesign one of my friend’s business
@@ -77,16 +75,14 @@
             <span>design</span> can be.
           </p>
         </section>
-        <picture
-          id="profile"
-          class="About__profile"
-          :class="'About__profile--' + screen.type.value"
-        >
+        <picture id="profile" class="About__profile">
           <svg
             viewBox="0 0 335 390"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
+            class="About__profileVector"
+            :class="'About__profileVector--' + screen.type.value"
           >
             <g id="Profile_frame">
               <g id="Profile">
@@ -166,16 +162,10 @@ onMounted(() => observeAbout());
     color: var(--lightPurple);
     margin-bottom: 20px;
     opacity: 0;
-    &--animated {
-      animation: fadeUp 0.88s ease-in-out 0.22s forwards;
-    }
   }
   &__title {
     font-size: var(--fontL);
     opacity: 0;
-    &--animated {
-      animation: fadeUp 0.88s ease-in-out 0.44s forwards;
-    }
   }
   &__body {
     display: flex;
@@ -197,9 +187,6 @@ onMounted(() => observeAbout());
     font-size: var(--fontS);
     font-weight: 400;
     opacity: 0;
-    &--animated {
-      animation: fadeUp 0.88s ease-in-out 0.66s forwards;
-    }
     span {
       color: var(--activeTextColor);
       svg {
@@ -210,59 +197,52 @@ onMounted(() => observeAbout());
   &__profile {
     position: relative;
     opacity: 0;
-    &--animated {
-      animation: fadeUp 0.88s ease-in-out 1s forwards;
-    }
+  }
+  &__profileVector {
+    width: 288px;
     &--sm {
-      svg {
-        width: 250px;
-      }
+      width: 255px;
     }
     &--xs {
-      svg {
-        width: 222px;
-      }
+      width: 222px;
     }
-    svg {
-      width: 288px;
+    #profile_main {
+      backface-visibility: hidden;
+      transform: translate3d(0, -16px, 0);
+      transition: transform 0.3s ease-in-out;
+      will-change: transform;
+    }
+    #profile_filter {
+      opacity: 0.69;
+      backface-visibility: hidden;
+      transition: opacity 0.3s ease-in-out;
+      will-change: opacity;
+    }
+    #profile_shadow {
+      opacity: 0.123;
+      backface-visibility: hidden;
+      transform: scale(0.88);
+      transform-origin: center;
+      transform-box: fill-box;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      will-change: opacity, transform;
+    }
+    &:hover {
       #profile_main {
-        backface-visibility: hidden;
-        transform: translate3d(0, -16px, 0);
-        transition: transform 0.3s ease-in-out;
-        will-change: transform;
+        transform: translate3d(0, 0, 0);
       }
       #profile_filter {
-        opacity: 0.69;
-        backface-visibility: hidden;
-        transition: opacity 0.3s ease-in-out;
-        will-change: opacity;
+        opacity: 0.123;
       }
       #profile_shadow {
-        opacity: 0.123;
-        backface-visibility: hidden;
-        transform: scale(0.88);
+        opacity: 0.234;
+        transform: scale(0.85);
         transform-origin: center;
         transform-box: fill-box;
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-        will-change: opacity, transform;
       }
-      &:hover {
-        #profile_main {
-          transform: translate3d(0, 0, 0);
-        }
-        #profile_filter {
-          opacity: 0.123;
-        }
-        #profile_shadow {
-          opacity: 0.234;
-          transform: scale(0.85);
-          transform-origin: center;
-          transform-box: fill-box;
-        }
-      }
-      hr {
-        opacity: 1;
-      }
+    }
+    hr {
+      opacity: 1;
     }
   }
 }

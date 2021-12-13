@@ -123,7 +123,7 @@ const screen = inject("screen");
   @keyframes fromBelow {
     0% {
       opacity: 0;
-      transform: translate3d(0, 20vh, 0);
+      transform: translate3d(0, calc(var(--vh) * 20), 0);
     }
     100% {
       opacity: 1;

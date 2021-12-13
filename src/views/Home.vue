@@ -39,10 +39,11 @@ const isDark = inject("isDark");
     }
   }
   .HomeContainer {
-    height: 100vh;
+    height: calc(var(--vh) * 100);
     max-width: var(--layoutWidth);
     margin: auto;
     padding: 0 var(--layoutPadding);
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     position: relative;

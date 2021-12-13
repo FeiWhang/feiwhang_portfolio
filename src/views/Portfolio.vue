@@ -9,6 +9,6 @@ import ProjectBody from "@/components/Project/ProjectBody.vue";
 
 <style lang="scss" scoped>
 #Project {
-  min-height: 100vh;
+  min-height: calc(var(--vh) * 100);
 }
 </style>

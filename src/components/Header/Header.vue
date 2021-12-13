@@ -392,14 +392,13 @@ provide("isMobileNavOpened", isMobileNavOpened);
     left: 0;
     z-index: 10;
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh) * 100);
   }
   &__mobileCard {
     display: flex;
     flex-direction: column;
-    height: 95%;
+    height: 100%;
     background: var(--secondBgColor);
-    border-radius: 12px;
     box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
       0 18px 36px -18px rgba(0, 0, 0, 0.3);
     padding: 16px;
@@ -438,7 +437,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
 }
 @keyframes moveDown {
   0% {
-    transform: translate3d(0, -8vh, 0);
+    transform: translate3d(0, calc(var(--vh) * (-8)), 0);
   }
   100% {
     transform: translate3d(0, 0, 0);

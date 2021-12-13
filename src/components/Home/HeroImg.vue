@@ -431,9 +431,9 @@ const imgStyle = computed(() => {
 
 <style lang="scss" scoped>
 .HeroImg {
-  width: min(min(49vw, 49vh), 599px);
+  width: min(min(49vw, calc(var(--vh) * 49)), 599px);
   &--xs {
-    width: min(69vw, 69vh);
+    width: min(69vw, calc(var(--vh) * 69));
   }
 }
 #HeroVector {

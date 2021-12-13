@@ -17,7 +17,7 @@ import About from "@/components/About/About.vue";
 // import Project from "@/views/Project.vue";
 import { provide, ref, computed, onMounted } from "vue";
 
-const isLoading = ref(false);
+const isLoading = ref(true);
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false;
@@ -39,6 +39,7 @@ const contentStyle = computed(() => {
     "--layoutWidth": "1264px",
     "--secondLayoutWidth": "960px",
     "--layoutPadding": screen.width.value > 1264 ? "32px" : "16px",
+    "--sectionSpace": "4rem",
     "--lightestPurple": "#ece4ff",
     "--lighterPurple": "#D5C6FF",
     "--lightPurple": "#8E6FE2",
@@ -62,6 +63,7 @@ const contentStyle = computed(() => {
     "--pillPaddingM": "10px 24px",
     "--pillPaddingS": "8px 16px",
     "--bgTransition": " background-color 0.3s ease-in-out",
+    "--vh": window.innerHeight * 0.01 + "px",
   };
 });
 

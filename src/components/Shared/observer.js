@@ -6,9 +6,9 @@ function observeAbout() {
         const subtitle = document.getElementsByClassName("About__subtitle")[0];
         const title = document.getElementsByClassName("About__title")[0];
         const text = document.getElementsByClassName("About__text")[0];
-        subtitle.style.animation = "fadeUp 0.88s ease-in-out 0.22s forwards";
-        title.style.animation = "fadeUp 0.88s ease-in-out 0.44s forwards";
-        text.style.animation = "fadeUp 0.88s ease-in-out 0.88s forwards";
+        subtitle.style.animation = "fadeUp 0.55s ease-in-out 0.123s forwards";
+        title.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
+        text.style.animation = "fadeUp 0.55s ease-in-out 0.456s forwards";
         observer.unobserve(about);
       }
     });
@@ -24,7 +24,7 @@ function observeAbout() {
   const profileCallBack = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        profile.style.animation = "fadeUp 0.88s ease-in-out 1s forwards";
+        profile.style.animation = "fadeUp 0.55s ease-in-out 0.69s forwards";
         observer.unobserve(profile);
       }
     });

@@ -431,13 +431,13 @@ const imgStyle = computed(() => {
 
 <style lang="scss" scoped>
 .HeroImg {
-  width: min(min(49vw, calc(var(--vh) * 49)), 599px);
+  width: min(min(49vw, calc(var(--vh) * 49)), 555px);
   &--xs {
     width: min(69vw, calc(var(--vh) * 69));
   }
 }
 #HeroVector {
-  animation: 1.23s ease-in-out forwards inFromRight;
+  animation: 0.88s ease-in-out forwards inFromRight;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   #globe_center {

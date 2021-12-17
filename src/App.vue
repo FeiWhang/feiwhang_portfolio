@@ -162,6 +162,64 @@ html {
       url("../public/fonts/nunito-v20-latin-600.svg#Nunito") format("svg"); /* Legacy iOS */
 }
 
+@font-face {
+  font-family: "Lexend Deca";
+  src: url("../public/fonts/LexendDeca-Bold.eot");
+  src: url("../public/fonts/LexendDeca-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/LexendDeca-Bold.woff2") format("woff2"),
+    url("../public/fonts/LexendDeca-Bold.woff") format("woff"),
+    url("../public/fonts/LexendDeca-Bold.ttf") format("truetype"),
+    url("../public/fonts/LexendDeca-Bold.svg#LexendDeca-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lexend Deca";
+  src: url("../public/fonts/LexendDeca-SemiBold.eot");
+  src: url("../public/fonts/LexendDeca-SemiBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/LexendDeca-SemiBold.woff2") format("woff2"),
+    url("../public/fonts/LexendDeca-SemiBold.woff") format("woff"),
+    url("../public/fonts/LexendDeca-SemiBold.ttf") format("truetype"),
+    url("../public/fonts/LexendDeca-SemiBold.svg#LexendDeca-SemiBold")
+      format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lexend Deca";
+  src: url("../public/fonts/LexendDeca-Medium.eot");
+  src: url("../public/fonts/LexendDeca-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/LexendDeca-Medium.woff2") format("woff2"),
+    url("../public/fonts/LexendDeca-Medium.woff") format("woff"),
+    url("../public/fonts/LexendDeca-Medium.ttf") format("truetype"),
+    url("../public/fonts/LexendDeca-Medium.svg#LexendDeca-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lexend Deca";
+  src: url("../public/fonts/LexendDeca-Regular.eot");
+  src: url("../public/fonts/LexendDeca-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/LexendDeca-Regular.woff2") format("woff2"),
+    url("../public/fonts/LexendDeca-Regular.woff") format("woff"),
+    url("../public/fonts/LexendDeca-Regular.ttf") format("truetype"),
+    url("../public/fonts/LexendDeca-Regular.svg#LexendDeca-Regular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @keyframes fadeUp {
   0% {
     opacity: 0;

@@ -164,6 +164,8 @@ onMounted(() => observeAbout());
     opacity: 0;
   }
   &__title {
+    font-family: "Lexend Deca";
+    font-weight: 500;
     font-size: var(--fontL);
     opacity: 0;
   }

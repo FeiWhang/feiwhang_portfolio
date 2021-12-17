@@ -2,7 +2,7 @@
   <header class="Header" :style="headerStyle">
     <div class="Header__container">
       <a
-        href="#Home"
+        href="#home"
         class="Header__logo"
         :class="'Header__logo--' + screen.type.value"
       >
@@ -70,6 +70,7 @@
             </g>
           </g>
         </svg>
+        LogoLink
       </a>
       <div
         class="Header__action"
@@ -309,10 +310,7 @@ provide("isMobileNavOpened", isMobileNavOpened);
     text-decoration: none;
   }
   &__logo {
-    color: var(--lightPurple);
-    font-size: var(--fontL);
-    font-weight: 600;
-    letter-spacing: 2px;
+    font-size: 0;
     svg {
       display: block;
       margin: auto;

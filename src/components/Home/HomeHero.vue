@@ -16,6 +16,7 @@
       {{ "A Computer Science student at " }}
       <a
         href="https://muic.mahidol.ac.th/"
+        rel="noreferrer"
         target="_blank"
         title="External link to MUIC website"
         >MUIC</a
@@ -64,12 +65,13 @@ const screen = inject("screen");
   margin: auto 0;
   color: var(--textColor);
   &__title {
-    animation: fadeUp 0.88s ease-in-out forwards;
+    animation: fadeUp 0.55s ease-in-out forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;
+    font-family: "Lexend Deca";
     font-size: 56px;
-    font-weight: 600;
+    font-weight: 500;
     text-align: center;
     margin-bottom: 8px;
     &--lg {
@@ -86,7 +88,7 @@ const screen = inject("screen");
     }
   }
   &__subtitle {
-    animation: fadeUp 0.88s ease-in-out 0.22s forwards;
+    animation: fadeUp 0.55s ease-in-out 0.123s forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;
@@ -113,7 +115,7 @@ const screen = inject("screen");
     column-gap: 8px;
   }
   &__cta {
-    animation: fadeUp 0.88s ease-in-out 0.44s forwards;
+    animation: fadeUp 0.55s ease-in-out 0.234s forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;

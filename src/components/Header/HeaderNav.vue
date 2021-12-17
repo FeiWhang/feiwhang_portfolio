@@ -2,9 +2,9 @@
   <a
     href="#home"
     class="NavLink"
-    :class="hash == '' || hash == '#Home' ? 'active' : ''"
+    :class="hash == '' || hash == '#home' ? 'active' : ''"
     @click="
-      hash = '#Home';
+      hash = '#home';
       isMobileNavOpened = false;
     "
   >
@@ -13,9 +13,9 @@
   <a
     href="#about"
     class="NavLink"
-    :class="hash == '#About' ? 'active' : ''"
+    :class="hash == '#about' ? 'active' : ''"
     @click="
-      hash = '#About';
+      hash = '#about';
       isMobileNavOpened = false;
     "
   >
@@ -24,9 +24,9 @@
   <a
     href="#project"
     class="NavLink"
-    :class="hash == '#Project' ? 'active' : ''"
+    :class="hash == '#project' ? 'active' : ''"
     @click="
-      hash = '#Project';
+      hash = '#project';
       isMobileNavOpened = false;
     "
   >
@@ -35,9 +35,9 @@
   <a
     href="#contact"
     class="NavLink"
-    :class="hash == '#Contact' ? 'active' : ''"
+    :class="hash == '#contact' ? 'active' : ''"
     @click="
-      hash = '#Contact';
+      hash = '#contact';
       isMobileNavOpened = false;
     "
   >

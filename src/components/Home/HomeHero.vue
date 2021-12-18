@@ -70,22 +70,12 @@ const screen = inject("screen");
     backface-visibility: hidden;
     opacity: 0;
     font-family: "Lexend Deca";
-    font-size: 56px;
+    font-size: clamp(1.5rem, 6.9vw, 3.5rem);
     font-weight: 500;
     text-align: center;
     margin-bottom: 8px;
-    &--lg {
-      font-size: 56px;
-    }
-    &--md {
-      font-size: 56px;
-    }
-    &--sm {
-      font-size: 48px;
-    }
-    &--xs {
-      font-size: 28px;
-    }
+    margin-top: 16px;
+    color: var(--activeTextColor);
   }
   &__subtitle {
     animation: fadeUp 0.55s ease-in-out 0.123s forwards;
@@ -94,12 +84,6 @@ const screen = inject("screen");
     opacity: 0;
     font-size: var(--fontS);
     margin-bottom: 24px;
-    &--md {
-      font-size: 18px;
-    }
-    &--sm {
-      font-size: 18px;
-    }
     &--xs {
       font-size: 16px;
     }

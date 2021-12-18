@@ -1,80 +1,87 @@
 <template>
   <section id="about" class="About">
     <div class="AboutContainer">
-      <h2 class="About__subtitle">About me</h2>
-      <h1 class="About__title">Front-End Developer</h1>
+      <header>
+        <h2 class="About__subtitle">About me</h2>
+        <h1 class="About__title">Front-End Developer</h1>
+      </header>
       <div class="About__body" :class="'About__body--' + screen.type.value">
-        <section class="About__text">
-          <p>
-            <span
-              ><svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.5 10.5749L10.45 10.9499L12.05 2.72495C12.15 2.17495 11.8 1.62495 11.275 1.52495C10.725 1.42495 10.2 1.79995 10.1 2.34995L8.5 10.5749Z"
-                  fill="#FFE1BD"
-                />
-                <path
-                  d="M11.3 1.525C11.225 1.5 11.175 1.5 11.1 1.5C11.55 1.675 11.8 2.15 11.7 2.65L10.1 10.875L10.45 10.95L12.05 2.725C12.175 2.15 11.825 1.625 11.3 1.525"
-                  fill="#E6B796"
-                />
-                <path
-                  d="M6.5 10.825H8.85V1.75C8.85 1.075 8.325 0.5 7.675 0.5C7.05 0.5 6.5 1.05 6.5 1.75V10.825Z"
-                  fill="#FFE1BD"
-                />
-                <path
-                  d="M7.70002 0.5C7.65002 0.5 7.57502 0.5 7.52502 0.525C8.10002 0.625 8.52502 1.125 8.52502 1.75V10.85H8.87502V1.75C8.87502 1.05 8.35002 0.5 7.70002 0.5Z"
-                  fill="#E6B796"
-                />
-                <path
-                  d="M5.25003 10.8L7.25003 10.275L5.07503 1.99995C4.92503 1.42495 4.35003 1.07495 3.80003 1.19995C3.25003 1.34995 2.92503 1.92495 3.07503 2.49995L5.25003 10.8Z"
-                  fill="#FFE1BD"
-                />
-                <path
-                  d="M3.80002 1.19995L3.65002 1.27495C4.15002 1.24995 4.60002 1.57495 4.75002 2.09995L6.92502 10.375L7.27502 10.275L5.07502 1.99995C4.92502 1.42495 4.35002 1.07495 3.80002 1.19995"
-                  fill="#E6B796"
-                />
-                <path
-                  d="M0.999954 3.34998C0.524954 3.57498 0.374954 4.17498 0.624954 4.67498L3.92495 11.25L5.59995 10.4L2.29995 3.82498C2.04995 3.32498 1.47495 3.12498 0.999954 3.34998"
-                  fill="#FFE1BD"
-                />
-                <path
-                  d="M0.999976 3.34998C0.949976 3.37498 0.899976 3.39998 0.849976 3.44998C1.27498 3.32498 1.74998 3.54998 1.97498 3.99998L5.27498 10.575L5.59998 10.425L2.29998 3.82498C2.04998 3.32498 1.47498 3.12498 0.999976 3.34998"
-                  fill="#E6B796"
-                />
-                <path
-                  d="M15.425 7.32495C15.025 6.54995 13.775 6.59995 12.5 7.99995C11.6 8.97495 11.425 9.29995 10.525 9.27495V8.24995C10.525 8.24995 8.59998 6.82495 4.77498 7.47495C4.77498 7.47495 2.59998 7.77495 2.59998 8.92495C2.59998 8.92495 2.22498 11.6999 2.99998 13.4499C4.14998 16.0499 10.05 16.7249 11.9 12.2999C12.275 11.4249 13.025 10.7749 13.7 9.94995C14.475 8.94995 15.85 8.14995 15.425 7.32495"
-                  fill="#FFE1BD"
-                />
-                <path
-                  d="M15.425 7.32498C15.35 7.17498 15.25 7.07498 15.125 6.97498C15.15 6.99998 15.175 7.02498 15.175 7.07498C15.6 7.92498 14.225 8.69998 13.4 9.69998C12.725 10.525 11.975 11.175 11.6 12.05C10 15.875 5.35002 15.875 3.40002 14.125C5.17502 16.125 10.175 16.325 11.85 12.3C12.225 11.425 12.975 10.775 13.65 9.94998C14.475 8.94998 15.85 8.14998 15.425 7.32498"
-                  fill="#E6B796"
-                />
-                <path
-                  d="M10.775 9.27496C9.15 8.67496 6.25 9.77496 6.65 12.7C6.65 9.97496 9.125 9.29997 10.475 9.29997C10.675 9.27497 10.775 9.27496 10.775 9.27496"
-                  fill="#E6B796"
-                />
-              </svg>
-            </span>
-            My name is Kantinan Whangsuphadilok. I’m a third year computer
-            science student at Mahidol University International College.
-          </p>
-          <p>
-            I’m a <span>passionate</span> and
-            <span>enthusiastic</span> front-end developer. I design and develop
-            applications with the main focus on user experience. User can expect
-            a <span>modern</span> UI with a fun <span>animation</span> to create
-            even more <span>impactful experience</span>.
-          </p>
-          <p>
-            My first ever project is to redesign one of my friend’s business
-            website. It makes me realize how <span>powerful</span> a good
-            <span>design</span> can be.
-          </p>
-        </section>
+        <div class="About__bodyLeft">
+          <section class="About__text">
+            <p>
+              <span
+                ><svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.5 10.5749L10.45 10.9499L12.05 2.72495C12.15 2.17495 11.8 1.62495 11.275 1.52495C10.725 1.42495 10.2 1.79995 10.1 2.34995L8.5 10.5749Z"
+                    fill="#FFE1BD"
+                  />
+                  <path
+                    d="M11.3 1.525C11.225 1.5 11.175 1.5 11.1 1.5C11.55 1.675 11.8 2.15 11.7 2.65L10.1 10.875L10.45 10.95L12.05 2.725C12.175 2.15 11.825 1.625 11.3 1.525"
+                    fill="#E6B796"
+                  />
+                  <path
+                    d="M6.5 10.825H8.85V1.75C8.85 1.075 8.325 0.5 7.675 0.5C7.05 0.5 6.5 1.05 6.5 1.75V10.825Z"
+                    fill="#FFE1BD"
+                  />
+                  <path
+                    d="M7.70002 0.5C7.65002 0.5 7.57502 0.5 7.52502 0.525C8.10002 0.625 8.52502 1.125 8.52502 1.75V10.85H8.87502V1.75C8.87502 1.05 8.35002 0.5 7.70002 0.5Z"
+                    fill="#E6B796"
+                  />
+                  <path
+                    d="M5.25003 10.8L7.25003 10.275L5.07503 1.99995C4.92503 1.42495 4.35003 1.07495 3.80003 1.19995C3.25003 1.34995 2.92503 1.92495 3.07503 2.49995L5.25003 10.8Z"
+                    fill="#FFE1BD"
+                  />
+                  <path
+                    d="M3.80002 1.19995L3.65002 1.27495C4.15002 1.24995 4.60002 1.57495 4.75002 2.09995L6.92502 10.375L7.27502 10.275L5.07502 1.99995C4.92502 1.42495 4.35002 1.07495 3.80002 1.19995"
+                    fill="#E6B796"
+                  />
+                  <path
+                    d="M0.999954 3.34998C0.524954 3.57498 0.374954 4.17498 0.624954 4.67498L3.92495 11.25L5.59995 10.4L2.29995 3.82498C2.04995 3.32498 1.47495 3.12498 0.999954 3.34998"
+                    fill="#FFE1BD"
+                  />
+                  <path
+                    d="M0.999976 3.34998C0.949976 3.37498 0.899976 3.39998 0.849976 3.44998C1.27498 3.32498 1.74998 3.54998 1.97498 3.99998L5.27498 10.575L5.59998 10.425L2.29998 3.82498C2.04998 3.32498 1.47498 3.12498 0.999976 3.34998"
+                    fill="#E6B796"
+                  />
+                  <path
+                    d="M15.425 7.32495C15.025 6.54995 13.775 6.59995 12.5 7.99995C11.6 8.97495 11.425 9.29995 10.525 9.27495V8.24995C10.525 8.24995 8.59998 6.82495 4.77498 7.47495C4.77498 7.47495 2.59998 7.77495 2.59998 8.92495C2.59998 8.92495 2.22498 11.6999 2.99998 13.4499C4.14998 16.0499 10.05 16.7249 11.9 12.2999C12.275 11.4249 13.025 10.7749 13.7 9.94995C14.475 8.94995 15.85 8.14995 15.425 7.32495"
+                    fill="#FFE1BD"
+                  />
+                  <path
+                    d="M15.425 7.32498C15.35 7.17498 15.25 7.07498 15.125 6.97498C15.15 6.99998 15.175 7.02498 15.175 7.07498C15.6 7.92498 14.225 8.69998 13.4 9.69998C12.725 10.525 11.975 11.175 11.6 12.05C10 15.875 5.35002 15.875 3.40002 14.125C5.17502 16.125 10.175 16.325 11.85 12.3C12.225 11.425 12.975 10.775 13.65 9.94998C14.475 8.94998 15.85 8.14998 15.425 7.32498"
+                    fill="#E6B796"
+                  />
+                  <path
+                    d="M10.775 9.27496C9.15 8.67496 6.25 9.77496 6.65 12.7C6.65 9.97496 9.125 9.29997 10.475 9.29997C10.675 9.27497 10.775 9.27496 10.775 9.27496"
+                    fill="#E6B796"
+                  />
+                </svg>
+              </span>
+              My name is Kantinan Whangsuphadilok. I’m a third year computer
+              science student at Mahidol University International College.
+            </p>
+            <p>
+              I’m a <span>passionate</span> and
+              <span>enthusiastic</span> front-end developer. I design and
+              develop applications with the main focus on user experience. User
+              can expect a <span>modern</span> UI with a fun
+              <span>animation</span> to create even more
+              <span>impactful experience</span>.
+            </p>
+            <p>
+              My first ever project is to redesign one of my friend’s business
+              website. It makes me realize how <span>powerful</span> a good
+              <span>design</span> can be.
+            </p>
+          </section>
+          <br />
+          <Tech v-if="!['xs', 'sm'].includes(screen.type.value)" />
+        </div>
         <picture id="profile" class="About__profile">
           <svg
             viewBox="0 0 335 390"
@@ -133,6 +140,7 @@
           </svg>
         </picture>
       </div>
+      <Tech v-if="['xs', 'sm'].includes(screen.type.value)" />
     </div>
   </section>
 </template>
@@ -140,6 +148,7 @@
 <script setup>
 import { inject, onMounted } from "vue";
 import { observeAbout } from "@/components/Shared/observer.js";
+import Tech from "./Tech.vue";
 
 const screen = inject("screen");
 onMounted(() => observeAbout());
@@ -174,6 +183,8 @@ onMounted(() => observeAbout());
     flex-direction: row;
     align-items: flex-start;
     column-gap: 48px;
+    font-size: var(--fontS);
+    font-weight: 400;
     &--xs,
     &--sm {
       flex-direction: column;
@@ -186,8 +197,6 @@ onMounted(() => observeAbout());
     margin-top: 28px;
     flex-direction: column;
     row-gap: 16px;
-    font-size: var(--fontS);
-    font-weight: 400;
     opacity: 0;
     span {
       color: var(--activeTextColor);

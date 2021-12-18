@@ -431,10 +431,7 @@ const imgStyle = computed(() => {
 
 <style lang="scss" scoped>
 .HeroImg {
-  width: min(min(49vw, calc(var(--vh) * 49)), 555px);
-  &--xs {
-    width: min(69vw, calc(var(--vh) * 69));
-  }
+  width: clamp(222px, 69vw, 555px);
 }
 #HeroVector {
   animation: 0.88s ease-in-out forwards inFromRight;

@@ -51,15 +51,15 @@ const contentStyle = computed(() => {
     "--textColorDark": "#0A2540",
     "--textColor": isDark.value ? "#fdfdff" : "#0A2540",
     "--fadeColor": isDark.value ? "#ece4ff10" : "#ece4ff",
-    "--activeTextColor": isDark.value ? "#D5C6FF" : "#7253C6",
+    "--activeTextColor": isDark.value ? "#D5C6FF" : "#8E6FE2",
     "--bgColor": isDark.value ? "#2d2d2e" : "#f6f2ff",
     "--secondBgColor": isDark.value ? "#272729" : "#F8F7FD",
     "--fontL": screen.type.value != "xs" ? "36px" : "32px",
     "--fontM": screen.type.value != "xs" ? "24px" : "20px",
     "--fontS": screen.type.value != "xs" ? "18px" : "16px",
-    "--fontXS": "16px",
-    "--fontXXS": "15px",
-    "--fontXXXS": "14px",
+    "--fontXS": screen.type.value != "xs" ? "16px" : "15px",
+    "--fontXXS": screen.type.value != "xs" ? "15px" : "14px",
+    "--fontXXXS": screen.type.value != "xs" ? "14px" : "13px",
     "--pillPaddingL": "16px 40px",
     "--pillPaddingM": "10px 24px",
     "--pillPaddingS": "8px 16px",
@@ -87,7 +87,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   text-align: left;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
 }
 
 * {
@@ -102,6 +102,17 @@ html {
   background-color: var(--bgColor);
   transition: var(--bgTransition);
   color: var(--textColor);
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 10vh, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* nunito-regular - latin */
@@ -218,16 +229,5 @@ html {
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
-
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 10vh, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
 }
 </style>

@@ -17,8 +17,8 @@ function observeAbout() {
     rootMargin: "0px",
     threshold: 0.123,
   });
-  // profile is a special case
-  // for mobile this section is in the bottom
+  // profile, tech is a special case
+  // for mobile these sections are in the bottom
   // need to wait for it into viewport sep.
   const profile = document.getElementById("profile");
   const profileCallBack = (entries, observer) => {
@@ -33,9 +33,23 @@ function observeAbout() {
     rootMargin: "64px",
     threshold: 0.123,
   });
+  const tech = document.getElementsByClassName("Tech")[0];
+  const techCallBack = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        tech.style.animation = "fadeUp 0.55s ease-in-out 0.69s forwards";
+        observer.unobserve(profile);
+      }
+    });
+  };
+  const techObserver = new IntersectionObserver(techCallBack, {
+    rootMargin: "32px",
+    threshold: 0.123,
+  });
 
   aboutObserver.observe(about);
   profileObserver.observe(profile);
+  techObserver.observe(tech);
 }
 
 export { observeAbout };

@@ -21,7 +21,7 @@ import { provide, ref, computed, onMounted } from "vue";
 const isLoading = ref(true);
 onMounted(() => {
   setTimeout(() => {
-    isLoading.value = false;
+    // isLoading.value = false;
   }, 2750);
 });
 

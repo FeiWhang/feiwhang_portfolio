@@ -73,11 +73,6 @@
               <span>animation</span> to create even more
               <span>impactful experience</span>.
             </p>
-            <p>
-              My first ever project is to redesign one of my friend’s business
-              website. It makes me realize how <span>powerful</span> a good
-              <span>design</span> can be.
-            </p>
           </section>
           <br />
           <Tech v-if="!['xs', 'sm'].includes(screen.type.value)" />

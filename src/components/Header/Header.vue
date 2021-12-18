@@ -6,71 +6,36 @@
         class="Header__logo"
         :class="'Header__logo--' + screen.type.value"
       >
-        <svg viewBox="0 0 64 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="Logo">
+            <rect width="96" height="96" rx="22" fill="#7253C6" />
             <g id="F">
               <path
                 id="F1"
-                d="M4 6V30"
-                stroke="#8E6FE2"
-                stroke-width="4"
+                d="M29 18L29 81"
+                stroke="white"
+                stroke-width="16"
                 stroke-linecap="round"
-                stroke-linejoin="round"
+              />
+              <circle id="E1" cx="29" cy="19" r="8" fill="#7253C6" />
+              <circle id="E2" cx="29" cy="52" r="8" fill="#7253C6" />
+              <path
+                id="F3"
+                d="M62 52H34"
+                stroke="white"
+                stroke-width="16"
+                stroke-linecap="round"
               />
               <path
                 id="F2"
-                d="M10 6H23"
-                stroke="#8E6FE2"
-                stroke-width="4"
+                d="M73 19L37 19"
+                stroke="white"
+                stroke-width="16"
                 stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                id="F3"
-                d="M10 17H14.5H19"
-                stroke="#8E6FE2"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </g>
-            <g id="W">
-              <path
-                id="W1"
-                d="M32 6L35.5 18"
-                stroke="#8E6FE2"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                id="W2"
-                d="M39 30L46 6"
-                stroke="#8E6FE2"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                id="W3"
-                d="M46 6L49.5 18"
-                stroke="#8E6FE2"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                id="W4"
-                d="M53 30L60 6"
-                stroke="#8E6FE2"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
               />
             </g>
           </g>
         </svg>
-        LogoLink
       </a>
       <div
         class="Header__action"
@@ -314,16 +279,16 @@ provide("isMobileNavOpened", isMobileNavOpened);
     svg {
       display: block;
       margin: auto;
-      width: 64px;
+      width: 42px;
     }
     &--sm {
       svg {
-        width: 56px;
+        width: 38px;
       }
     }
     &--xs {
       svg {
-        width: 48px;
+        width: 36px;
       }
     }
   }

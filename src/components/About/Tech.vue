@@ -1,5 +1,5 @@
 <template>
-  <section class="Tech">
+  <section class="Tech" :class="'Tech--' + screen.type.value">
     <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="TechLogo">
         <g id="board">
@@ -56,7 +56,7 @@
         </g>
       </g>
     </svg>
-    <h3 class="Tech__title">Tools I've used</h3>
+    <h3 class="Tech__title">Technologies I've used</h3>
     <div class="Tech__list" :class="'Tech__list--' + screen.type.value">
       <p class="Tech__item">
         <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -223,6 +223,12 @@ const screen = inject("screen");
 
 <style lang="scss" scoped>
 .Tech {
+  opacity: 0;
+  margin-top: 32px;
+  &--xs,
+  &--sm {
+    margin-top: 16px;
+  }
   svg {
     width: 48px;
     #cog {
@@ -234,14 +240,13 @@ const screen = inject("screen");
     }
   }
   &__title {
-    margin-top: 12px;
+    margin-top: 16px;
     font-family: "Lexend Deca";
-    font-size: var(--fontXS);
+    font-size: var(--fontS);
     font-weight: 600;
     &::before {
       content: "";
       margin-right: 12px;
-
       border: 1px solid var(--activeTextColor);
     }
   }
@@ -255,7 +260,7 @@ const screen = inject("screen");
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    column-gap: 16px;
+    column-gap: 12px;
     font-size: var(--fontXS);
     svg {
       width: 18px;

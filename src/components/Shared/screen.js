@@ -8,7 +8,7 @@ export default function getScreen() {
   const onScrollChange = () => (scroll.value = window.scrollY);
   onMounted(() => {
     window.addEventListener("resize", onWidthChange);
-    window.addEventListener("scroll", onScrollChange);
+    window.addEventListener("scroll", onScrollChange, { passive: true });
   });
   onUnmounted(() => {
     window.removeEventListener("resize", onWidthChange);

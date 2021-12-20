@@ -43,8 +43,8 @@ function observeAbout() {
     });
   };
   const techObserver = new IntersectionObserver(techCallBack, {
-    rootMargin: "32px",
-    threshold: 0.123,
+    rootMargin: "0px",
+    threshold: 0.088,
   });
 
   aboutObserver.observe(about);
@@ -52,4 +52,25 @@ function observeAbout() {
   techObserver.observe(tech);
 }
 
-export { observeAbout };
+function observeProject() {
+  const project = document.querySelector("#project");
+  const projectCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const subtitle =
+          document.getElementsByClassName("Project__subtitle")[0];
+        const title = document.getElementsByClassName("Project__title")[0];
+        subtitle.style.animation = "fadeUp 0.55s ease-in-out 0.123s forwards";
+        title.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
+        observer.unobserve(project);
+      }
+    });
+  };
+  const projectObserver = new IntersectionObserver(projectCallback, {
+    rootMargin: "0px",
+    threshold: 0.123,
+  });
+
+  projectObserver.observe(project);
+}
+export { observeAbout, observeProject };

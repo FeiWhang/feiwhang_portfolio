@@ -1,11 +1,13 @@
 <template>
   <Loading v-if="isLoading" />
   <div id="content" v-if="!isLoading" :style="contentStyle">
+    <div id="star_s"></div>
+    <div id="star_m"></div>
+    <div id="star_l"></div>
     <Header />
     <Home />
     <About />
-    <div class="tmp"></div>
-    <!-- <Project /> -->
+    <Project />
   </div>
 </template>
 
@@ -15,13 +17,13 @@ import Header from "@/components/Header/Header.vue";
 import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
 import About from "@/components/About/About.vue";
-// import Project from "@/views/Project.vue";
+import Project from "@/components/Project/Project.vue";
 import { provide, ref, computed, onMounted } from "vue";
 
 const isLoading = ref(true);
 onMounted(() => {
   setTimeout(() => {
-    // isLoading.value = false;
+    isLoading.value = false;
   }, 2750);
 });
 
@@ -34,13 +36,14 @@ const userTheme = localStorage.getItem("user-theme");
 if (userTheme) {
   userTheme === "dark" ? (isDark.value = true) : (isDark.value = false);
 }
+console.log(window.innerWidth);
 
 const contentStyle = computed(() => {
   return {
     "--layoutWidth": "1264px",
     "--secondLayoutWidth": "960px",
     "--layoutPadding": screen.width.value > 1264 ? "32px" : "16px",
-    "--sectionSpace": "5rem",
+    "--sectionSpace": screen.width.value > 960 ? "11.11rem" : "5.5rem",
     "--lightestPurple": "#ece4ff",
     "--lighterPurple": "#D5C6FF",
     "--lightPurple": "#8E6FE2",
@@ -52,8 +55,9 @@ const contentStyle = computed(() => {
     "--textColor": isDark.value ? "#fdfdff" : "#0A2540",
     "--fadeColor": isDark.value ? "#ece4ff10" : "#ece4ff",
     "--activeTextColor": isDark.value ? "#D5C6FF" : "#8E6FE2",
-    "--bgColor": isDark.value ? "#2d2d2e" : "#f6f2ff",
-    "--secondBgColor": isDark.value ? "#272729" : "#F8F7FD",
+    "--shadowColor": isDark.value ? "#644ca6" : "#D5C6FF",
+    "--bgColor": isDark.value ? "#2d2d2e" : "#F8F7FD",
+    "--secondBgColor": isDark.value ? "#272729" : "#f2edfa",
     "--fontL": screen.type.value != "xs" ? "36px" : "32px",
     "--fontM": screen.type.value != "xs" ? "24px" : "20px",
     "--fontS": screen.type.value != "xs" ? "18px" : "16px",
@@ -65,6 +69,7 @@ const contentStyle = computed(() => {
     "--pillPaddingS": "8px 16px",
     "--bgTransition": " background-color 0.3s ease-in-out",
     "--vh": window.innerHeight * 0.01 + "px",
+    "--starColor": isDark.value ? "#a4a1ab" : "#a4a1ab",
   };
 });
 
@@ -77,6 +82,8 @@ provide("isDark", isDark);
 </script>
 
 <style lang="scss">
+@import "./components/Shared/starBg.scss";
+
 html {
   scroll-behavior: smooth;
   background-color: none;
@@ -94,9 +101,6 @@ html {
   padding: 0;
   margin: 0;
 }
-.tmp {
-  min-height: 100vh;
-}
 
 #content {
   background-color: var(--bgColor);
@@ -107,7 +111,7 @@ html {
 @keyframes fadeUp {
   0% {
     opacity: 0;
-    transform: translate3d(0, 10vh, 0);
+    transform: translate3d(0, 2rem, 0);
   }
   100% {
     opacity: 1;

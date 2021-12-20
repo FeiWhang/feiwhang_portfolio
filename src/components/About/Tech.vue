@@ -224,7 +224,8 @@ const screen = inject("screen");
 <style lang="scss" scoped>
 .Tech {
   opacity: 0;
-  margin-top: 32px;
+  margin-top: 24px;
+  margin-left: 16px;
   &--xs,
   &--sm {
     margin-top: 16px;
@@ -235,7 +236,7 @@ const screen = inject("screen");
       transform: rotate(0);
       transform-origin: center;
       transform-box: fill-box;
-      animation: rotation 5s ease-in-out infinite;
+      animation: rotation 3.45s ease-in-out infinite;
       backface-visibility: hidden;
     }
   }
@@ -248,22 +249,31 @@ const screen = inject("screen");
       content: "";
       margin-right: 12px;
       border: 1px solid var(--activeTextColor);
+      border-radius: 4px;
     }
   }
   &__list {
     display: grid;
-    row-gap: 8px;
+    row-gap: 12px;
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 16px;
+    margin-top: 24px;
   }
   &__item {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    column-gap: 12px;
+    column-gap: 16px;
     font-size: var(--fontXS);
     svg {
-      width: 18px;
+      width: 28px;
+      backface-visibility: hidden;
+      transition: filter 0.2s ease-in-out;
+      filter: saturate(0) drop-shadow(0 0 4px var(--shadowColor));
+    }
+    &:hover {
+      svg {
+        filter: saturate(1) drop-shadow(0 0 4px var(--shadowColor));
+      }
     }
   }
 }
@@ -274,10 +284,13 @@ const screen = inject("screen");
     transform: rotate(0);
   }
   25% {
-    transform: rotate(-45deg);
+    transform: rotate(-25deg);
+  }
+  50% {
+    transform: rotate(0);
   }
   75% {
-    transform: rotate(90deg);
+    transform: rotate(30deg);
   }
   100% {
     transform: rotate(0);

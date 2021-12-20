@@ -11,7 +11,7 @@
             stroke-width="16"
             stroke-linecap="round"
           />
-          <circle id="E1" cx="29" cy="19" r="8" fill="#7253C6" />
+          <circle id="E1" cx="29" cy="18" r="9" fill="#7253C6" />
           <circle id="E2" cx="29" cy="52" r="8" fill="#7253C6" />
           <path
             id="F3"
@@ -21,9 +21,8 @@
             stroke-linecap="round"
           />
           <path
-            ref="path"
             id="F2"
-            d="M73 19L37 19"
+            d="M73 18L37 18"
             stroke="white"
             stroke-width="16"
             stroke-linecap="round"
@@ -33,15 +32,6 @@
     </svg>
   </div>
 </template>
-
-<script setup>
-// import { ref, onMounted } from "vue";
-
-// const path = ref(null);
-// onMounted(() => {
-//   console.log(path.value.getTotalLength());
-// });
-</script>
 
 <style lang="scss" scoped>
 #loading {

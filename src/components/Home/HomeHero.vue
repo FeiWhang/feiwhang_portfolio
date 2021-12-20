@@ -26,7 +26,7 @@
     <div class="HomeHero__ctaContainer">
       <LinkGo
         to="#Project"
-        title="My Project"
+        title="My project"
         bgColor="var(--purple)"
         hoverColor="var(--lightPurple)"
         padding="var(--pillPaddingS)"

@@ -8,7 +8,7 @@
       >
         <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="Logo">
-            <rect width="96" height="96" rx="22" fill="#7253C6" />
+            <rect id="outer" width="96" height="96" rx="22" fill="#7253C6" />
             <g id="F">
               <path
                 id="F1"
@@ -17,7 +17,7 @@
                 stroke-width="16"
                 stroke-linecap="round"
               />
-              <circle id="E1" cx="29" cy="19" r="8" fill="#7253C6" />
+              <circle id="E1" cx="29" cy="18" r="8" fill="#7253C6" />
               <circle id="E2" cx="29" cy="52" r="8" fill="#7253C6" />
               <path
                 id="F3"
@@ -28,7 +28,7 @@
               />
               <path
                 id="F2"
-                d="M73 19L37 19"
+                d="M73 18L37 18"
                 stroke="white"
                 stroke-width="16"
                 stroke-linecap="round"
@@ -241,7 +241,7 @@ const headerStyle = computed(() => {
       screen.scroll.value > window.innerHeight * 0.1
         ? isDark.value
           ? "#272729F5"
-          : "#F8F7FDF3"
+          : "#f6f2ffF3"
         : "transparent",
   };
 });

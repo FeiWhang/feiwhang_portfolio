@@ -88,12 +88,6 @@
           >
             <g id="Profile_frame">
               <g id="Profile">
-                <path
-                  id="profile_shadow"
-                  opacity="0.23"
-                  d="M152.5 368C224.021 368 282 348.972 282 325.5C282 302.028 224.021 283 152.5 283C80.9791 283 23 302.028 23 325.5C23 348.972 80.9791 368 152.5 368Z"
-                  fill="#7253C6"
-                />
                 <g id="profile_main">
                   <rect
                     id="profile_img"
@@ -151,10 +145,9 @@ onMounted(() => observeAbout());
 
 <style lang="scss" scoped>
 .AboutContainer {
-  margin: 0 auto;
+  margin: var(--sectionSpace) auto;
   min-width: 300px;
   max-width: var(--secondLayoutWidth);
-  padding: var(--sectionSpace) 0;
 }
 .About {
   max-width: var(--layoutWidth);
@@ -184,7 +177,7 @@ onMounted(() => observeAbout());
     &--sm {
       flex-direction: column;
       align-items: center;
-      row-gap: 48px;
+      row-gap: 32px;
     }
   }
   &__text {
@@ -205,6 +198,10 @@ onMounted(() => observeAbout());
     opacity: 0;
   }
   &__profileVector {
+    will-change: filter;
+    filter: drop-shadow(-4px 12px 12px var(--shadowColor));
+    backface-visibility: hidden;
+    transition: filter 0.3s ease-in-out;
     width: 288px;
     &--sm {
       width: 255px;
@@ -214,7 +211,7 @@ onMounted(() => observeAbout());
     }
     #profile_main {
       backface-visibility: hidden;
-      transform: translate3d(0, -16px, 0);
+      transform: translate3d(0, 16px, 0);
       transition: transform 0.3s ease-in-out;
       will-change: transform;
     }
@@ -223,28 +220,16 @@ onMounted(() => observeAbout());
       backface-visibility: hidden;
       transition: opacity 0.3s ease-in-out;
       will-change: opacity;
+      fill: var(--shadowColor);
     }
-    #profile_shadow {
-      opacity: 0.123;
-      backface-visibility: hidden;
-      transform: scale(0.88);
-      transform-origin: center;
-      transform-box: fill-box;
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-      will-change: opacity, transform;
-    }
+
     &:hover {
+      filter: drop-shadow(0 0 4px var(--shadowColor));
       #profile_main {
         transform: translate3d(0, 0, 0);
       }
       #profile_filter {
         opacity: 0.123;
-      }
-      #profile_shadow {
-        opacity: 0.234;
-        transform: scale(0.85);
-        transform-origin: center;
-        transform-box: fill-box;
       }
     }
     hr {

@@ -8,32 +8,29 @@
       >
         <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="Logo">
-            <rect id="outer" width="96" height="96" rx="22" fill="#7253C6" />
             <g id="F">
               <path
-                id="F1"
-                d="M29 18L29 81"
-                stroke="white"
-                stroke-width="16"
-                stroke-linecap="round"
-              />
-              <circle id="E1" cx="29" cy="18" r="8" fill="#7253C6" />
-              <circle id="E2" cx="29" cy="52" r="8" fill="#7253C6" />
-              <path
                 id="F3"
-                d="M62 52H34"
-                stroke="white"
+                d="M62.5 52H34.5"
+                stroke="#8E6FE2"
                 stroke-width="16"
                 stroke-linecap="round"
               />
               <path
                 id="F2"
                 d="M73 18L37 18"
-                stroke="white"
+                stroke="#8E6FE2"
                 stroke-width="16"
                 stroke-linecap="round"
               />
             </g>
+            <path
+              id="F1"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M37 18C37 22.4183 33.4183 26 29 26C24.5817 26 21 22.4183 21 18L21 51.9951C21.0027 47.5791 24.5834 44 29 44C33.4183 44 37 47.5817 37 52C37 56.4183 33.4183 60 29 60C24.5834 60 21.0027 56.4209 21 52.0049L21 81C21 85.4183 24.5817 89 29 89C33.4183 89 37 85.4183 37 81L37 52V18Z"
+              fill="#8E6FE2"
+            />
           </g>
         </svg>
       </a>

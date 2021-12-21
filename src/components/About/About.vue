@@ -75,7 +75,7 @@
             </p>
           </section>
           <br />
-          <Tech v-if="!['xs', 'sm'].includes(screen.type.value)" />
+          <Tech />
         </div>
         <picture id="profile" class="About__profile">
           <svg
@@ -129,7 +129,6 @@
           </svg>
         </picture>
       </div>
-      <Tech v-if="['xs', 'sm'].includes(screen.type.value)" />
     </div>
   </section>
 </template>

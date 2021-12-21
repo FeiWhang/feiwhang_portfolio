@@ -1,5 +1,5 @@
 <template>
-  <section class="Tech" :class="'Tech--' + screen.type.value">
+  <section class="Tech">
     <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g id="TechLogo">
         <g id="board">
@@ -56,7 +56,7 @@
         </g>
       </g>
     </svg>
-    <h3 class="Tech__title">Technologies I've used</h3>
+    <h3 class="Tech__title">Some technologies I've used</h3>
     <div class="Tech__list" :class="'Tech__list--' + screen.type.value">
       <p class="Tech__item">
         <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -224,12 +224,7 @@ const screen = inject("screen");
 <style lang="scss" scoped>
 .Tech {
   opacity: 0;
-  margin-top: 24px;
-  margin-left: 16px;
-  &--xs,
-  &--sm {
-    margin-top: 16px;
-  }
+  margin: 8px 0;
   svg {
     width: 48px;
     #cog {
@@ -241,12 +236,15 @@ const screen = inject("screen");
     }
   }
   &__title {
+    display: flex;
+    align-items: center;
     margin-top: 16px;
     font-family: "Lexend Deca";
     font-size: var(--fontS);
     font-weight: 600;
     &::before {
       content: "";
+      height: var(--fontS);
       margin-right: 12px;
       border: 1px solid var(--activeTextColor);
       border-radius: 4px;

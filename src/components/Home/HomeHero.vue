@@ -92,6 +92,7 @@ const screen = inject("screen");
       font-size: var(--fontS);
       color: var(--textColor);
       font-weight: 600;
+      letter-spacing: 0.88px;
     }
   }
   &__ctaContainer {

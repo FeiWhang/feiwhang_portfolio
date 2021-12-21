@@ -44,7 +44,7 @@ $duration: 0.55s;
   svg {
     margin: auto;
     width: min(25vw, 256px);
-    animation: zoomFadeAway $duration ease-in-out 1.69s forwards;
+    animation: zoomFadeAway $duration ease-in-out 1.75s forwards;
     backface-visibility: hidden;
   }
 }
@@ -99,7 +99,7 @@ $duration: 0.55s;
   }
   100% {
     opacity: 0;
-    transform: scale(0.69) translateZ(0);
+    transform: scale(0.123) translateZ(0);
   }
 }
 </style>

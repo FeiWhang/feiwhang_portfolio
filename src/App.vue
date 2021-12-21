@@ -22,7 +22,7 @@ const isLoading = ref(true);
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false;
-  }, 2399);
+  }, 2500);
 });
 
 const screen = getScreen();
@@ -40,7 +40,9 @@ const contentStyle = computed(() => {
     "--layoutWidth": "1264px",
     "--secondLayoutWidth": "960px",
     "--layoutPadding": screen.width.value > 1264 ? "32px" : "16px",
-    "--sectionSpace": screen.width.value > 960 ? "9.9rem" : "6.9rem",
+    "--sectionSpace": screen.width.value > 960 ? "6.9rem" : "3.99rem",
+    "--subsectionSpace": screen.width.value > 960 ? "3.33rem" : "2.22rem",
+    "--componentSpace": screen.width.value > 960 ? "1.11rem" : "0.88rem",
     "--lightestPurple": "#ece4ff",
     "--lighterPurple": "#D5C6FF",
     "--lightPurple": "#8E6FE2",
@@ -56,7 +58,7 @@ const contentStyle = computed(() => {
     "--bgColor": isDark.value ? "#2d2d2e" : "#F8F7FD",
     "--secondBgColor": isDark.value ? "#272729" : "#f2edfa",
     "--fontL": screen.type.value != "xs" ? "36px" : "32px",
-    "--fontM": screen.type.value != "xs" ? "24px" : "20px",
+    "--fontM": screen.type.value != "xs" ? "22px" : "20px",
     "--fontS": screen.type.value != "xs" ? "18px" : "16px",
     "--fontXS": screen.type.value != "xs" ? "16px" : "15px",
     "--fontXXS": screen.type.value != "xs" ? "15px" : "14px",

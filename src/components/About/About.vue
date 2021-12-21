@@ -144,7 +144,8 @@ onMounted(() => observeAbout());
 
 <style lang="scss" scoped>
 .AboutContainer {
-  margin: var(--sectionSpace) auto;
+  margin: 0 auto;
+  padding: var(--sectionSpace) 0;
   min-width: 300px;
   max-width: var(--secondLayoutWidth);
 }

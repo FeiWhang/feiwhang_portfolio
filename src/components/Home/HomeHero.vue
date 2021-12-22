@@ -25,7 +25,7 @@
     </p>
     <div class="HomeHero__ctaContainer">
       <LinkGo
-        to="#Project"
+        to="#project"
         title="My project"
         bgColor="var(--purple)"
         hoverColor="var(--lightPurple)"

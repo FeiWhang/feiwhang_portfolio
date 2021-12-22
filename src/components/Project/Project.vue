@@ -9,16 +9,48 @@
         <div
           class="ProjectItem"
           v-for="(project, index) in projects"
-          :id="'ProjectItem_' + index"
           :key="index"
+          :style="{
+            padding: ['xs'].includes(screen.type.value) ? '16px' : 'none',
+          }"
         >
           <img
             :src="project.imgSrc"
             alt=""
-            class="ProjectItem__image"
-            v-if="index % 2 != 0"
+            class="ProjectItem__mobileImage"
+            :class="'ProjectItem__image--' + index"
+            v-if="['xs'].includes(screen.type.value)"
           />
-          <div class="ProjectItem__content" id="ProjectItemContent">
+          <img
+            :src="project.imgSrc"
+            alt=""
+            class="ProjectItem__image"
+            :class="'ProjectItem__image--' + index"
+            v-if="index % 2 != 0 && !['xs'].includes(screen.type.value)"
+          />
+          <div
+            class="ProjectItem__content"
+            :style="{
+              'margin-right':
+                index % 2 == 0 && !['xs'].includes(screen.type.value)
+                  ? '-128px'
+                  : '0px',
+              'margin-left':
+                index % 2 != 0 && !['xs'].includes(screen.type.value)
+                  ? '-128px'
+                  : '0px',
+              'align-items': ['xs'].includes(screen.type.value)
+                ? 'flex-start'
+                : index % 2 == 0
+                ? 'flex-start'
+                : 'flex-end',
+              'text-align': ['xs'].includes(screen.type.value)
+                ? 'left'
+                : index % 2 == 0
+                ? 'left'
+                : 'right',
+            }"
+          >
             <p class="ProjectItem__category">{{ project.category }}</p>
             <h2 class="ProjectItem__title">{{ project.title }}</h2>
             <p class="ProjectItem__description">{{ project.description }}</p>
@@ -28,7 +60,8 @@
             :src="project.imgSrc"
             alt=""
             class="ProjectItem__image"
-            v-if="index % 2 == 0"
+            :class="'ProjectItem__image--' + index"
+            v-if="index % 2 == 0 && !['xs'].includes(screen.type.value)"
           />
         </div>
       </div>
@@ -37,11 +70,12 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, inject } from "vue";
 import { observeProject } from "@/components/Shared/observer.js";
 
 onMounted(() => observeProject());
 
+const screen = inject("screen");
 const projects = [
   {
     category: "Side project",
@@ -49,7 +83,7 @@ const projects = [
     description:
       "A visualisation website for blockchain. You can see the building block of the blockchain and how are all the blocks chained together to create a secure and immutable distributed database.",
     tag: ["HTML", "CSS", "Vue.js"],
-    // imgSrc: require("@/assets/project_0.png"),
+    imgSrc: require("@/assets/project_0.png"),
   },
   {
     category: "College project",
@@ -97,6 +131,11 @@ const projects = [
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 4px;
   &__content {
     display: flex;
     flex-direction: column;
@@ -104,20 +143,38 @@ const projects = [
     text-align: left;
     z-index: 5;
   }
+
   &__image {
     z-index: 1;
-    width: 650px;
+    width: clamp(300px, 55vw, 650px);
     border-radius: 8px;
-    filter: saturate(0.088) opacity(0.188)
+    filter: saturate(0.123) opacity(0.123)
       drop-shadow(0 0 4px var(--shadowColor));
     backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
     transition: all 0.345s ease-in-out;
     &:hover {
-      animation: moveLeft 0.69s ease-in-out;
+      animation: revealCard 0.69s ease-in-out;
       z-index: 6;
-      filter: saturate(1) opacity(1) drop-shadow(0 0 4px var(--shadowColor));
+      filter: saturate(0.88) opacity(0.88)
+        drop-shadow(0 0 4px var(--shadowColor));
     }
+    &--0 {
+      --offset: 16px;
+    }
+    &--1 {
+      --offset: -16px;
+    }
+  }
+  &__mobileImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.088) opacity(0.055)
+      drop-shadow(0 0 4px var(--shadowColor));
   }
   &__category {
     font-size: var(--fontXXXS);
@@ -134,8 +191,9 @@ const projects = [
     color: var(--bodyTextColor);
     margin: var(--componentSpace) 0;
     padding: var(--componentSpace);
-    width: 500px;
+    max-width: 500px;
     background-color: var(--secondBgColor);
+    transition: var(--bgTransition);
     border-radius: 8px;
   }
   &__tag {
@@ -144,21 +202,13 @@ const projects = [
   }
 }
 
-#ProjectItem_1 {
-  #ProjectItemContent {
-    align-items: flex-end;
-    text-align: right;
-    margin-left: -156px;
-  }
-}
-
 // animations
-@keyframes moveLeft {
+@keyframes revealCard {
   0% {
     transform: translate3d(0, 0, 0);
   }
   25% {
-    transform: translate3d(-32px, 0, 0) rotateY(10deg) rotateZ(-1deg);
+    transform: translate3d(var(--offset), 0, 0) rotateY(8deg);
   }
   100% {
     transform: translate3d(0, 0, 0);

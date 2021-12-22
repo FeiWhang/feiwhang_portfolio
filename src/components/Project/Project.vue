@@ -60,8 +60,13 @@
             <p class="ProjectItem__category">{{ project.category }}</p>
             <h2 class="ProjectItem__title">{{ project.title }}</h2>
             <p class="ProjectItem__description">{{ project.description }}</p>
-            <p class="ProjectItem__tag">{{ project.tag.join(" ") }}</p>
-            <div class="ProjectItem__links">
+            <p class="ProjectItem__tag">
+              {{ project.tag.join(" ") }}
+            </p>
+            <div
+              class="ProjectItem__links"
+              :class="'ProjectItem__links--' + screen.type.value"
+            >
               <a
                 :href="project.githubUrl"
                 class="ProjectItem__link"
@@ -207,6 +212,7 @@ const projects = [
   position: relative;
   will-change: box-shadow;
   transition: box-shadow 0.25s ease-in-out;
+  opacity: 0;
   &__content {
     display: flex;
     flex-direction: column;
@@ -273,8 +279,12 @@ const projects = [
   }
   &__links {
     display: flex;
+    align-items: center;
     column-gap: 16px;
     margin-top: var(--componentSpace);
+    &--xs {
+      align-self: flex-end;
+    }
     svg {
       width: var(--fontM);
       filter: drop-shadow(0 0 4px var(--shadowColor));

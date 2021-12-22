@@ -71,6 +71,35 @@ function observeProject() {
     threshold: 0.123,
   });
 
+  const item0 = document.getElementsByClassName("ProjectItem")[0];
+  const item1 = document.getElementsByClassName("ProjectItem")[1];
+  const item0Callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        item0.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
+        observer.unobserve(item0);
+      }
+    });
+  };
+  const item1Callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        item1.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
+        observer.unobserve(item1);
+      }
+    });
+  };
+  const item0Observer = new IntersectionObserver(item0Callback, {
+    rootMargin: "48px",
+    threshold: 0.234,
+  });
+  const item1Observer = new IntersectionObserver(item1Callback, {
+    rootMargin: "48px",
+    threshold: 0.234,
+  });
+
   projectObserver.observe(project);
+  item0Observer.observe(item0);
+  item1Observer.observe(item1);
 }
 export { observeAbout, observeProject };

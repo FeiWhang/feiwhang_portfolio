@@ -41,7 +41,7 @@ const contentStyle = computed(() => {
     "--layoutPadding": screen.width.value > 1264 ? "32px" : "16px",
     "--sectionSpace": screen.width.value > 960 ? "8rem" : "5rem",
     "--subsectionSpace": screen.width.value > 960 ? "3.33rem" : "2.22rem",
-    "--componentSpace": screen.width.value > 960 ? "1.11rem" : "0.88rem",
+    "--componentSpace": screen.width.value > 960 ? "1.23rem" : "1.088rem",
     "--lightestPurple": "#ece4ff",
     "--lighterPurple": "#D5C6FF",
     "--lightPurple": "#8E6FE2",

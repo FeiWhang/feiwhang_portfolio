@@ -5,7 +5,6 @@
     <Home />
     <About />
     <Project />
-    <div id="tmp"></div>
   </div>
 </template>
 
@@ -82,10 +81,6 @@ provide("isDark", isDark);
 
 <style lang="scss">
 @import "./components/Shared/fonts.scss";
-#tmp {
-  height: 50vh;
-}
-
 * {
   padding: 0;
   margin: 0;

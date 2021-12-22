@@ -238,7 +238,7 @@ const headerStyle = computed(() => {
       screen.scroll.value > window.innerHeight * 0.1
         ? isDark.value
           ? "#272729F5"
-          : "#f6f2ffF3"
+          : "#f6f5ffF3"
         : "transparent",
   };
 });

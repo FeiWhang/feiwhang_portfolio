@@ -146,6 +146,7 @@ onMounted(() => observeAbout());
 .AboutContainer {
   margin: 0 auto;
   padding: var(--sectionSpace) 0;
+  padding-top: 6.9rem;
   min-width: 300px;
   max-width: var(--secondLayoutWidth);
 }
@@ -186,6 +187,7 @@ onMounted(() => observeAbout());
     flex-direction: column;
     row-gap: 16px;
     opacity: 0;
+    color: var(--bodyTextColor);
     span {
       color: var(--activeTextColor);
       svg {

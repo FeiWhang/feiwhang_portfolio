@@ -102,4 +102,26 @@ function observeProject() {
   item0Observer.observe(item0);
   item1Observer.observe(item1);
 }
-export { observeAbout, observeProject };
+
+function observeContact() {
+  const contact = document.querySelector("#contact");
+  const contactCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const subtitle =
+          document.getElementsByClassName("Contact__subtitle")[0];
+        const title = document.getElementsByClassName("Contact__title")[0];
+        subtitle.style.animation = "fadeUp 0.55s ease-in-out 0.123s forwards";
+        title.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
+        observer.unobserve(contact);
+      }
+    });
+  };
+  const contactObserver = new IntersectionObserver(contactCallback, {
+    rootMargin: "0px",
+    threshold: 0.123,
+  });
+
+  contactObserver.observe(contact);
+}
+export { observeAbout, observeProject, observeContact };

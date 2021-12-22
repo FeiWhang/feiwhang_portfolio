@@ -5,6 +5,7 @@
     <Home />
     <About />
     <Project />
+    <Contact />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
 import About from "@/components/About/About.vue";
 import Project from "@/components/Project/Project.vue";
+import Contact from "@/components/Contact/Contact.vue";
 import { provide, ref, computed, onMounted } from "vue";
 
 const isLoading = ref(true);

@@ -434,7 +434,8 @@ const imgStyle = computed(() => {
   width: clamp(222px, 69vw, 555px);
 }
 #HeroVector {
-  animation: 0.88s ease-in-out forwards inFromRight;
+  opacity: 0;
+  animation: 0.88s ease-in-out 2.5s forwards inFromRight;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   #globe_center {

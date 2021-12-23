@@ -1,6 +1,6 @@
 <template>
-  <Loading v-if="isLoading" />
-  <div id="content" v-if="!isLoading" :style="contentStyle">
+  <div id="content" :style="contentStyle">
+    <Loading v-if="isLoading" />
     <Header />
     <Home />
     <About />

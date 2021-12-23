@@ -26,7 +26,8 @@ import HomeHero from "@/components/Home/HomeHero.vue";
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
-    animation: fadeIn 1.5s ease-in-out forwards;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out 2.45s forwards;
   }
   .HomeContainer {
     height: calc(var(--vh) * 100);

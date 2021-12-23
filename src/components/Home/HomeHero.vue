@@ -65,7 +65,7 @@ const screen = inject("screen");
   margin: auto 0;
   color: var(--textColor);
   &__title {
-    animation: fadeUp 0.55s ease-in-out forwards;
+    animation: fadeUp 0.55s ease-in-out 2.45s forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;
@@ -78,7 +78,7 @@ const screen = inject("screen");
     color: var(--activeTextColor);
   }
   &__subtitle {
-    animation: fadeUp 0.55s ease-in-out 0.123s forwards;
+    animation: fadeUp 0.55s ease-in-out 2.573s forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;
@@ -100,7 +100,7 @@ const screen = inject("screen");
     column-gap: 8px;
   }
   &__cta {
-    animation: fadeUp 0.55s ease-in-out 0.234s forwards;
+    animation: fadeUp 0.55s ease-in-out 2.684s forwards;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     opacity: 0;

@@ -258,7 +258,8 @@ provide("isMobileNavOpened", isMobileNavOpened);
   background: var(--headerBgColor);
   transition: var(--bgTransition);
   backdrop-filter: blur(4px);
-  animation: moveDown 0.88s ease-in-out forwards;
+  opacity: 0;
+  animation: moveDown 0.88s ease-in-out 2.45s forwards;
   &__container {
     min-width: 314px;
     max-width: var(--layoutWidth);
@@ -397,9 +398,11 @@ provide("isMobileNavOpened", isMobileNavOpened);
 }
 @keyframes moveDown {
   0% {
+    opacity: 0;
     transform: translate3d(0, calc(var(--vh) * (-8)), 0);
   }
   100% {
+    opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }

@@ -1,9 +1,9 @@
 <template>
   <section id="project" class="Project">
-    <div class="ProjectContainer">
+    <div class="SectionContainer">
       <header class="Project__header">
-        <h2 class="Project__subtitle">Project</h2>
-        <h1 class="Project__title">Things I've built</h1>
+        <h2 class="SectionSubtitle" id="ProjectSubtitle">Project</h2>
+        <h1 class="SectionTitle" id="ProjectTitle">Things I've built</h1>
       </header>
       <div class="Project__body">
         <div
@@ -172,29 +172,10 @@ const projects = [
 </script>
 
 <style lang="scss" scoped>
-.ProjectContainer {
-  margin: 0 auto;
-  padding: var(--sectionSpace) 0;
-  min-width: 300px;
-  max-width: var(--secondLayoutWidth);
-}
 .Project {
   max-width: var(--layoutWidth);
   margin: 0 auto;
   padding: 0 var(--layoutPadding);
-  &__subtitle {
-    font-size: var(--fontS);
-    font-weight: 600;
-    color: var(--lightPurple);
-    margin-bottom: 20px;
-    opacity: 0;
-  }
-  &__title {
-    font-family: "Lexend Deca";
-    font-weight: 500;
-    font-size: var(--fontL);
-    opacity: 0;
-  }
   &__body {
     display: flex;
     flex-direction: column;

@@ -1,10 +1,13 @@
+const mainThred = 0.69;
+const headerMargin = "64px";
+
 function observeAbout() {
   const about = document.querySelector("#about");
   const aboutCallback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const subtitle = document.getElementsByClassName("About__subtitle")[0];
-        const title = document.getElementsByClassName("About__title")[0];
+        const subtitle = document.getElementById("AboutSubtitle");
+        const title = document.getElementById("AboutTitle");
         const text = document.getElementsByClassName("About__text")[0];
         subtitle.style.animation = "fadeUp 0.55s ease-in-out 0.123s forwards";
         title.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
@@ -14,8 +17,8 @@ function observeAbout() {
     });
   };
   const aboutObserver = new IntersectionObserver(aboutCallback, {
-    rootMargin: "0px",
-    threshold: 0.123,
+    rootMargin: headerMargin,
+    threshold: mainThred,
   });
   // profile, tech is a special case
   // for mobile these sections are in the bottom
@@ -30,8 +33,8 @@ function observeAbout() {
     });
   };
   const profileObserver = new IntersectionObserver(profileCallBack, {
-    rootMargin: "64px",
-    threshold: 0.123,
+    rootMargin: headerMargin,
+    threshold: mainThred,
   });
   const tech = document.getElementsByClassName("Tech")[0];
   const techCallBack = (entries, observer) => {
@@ -44,7 +47,7 @@ function observeAbout() {
   };
   const techObserver = new IntersectionObserver(techCallBack, {
     rootMargin: "0px",
-    threshold: 0.088,
+    threshold: mainThred,
   });
 
   aboutObserver.observe(about);
@@ -57,9 +60,8 @@ function observeProject() {
   const projectCallback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const subtitle =
-          document.getElementsByClassName("Project__subtitle")[0];
-        const title = document.getElementsByClassName("Project__title")[0];
+        const subtitle = document.getElementById("ProjectSubtitle");
+        const title = document.getElementById("ProjectTitle");
         subtitle.style.animation = "fadeUp 0.55s ease-in-out 0.123s forwards";
         title.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
         observer.unobserve(project);
@@ -67,8 +69,8 @@ function observeProject() {
     });
   };
   const projectObserver = new IntersectionObserver(projectCallback, {
-    rootMargin: "0px",
-    threshold: 0.123,
+    rootMargin: headerMargin,
+    threshold: 0.25,
   });
 
   const item0 = document.getElementsByClassName("ProjectItem")[0];
@@ -91,11 +93,11 @@ function observeProject() {
   };
   const item0Observer = new IntersectionObserver(item0Callback, {
     rootMargin: "48px",
-    threshold: 0.234,
+    threshold: 0.88,
   });
   const item1Observer = new IntersectionObserver(item1Callback, {
     rootMargin: "48px",
-    threshold: 0.234,
+    threshold: 0.88,
   });
 
   projectObserver.observe(project);
@@ -108,9 +110,8 @@ function observeContact() {
   const contactCallback = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const subtitle =
-          document.getElementsByClassName("Contact__subtitle")[0];
-        const title = document.getElementsByClassName("Contact__title")[0];
+        const subtitle = document.getElementById("ContactSubtitle");
+        const title = document.getElementById("ContactTitle");
         subtitle.style.animation = "fadeUp 0.55s ease-in-out 0.123s forwards";
         title.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
         observer.unobserve(contact);
@@ -118,8 +119,8 @@ function observeContact() {
     });
   };
   const contactObserver = new IntersectionObserver(contactCallback, {
-    rootMargin: "0px",
-    threshold: 0.123,
+    rootMargin: headerMargin,
+    threshold: mainThred,
   });
 
   contactObserver.observe(contact);

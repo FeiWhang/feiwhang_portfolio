@@ -105,6 +105,25 @@ html {
   background-color: var(--bgColor);
   transition: var(--bgTransition);
   color: var(--textColor);
+  .SectionContainer {
+    margin: 0 auto;
+    padding: var(--sectionSpace) 0;
+    min-width: 300px;
+    max-width: var(--secondLayoutWidth);
+  }
+  .SectionSubtitle {
+    font-size: var(--fontS);
+    font-weight: 600;
+    color: var(--lightPurple);
+    margin-bottom: 20px;
+    opacity: 0;
+  }
+  .SectionTitle {
+    font-family: "Lexend Deca";
+    font-weight: 500;
+    font-size: var(--fontL);
+    opacity: 0;
+  }
 }
 
 @keyframes fadeUp {

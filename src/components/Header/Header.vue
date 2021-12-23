@@ -222,6 +222,7 @@ import { inject, ref, provide, computed } from "vue";
 import HeaderNav from "./HeaderNav.vue";
 
 const screen = inject("screen");
+const hash = ref("");
 const isMobileNavOpened = ref(false);
 
 const isDark = inject("isDark");
@@ -243,6 +244,7 @@ const headerStyle = computed(() => {
   };
 });
 
+provide("hash", hash);
 provide("isMobileNavOpened", isMobileNavOpened);
 </script>
 

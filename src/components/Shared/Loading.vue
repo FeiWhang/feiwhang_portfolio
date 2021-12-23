@@ -35,6 +35,8 @@ $duration: 0.55s;
 
 #loading {
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 100;
   background-color: var(--bgColor);
   height: 100vh;

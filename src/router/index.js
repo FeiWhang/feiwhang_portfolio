@@ -13,4 +13,8 @@ const router = createRouter({
   routes: routes,
 });
 
+// make page reset scroll on refresh
+// -> so the loading screen always shows on top
+window.history.scrollRestoration = "manual";
+
 export default router;

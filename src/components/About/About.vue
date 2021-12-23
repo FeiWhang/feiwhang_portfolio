@@ -1,9 +1,9 @@
 <template>
   <section id="about" class="About">
-    <div class="AboutContainer">
+    <div class="SectionContainer" id="AboutContainer">
       <header>
-        <h2 class="About__subtitle">About me</h2>
-        <h1 class="About__title">Front-End Developer</h1>
+        <h2 class="SectionSubtitle" id="AboutSubtitle">About me</h2>
+        <h1 class="SectionTitle" id="AboutTitle">Front-End Developer</h1>
       </header>
       <div class="About__body" :class="'About__body--' + screen.type.value">
         <div class="About__bodyLeft">
@@ -143,30 +143,13 @@ onMounted(() => observeAbout());
 </script>
 
 <style lang="scss" scoped>
-.AboutContainer {
-  margin: 0 auto;
-  padding: var(--sectionSpace) 0;
+#AboutContainer {
   padding-top: 6.9rem;
-  min-width: 300px;
-  max-width: var(--secondLayoutWidth);
 }
 .About {
   max-width: var(--layoutWidth);
   margin: 0 auto;
   padding: 0 var(--layoutPadding);
-  &__subtitle {
-    font-size: var(--fontS);
-    font-weight: 600;
-    color: var(--lightPurple);
-    margin-bottom: 20px;
-    opacity: 0;
-  }
-  &__title {
-    font-family: "Lexend Deca";
-    font-weight: 500;
-    font-size: var(--fontL);
-    opacity: 0;
-  }
   &__body {
     display: flex;
     flex-direction: row;

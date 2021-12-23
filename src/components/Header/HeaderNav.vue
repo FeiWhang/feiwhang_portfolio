@@ -1,28 +1,28 @@
 <template>
   <a
     class="NavLink"
-    :class="hash == '' || hash == '#home' ? 'active' : ''"
+    :class="hash == '' || hash == '#home' ? 'NavLink--active' : ''"
     @click="onNavClicked('home')"
   >
     Home</a
   >
   <a
     class="NavLink"
-    :class="hash == '#about' ? 'active' : ''"
+    :class="hash == '#about' ? 'NavLink--active' : ''"
     @click="onNavClicked('about')"
   >
     About</a
   >
   <a
     class="NavLink"
-    :class="hash == '#project' ? 'active' : ''"
+    :class="hash == '#project' ? 'NavLink--active' : ''"
     @click="onNavClicked('project')"
   >
     Project</a
   >
   <a
     class="NavLink"
-    :class="hash == '#contact' ? 'active' : ''"
+    :class="hash == '#contact' ? 'NavLink--active' : ''"
     @click="onNavClicked('contact')"
   >
     Contact
@@ -30,9 +30,9 @@
 </template>
 
 <script setup>
-import { ref, inject } from "vue";
+import { inject } from "vue";
 
-const hash = ref(location.hash);
+const hash = inject("hash");
 const isMobileNavOpened = inject("isMobileNavOpened");
 
 function onNavClicked(id) {
@@ -44,11 +44,13 @@ function onNavClicked(id) {
     block: "start",
     behavior: "smooth",
   });
+  console.log(hash.value);
 }
 </script>
 
 <style lang="scss" scoped>
 .NavLink {
+  cursor: pointer;
   text-align: center;
   font-weight: 500;
   color: var(--textColor);
@@ -56,7 +58,7 @@ function onNavClicked(id) {
   width: 6.9rem;
   padding: 8px 0;
   border-radius: 32px;
-  &.active {
+  &--active {
     color: var(--activeTextColor);
   }
 }

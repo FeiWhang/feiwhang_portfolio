@@ -1,45 +1,29 @@
 <template>
   <a
-    href="#home"
     class="NavLink"
     :class="hash == '' || hash == '#home' ? 'active' : ''"
-    @click="
-      hash = '#home';
-      isMobileNavOpened = false;
-    "
+    @click="onNavClicked('home')"
   >
     Home</a
   >
   <a
-    href="#about"
     class="NavLink"
     :class="hash == '#about' ? 'active' : ''"
-    @click="
-      hash = '#about';
-      isMobileNavOpened = false;
-    "
+    @click="onNavClicked('about')"
   >
     About</a
   >
   <a
-    href="#project"
     class="NavLink"
     :class="hash == '#project' ? 'active' : ''"
-    @click="
-      hash = '#project';
-      isMobileNavOpened = false;
-    "
+    @click="onNavClicked('project')"
   >
     Project</a
   >
   <a
-    href="#contact"
     class="NavLink"
     :class="hash == '#contact' ? 'active' : ''"
-    @click="
-      hash = '#contact';
-      isMobileNavOpened = false;
-    "
+    @click="onNavClicked('contact')"
   >
     Contact
   </a>
@@ -50,6 +34,17 @@ import { ref, inject } from "vue";
 
 const hash = ref(location.hash);
 const isMobileNavOpened = inject("isMobileNavOpened");
+
+function onNavClicked(id) {
+  hash.value = "#" + id;
+  isMobileNavOpened.value = false;
+
+  const navEl = document.getElementById(id);
+  navEl.scrollIntoView({
+    block: "start",
+    behavior: "smooth",
+  });
+}
 </script>
 
 <style lang="scss" scoped>

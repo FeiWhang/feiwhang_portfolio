@@ -40,7 +40,7 @@ const contentStyle = computed(() => {
   return {
     "--layoutWidth": "1264px",
     "--secondLayoutWidth": "960px",
-    "--layoutPadding": screen.width.value > 1264 ? "32px" : "16px",
+    "--layoutPadding": screen.width.value > 960 ? "32px" : "16px",
     "--sectionSpace": screen.width.value > 960 ? "8rem" : "5rem",
     "--subsectionSpace": screen.width.value > 960 ? "3.33rem" : "2.22rem",
     "--componentSpace": screen.width.value > 960 ? "1.23rem" : "1.088rem",

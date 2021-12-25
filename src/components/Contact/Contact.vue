@@ -7,6 +7,13 @@
             <h2 class="SectionSubtitle" id="ContactSubtitle">Contact</h2>
             <h1 class="SectionTitle" id="ContactTitle">Get a quote</h1>
           </header>
+          <div
+            class="ContactFormContainer"
+            v-if="screen.width.value < 669"
+            :style="{ margin: 'var(--subsectionSpace) 0' }"
+          >
+            <ContactForm />
+          </div>
           <div class="Contact__items">
             <p class="Contact__item">
               <svg
@@ -72,7 +79,7 @@
             </a>
           </div>
         </div>
-        <div class="ContactFormContainer">
+        <div class="ContactFormContainer" v-if="screen.width.value >= 669">
           <ContactForm />
         </div>
       </div>
@@ -82,12 +89,12 @@
 
 <script setup>
 import ContactForm from "./ContactForm.vue";
-import { onMounted } from "vue";
+import { onMounted, inject } from "vue";
 import { observeContact } from "@/components/Shared/observer.js";
 
 onMounted(() => observeContact());
 
-// const screen = inject("screen");
+const screen = inject("screen");
 </script>
 
 <style lang="scss" scoped>
@@ -95,11 +102,11 @@ onMounted(() => observeContact());
   max-width: var(--layoutWidth);
   margin: 0 auto;
   margin-bottom: var(--sectionSpace);
+  padding: 0 var(--layoutPadding);
   position: relative;
   &__body {
     display: flex;
-    justify-content: center;
-    column-gap: 300px;
+    justify-content: space-between;
     border-radius: 8px;
     background-color: var(--secondBgColor);
     padding: var(--layoutPadding);
@@ -108,12 +115,14 @@ onMounted(() => observeContact());
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
   }
   &__items {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    row-gap: 32px;
+    row-gap: var(--layoutPadding);
+    margin: var(--componentSpace) 0;
   }
   &__item {
     display: flex;
@@ -134,7 +143,9 @@ onMounted(() => observeContact());
   &__socials {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     column-gap: 16px;
+    margin-top: var(--componentSpace);
   }
   &__social {
     svg {

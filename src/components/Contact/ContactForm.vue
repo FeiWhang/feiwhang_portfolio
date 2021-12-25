@@ -1,5 +1,8 @@
 <template>
-  <form class="ContactForm">
+  <form
+    class="ContactForm"
+    :class="screen.width.value < 669 ? 'ContactForm--mobile' : ''"
+  >
     <label for="name" class="ContactForm__label">Name</label>
     <input type="text" id="name" class="ContactForm__input" />
     <br />
@@ -19,7 +22,11 @@
   </form>
 </template>
 
-<script setup></script>
+<script setup>
+import { inject } from "vue";
+
+const screen = inject("screen");
+</script>
 
 <style lang="scss" scoped>
 .ContactForm {
@@ -32,6 +39,7 @@
     font-weight: 200;
   }
   &__input {
+    width: clamp(280px, 30vw, 369px);
     padding: 8px 16px;
     border-radius: 8px;
     font-family: Nunito;
@@ -59,6 +67,13 @@
     transition: var(--bgTransition);
     &:hover {
       background-color: var(--lightPurple);
+    }
+  }
+  &--mobile {
+    input,
+    textarea {
+      width: auto;
+      flex: 1;
     }
   }
 }

@@ -57,8 +57,9 @@ const contentStyle = computed(() => {
     "--fadeColor": isDark.value ? "#ece4ff10" : "#ece4ff",
     "--activeTextColor": isDark.value ? "#D5C6FF" : "#8E6FE2",
     "--shadowColor": isDark.value ? "#644ca6" : "#D5C6FF",
-    "--bgColor": isDark.value ? "#2d2d2e" : "#fdfdff",
+    "--bgColor": isDark.value ? "#2d2d2e" : "#fafaff",
     "--secondBgColor": isDark.value ? "#272729" : "#f6f5ff",
+    "--thirdBgColor": isDark.value ? "#363638" : "#fff",
     "--fontL": screen.type.value != "xs" ? "36px" : "32px",
     "--fontM": screen.type.value != "xs" ? "22px" : "20px",
     "--fontS": screen.type.value != "xs" ? "18px" : "16px",
@@ -91,7 +92,10 @@ provide("isDark", isDark);
 }
 html {
   scroll-behavior: smooth;
-  background-color: none;
+  background-color: transparent;
+}
+body {
+  background-color: transparent;
 }
 #app {
   font-family: Nunito;

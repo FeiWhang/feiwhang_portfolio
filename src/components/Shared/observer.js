@@ -1,4 +1,4 @@
-const mainThred = 0.69;
+const mainThred = 0.25;
 const headerMargin = "64px";
 
 function observeAbout() {

@@ -44,7 +44,6 @@ function onNavClicked(id) {
     block: "start",
     behavior: "smooth",
   });
-  console.log(hash.value);
 }
 </script>
 

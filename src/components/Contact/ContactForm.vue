@@ -56,8 +56,7 @@
       <transition name="fadeUp" mode="out-in">
         <div class="ButtonContainer" :key="submitState.status">
           <svg
-            class="ContactForm__submitIcon"
-            id="SendIcon"
+            class="SendIcon"
             viewBox="0 0 32 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -73,26 +72,23 @@
             <div class="LoadingIcon__circle LoadingIcon__circle--2"></div>
           </div>
           <svg
-            class="ContactForm__submitIcon"
-            viewBox="0 0 32 32"
-            fill="none"
+            class="DoneIcon"
             xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52 52"
             v-if="submitState.status == 'Message Sent'"
           >
-            <g id="done">
-              <g id="Group">
-                <path
-                  id="circle"
-                  d="M16 30C12.287 30 8.72601 28.525 6.1005 25.8995C3.475 23.274 2 19.713 2 16C2 12.287 3.475 8.72601 6.1005 6.1005C8.72601 3.475 12.287 2 16 2C19.713 2 23.274 3.475 25.8995 6.1005C28.525 8.72601 30 12.287 30 16C30 19.713 28.525 23.274 25.8995 25.8995C23.274 28.525 19.713 30 16 30ZM16 32C20.2435 32 24.3131 30.3143 27.3137 27.3137C30.3143 24.3131 32 20.2435 32 16C32 11.7565 30.3143 7.68687 27.3137 4.68629C24.3131 1.68571 20.2435 0 16 0C11.7565 0 7.68687 1.68571 4.68629 4.68629C1.68571 7.68687 0 11.7565 0 16C0 20.2435 1.68571 24.3131 4.68629 27.3137C7.68687 30.3143 11.7565 32 16 32Z"
-                  fill="black"
-                />
-                <path
-                  id="tick"
-                  d="M21.9399 9.93995C21.9257 9.95376 21.9123 9.96845 21.8999 9.98395L14.9539 18.834L10.7679 14.646C10.4836 14.381 10.1075 14.2367 9.7189 14.2436C9.3303 14.2505 8.95953 14.4079 8.6847 14.6827C8.40987 14.9575 8.25245 15.3283 8.2456 15.7169C8.23874 16.1055 8.38298 16.4816 8.64794 16.766L13.9399 22.0599C14.0825 22.2023 14.2523 22.3144 14.4391 22.3897C14.626 22.4649 14.826 22.5018 15.0274 22.4981C15.2288 22.4943 15.4274 22.4501 15.6113 22.3679C15.7953 22.2858 15.9608 22.1674 16.0979 22.02L24.0819 12.04C24.3538 11.7546 24.5024 11.3737 24.4957 10.9797C24.489 10.5856 24.3275 10.21 24.0461 9.93414C23.7646 9.65823 23.3859 9.50417 22.9918 9.50525C22.5977 9.50634 22.2198 9.66249 21.9399 9.93995Z"
-                  fill="black"
-                />
-              </g>
-            </g>
+            <circle
+              class="DoneIcon__circle"
+              cx="26"
+              cy="26"
+              r="23"
+              fill="none"
+            />
+            <path
+              class="DoneIcon__check"
+              fill="none"
+              d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            />
           </svg>
           <p class="ContactForm__submitStatus">
             {{ submitState.status }}
@@ -140,6 +136,7 @@ function onSubmit() {
   });
   if (isValid) {
     (async () => {
+      // start timer
       const start = window.performance.now();
       submitState.status = "Sending";
       // add message to store
@@ -152,7 +149,10 @@ function onSubmit() {
         console.log(e);
       });
       const end = window.performance.now();
+      // find interval of time
       const exeInt = end - start;
+      // set timeout if timer is less than 2.5s
+      // to show loading animation
       setTimeout(
         () => {
           formData.name = "";
@@ -162,7 +162,7 @@ function onSubmit() {
           submitState.disabled = true;
           submitState.status = "Message Sent";
         },
-        exeInt < 2222 ? 2222 - exeInt : 0
+        exeInt < 2500 ? 2500 - exeInt : 0
       );
     })();
   }
@@ -216,12 +216,7 @@ function onSubmit() {
       background-color: var(--lightPurple);
     }
   }
-  &__submitIcon {
-    width: 24px;
-    path {
-      fill: white;
-    }
-  }
+
   #message {
     resize: none;
     padding: 12px 16px;
@@ -240,8 +235,12 @@ function onSubmit() {
   justify-content: center;
   column-gap: 16px;
 }
-#SendIcon {
+.SendIcon {
+  width: 24px;
   animation: hovering 2s ease-in-out infinite;
+  path {
+    fill: white;
+  }
 }
 .LoadingIcon,
 .LoadingIcon * {
@@ -269,31 +268,35 @@ function onSubmit() {
     }
   }
 }
-#done {
-  #circle {
-    transform-origin: 50% 50%;
-    --len: 188.4960174560547;
-    stroke-dasharray: var(--len);
-    stroke-dashoffset: var(--len);
+.DoneIcon {
+  width: 24px;
+  display: block;
+  stroke-width: 4;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  &__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 4;
+    stroke-miterlimit: 10;
+    stroke: white;
+    fill: none;
     animation: stroke 0.88s ease-in-out forwards;
-    backface-visibility: hidden;
   }
-  #tick {
+  &__check {
     transform-origin: 50% 50%;
-    --len: 49.18244171142578;
-    stroke-dasharray: var(--len);
-    stroke-dashoffset: var(--len);
-    animation: stroke 0.88s ease-in-out 0.88s forwards;
-    backface-visibility: hidden;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.44s ease-in-out 0.99s forwards;
   }
 }
 
 // animations
 .fadeUp-enter-active {
-  animation: fadeUp 0.369s ease-in-out;
+  animation: fadeUp 0.3s ease-in-out;
 }
 .fadeUp-leave-active {
-  animation: fadeUpAway 0.369s ease-in-out;
+  animation: fadeUpAway 0.3s ease-in-out;
 }
 @keyframes hovering {
   0% {

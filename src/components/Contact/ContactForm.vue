@@ -188,10 +188,13 @@ function onSubmit() {
     font-size: var(--fontXS);
     background-color: var(--thirdBgColor);
     box-shadow: 0 0 6px transparent;
+    -webkit-appearance: none;
+    -webkit-box-shadow: 0 0 6px transparent;
     color: var(--bodyTextColor);
     will-change: box-shadow;
     transition: box-shadow 0.2s ease-in-out;
     &:focus {
+      -webkit-box-shadow: 0 0 6px var(--shadowColor);
       box-shadow: 0 0 6px var(--shadowColor);
     }
   }

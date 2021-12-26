@@ -431,7 +431,7 @@ const imgStyle = computed(() => {
 
 <style lang="scss" scoped>
 .HeroImg {
-  width: clamp(222px, 69vw, 555px);
+  width: min(clamp(222px, 50vh, 555px), clamp(222px, 69vw, 555px));
 }
 #HeroVector {
   opacity: 0;

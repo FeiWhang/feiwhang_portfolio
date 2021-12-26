@@ -61,7 +61,7 @@ const contentStyle = computed(() => {
     "--bgColor": isDark.value ? "#2d2d2e" : "#fafaff",
     "--secondBgColor": isDark.value ? "#272729" : "#f6f5ff",
     "--thirdBgColor": isDark.value ? "#363638" : "#fff",
-    "--fontL": screen.type.value != "xs" ? "36px" : "32px",
+    "--fontL": screen.type.value != "xs" ? "36px" : "28px",
     "--fontM": screen.type.value != "xs" ? "22px" : "20px",
     "--fontS": screen.type.value != "xs" ? "18px" : "16px",
     "--fontXS": screen.type.value != "xs" ? "16px" : "15px",

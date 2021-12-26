@@ -123,6 +123,7 @@ const screen = inject("screen");
     justify-content: flex-start;
     row-gap: var(--layoutPadding);
     margin: var(--componentSpace) 0;
+    opacity: 0;
   }
   &__item {
     display: flex;
@@ -146,6 +147,7 @@ const screen = inject("screen");
     justify-content: flex-start;
     column-gap: 16px;
     margin-top: var(--componentSpace);
+    opacity: 0;
   }
   &__social {
     svg {

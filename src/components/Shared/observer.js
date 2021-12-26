@@ -1,128 +1,56 @@
-const mainThred = 0.25;
-const headerMargin = "64px";
+function observeAnimated(element, margin, threshold, delay) {
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        element.style.animation =
+          "fadeUp 0.55s ease-in-out " + delay + "s forwards";
+        observer.unobserve(element);
+      }
+    });
+  };
+  const elementObserver = new IntersectionObserver(callback, {
+    rootMargin: margin,
+    threshold: threshold,
+  });
+
+  elementObserver.observe(element);
+}
 
 function observeAbout() {
-  const about = document.querySelector("#about");
-  const aboutCallback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const subtitle = document.getElementById("AboutSubtitle");
-        const title = document.getElementById("AboutTitle");
-        const text = document.getElementsByClassName("About__text")[0];
-        subtitle.style.animation = "fadeUp 0.55s ease-in-out 0.123s forwards";
-        title.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
-        text.style.animation = "fadeUp 0.55s ease-in-out 0.456s forwards";
-        observer.unobserve(about);
-      }
-    });
-  };
-  const aboutObserver = new IntersectionObserver(aboutCallback, {
-    rootMargin: headerMargin,
-    threshold: mainThred,
-  });
-  // profile, tech is a special case
-  // for mobile these sections are in the bottom
-  // need to wait for it into viewport sep.
+  const subtitle = document.getElementById("AboutSubtitle");
+  const title = document.getElementById("AboutTitle");
+  const text = document.getElementsByClassName("About__text")[0];
   const profile = document.getElementById("profile");
-  const profileCallBack = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        profile.style.animation = "fadeUp 0.55s ease-in-out 0.69s forwards";
-        observer.unobserve(profile);
-      }
-    });
-  };
-  const profileObserver = new IntersectionObserver(profileCallBack, {
-    rootMargin: headerMargin,
-    threshold: mainThred,
-  });
   const tech = document.getElementsByClassName("Tech")[0];
-  const techCallBack = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        tech.style.animation = "fadeUp 0.55s ease-in-out 0.69s forwards";
-        observer.unobserve(profile);
-      }
-    });
-  };
-  const techObserver = new IntersectionObserver(techCallBack, {
-    rootMargin: "0px",
-    threshold: mainThred,
-  });
-
-  aboutObserver.observe(about);
-  profileObserver.observe(profile);
-  techObserver.observe(tech);
+  observeAnimated(subtitle, "32px", 0.25, 0.123);
+  observeAnimated(title, "32px", 0.25, 0.234);
+  observeAnimated(text, "32px", 0.25, 0.456);
+  observeAnimated(profile, "32px", 0.25, 0.123);
+  observeAnimated(tech, "32px", 0.25, 0.69);
 }
 
 function observeProject() {
-  const project = document.querySelector("#project");
-  const projectCallback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const subtitle = document.getElementById("ProjectSubtitle");
-        const title = document.getElementById("ProjectTitle");
-        subtitle.style.animation = "fadeUp 0.55s ease-in-out 0.123s forwards";
-        title.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
-        observer.unobserve(project);
-      }
-    });
-  };
-  const projectObserver = new IntersectionObserver(projectCallback, {
-    rootMargin: headerMargin,
-    threshold: 0.25,
-  });
-
+  const subtitle = document.getElementById("ProjectSubtitle");
+  const title = document.getElementById("ProjectTitle");
   const item0 = document.getElementsByClassName("ProjectItem")[0];
   const item1 = document.getElementsByClassName("ProjectItem")[1];
-  const item0Callback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        item0.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
-        observer.unobserve(item0);
-      }
-    });
-  };
-  const item1Callback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        item1.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
-        observer.unobserve(item1);
-      }
-    });
-  };
-  const item0Observer = new IntersectionObserver(item0Callback, {
-    rootMargin: "48px",
-    threshold: 0.88,
-  });
-  const item1Observer = new IntersectionObserver(item1Callback, {
-    rootMargin: "48px",
-    threshold: 0.88,
-  });
-
-  projectObserver.observe(project);
-  item0Observer.observe(item0);
-  item1Observer.observe(item1);
+  observeAnimated(subtitle, "32px", 0.25, 0.123);
+  observeAnimated(title, "32px", 0.25, 0.234);
+  observeAnimated(item0, "32px", 0.25, 0.234);
+  observeAnimated(item1, "32px", 0.25, 0.234);
 }
 
 function observeContact() {
-  const contact = document.querySelector("#contact");
-  const contactCallback = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const subtitle = document.getElementById("ContactSubtitle");
-        const title = document.getElementById("ContactTitle");
-        subtitle.style.animation = "fadeUp 0.55s ease-in-out 0.123s forwards";
-        title.style.animation = "fadeUp 0.55s ease-in-out 0.234s forwards";
-        observer.unobserve(contact);
-      }
-    });
-  };
-  const contactObserver = new IntersectionObserver(contactCallback, {
-    rootMargin: headerMargin,
-    threshold: mainThred,
-  });
-
-  contactObserver.observe(contact);
+  const subtitle = document.getElementById("ContactSubtitle");
+  const title = document.getElementById("ContactTitle");
+  const items = document.getElementsByClassName("Contact__items")[0];
+  const socials = document.getElementsByClassName("Contact__socials")[0];
+  const form = document.getElementsByClassName("ContactForm")[0];
+  observeAnimated(subtitle, "32px", 0.25, 0.123);
+  observeAnimated(title, "32px", 0.25, 0.234);
+  observeAnimated(items, "32px", 0.25, 0.234);
+  observeAnimated(socials, "32px", 0.25, 0.234);
+  observeAnimated(form, "32px", 0.25, 0.456);
 }
+
 export { observeAbout, observeProject, observeContact };

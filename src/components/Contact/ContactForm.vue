@@ -32,6 +32,7 @@ const screen = inject("screen");
 .ContactForm {
   display: flex;
   flex-direction: column;
+  opacity: 0;
   &__label {
     margin-bottom: 6px;
     font-size: var(--fontXXS);

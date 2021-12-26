@@ -49,6 +49,7 @@ const contentStyle = computed(() => {
     "--lightPurple": "#8E6FE2",
     "--purple": "#7253C6",
     "--darkPurple": "#24285B",
+    "--redError": isDark.value ? "#ff5e74" : "#d84458",
     "--greyPurple": "#E6E2EE",
     "--textColorLight": "#fdfdff",
     "--textColorDark": "#0A2540",
@@ -92,9 +93,6 @@ provide("isDark", isDark);
 }
 html {
   scroll-behavior: smooth;
-  background-color: transparent;
-}
-body {
   background-color: transparent;
 }
 #app {

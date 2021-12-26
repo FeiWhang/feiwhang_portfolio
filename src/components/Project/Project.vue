@@ -211,7 +211,7 @@ const projects = [
     transform: translate3d(0, 0, 0);
     transition: all 0.345s ease-in-out;
     &:hover {
-      animation: revealCard 0.69s ease-in-out;
+      animation: revealCard 0.456s ease-in-out;
       z-index: 6;
       filter: saturate(0.88) opacity(0.88)
         drop-shadow(0 0 4px var(--shadowColor));

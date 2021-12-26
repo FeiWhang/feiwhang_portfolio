@@ -61,7 +61,7 @@
               </svg>
             </a>
             <a
-              href="www.linkedin.com/in/feiwhang"
+              href="https://linkedin.com/in/feiwhang"
               target="_blank"
               class="Contact__social"
               ><svg

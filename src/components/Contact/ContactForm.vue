@@ -20,7 +20,7 @@
     <label for="email" class="ContactForm__label">Email</label>
     <input
       type="text"
-      id="text"
+      id="email"
       v-model="formData.email"
       class="ContactForm__input"
     />
@@ -32,7 +32,7 @@
     >
       * Email format is invalid
     </p>
-    <label for="email" class="ContactForm__label">Message</label>
+    <label for="message" class="ContactForm__label">Message</label>
     <textarea
       name="message"
       id="message"

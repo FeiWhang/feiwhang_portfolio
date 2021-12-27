@@ -47,6 +47,8 @@
               href="https://github.com/FeiWhang"
               target="_blank"
               class="Contact__social"
+              aria-label="Github"
+              rel="noopener"
               ><svg
                 viewBox="0 0 32 32"
                 fill="none"
@@ -64,6 +66,8 @@
               href="https://linkedin.com/in/feiwhang"
               target="_blank"
               class="Contact__social"
+              aria-label="Linkedin"
+              rel="noopener"
               ><svg
                 viewBox="0 0 32 32"
                 fill="none"

@@ -1,27 +1,27 @@
 <template>
   <div id="loading" @wheel.prevent @touchmove.prevent @scroll.prevent>
     <svg viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g id="Logo">
+      <g id="LoadingLogo">
         <g id="F">
           <path
             id="F1"
             fill-rule="evenodd"
             clip-rule="evenodd"
-            d="M37 18C37 22.4183 33.4183 26 29 26C24.5817 26 21 22.4183 21 18L21 51.9951C21.0027 47.5791 24.5834 44 29 44C33.4183 44 37 47.5817 37 52C37 56.4183 33.4183 60 29 60C24.5834 60 21.0027 56.4209 21 52.0049L21 81C21 85.4183 24.5817 89 29 89C33.4183 89 37 85.4183 37 81L37 52V18Z"
-            fill="#8E6FE2"
+            d="M31 5C37.6274 5 43 10.3726 43 17L43 79C43 85.6274 37.6274 91 31 91C24.3726 91 19 85.6274 19 79L19 17C19 10.3726 24.3726 5 31 5ZM41 17C41 22.5228 36.5228 27 31 27C25.4772 27 21 22.5228 21 17C21 11.4772 25.4772 7 31 7C36.5228 7 41 11.4772 41 17ZM31 59C35.9706 59 40 54.9706 40 50C40 45.0294 35.9706 41 31 41C26.0294 41 22 45.0294 22 50C22 54.9706 26.0294 59 31 59Z"
+            fill="#7253C6"
           />
           <path
             id="F3"
-            d="M57 52H29"
+            d="M55 50H31"
             stroke="#8E6FE2"
-            stroke-width="16"
+            stroke-width="18"
             stroke-linecap="round"
           />
           <path
             id="F2"
-            d="M65 18L29 18"
+            d="M67 17L31 17"
             stroke="#8E6FE2"
-            stroke-width="16"
+            stroke-width="20"
             stroke-linecap="round"
           />
         </g>
@@ -46,7 +46,8 @@ $duration: 0.55s;
   svg {
     margin: auto;
     width: min(25vw, 256px);
-    animation: zoomFadeAway $duration ease-in-out 1.75s forwards;
+    animation: zoomFadeAway $duration ease-in-out calc($duration * 3.25)
+      forwards;
     backface-visibility: hidden;
   }
 }

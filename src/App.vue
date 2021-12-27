@@ -6,12 +6,14 @@
     <About />
     <Project />
     <Contact />
+    <Footer />
   </div>
 </template>
 
 <script setup>
 import Loading from "@/components/Shared/Loading.vue";
 import Header from "@/components/Header/Header.vue";
+import Footer from "@/components/Footer/Footer.vue";
 import getScreen from "@/components/Shared/screen";
 import Home from "@/views/Home.vue";
 import About from "@/components/About/About.vue";
@@ -23,7 +25,7 @@ const isLoading = ref(true);
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false;
-  }, 2500);
+  }, 2750);
 });
 
 const screen = getScreen();

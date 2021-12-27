@@ -56,7 +56,7 @@
         </g>
       </g>
     </svg>
-    <h3 class="Tech__title">Some technologies I've used</h3>
+    <h1 class="Tech__title">Some technologies I've used</h1>
     <div class="Tech__list" :class="'Tech__list--' + screen.type.value">
       <p class="Tech__item">
         <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

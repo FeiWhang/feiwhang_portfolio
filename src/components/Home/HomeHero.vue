@@ -16,7 +16,7 @@
       {{ "A Computer Science student at " }}
       <a
         href="https://muic.mahidol.ac.th/"
-        rel="noreferrer"
+        rel="noopener"
         target="_blank"
         title="External link to MUIC website"
         >MUIC</a

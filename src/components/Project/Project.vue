@@ -72,6 +72,8 @@
                 class="ProjectItem__link"
                 v-if="project.githubUrl"
                 target="_blank"
+                rel="noopener"
+                aria-label="Github"
                 ><svg
                   viewBox="0 0 32 32"
                   fill="none"
@@ -104,6 +106,8 @@
                 class="ProjectItem__link"
                 v-if="project.demoUrl"
                 target="_blank"
+                rel="noopener"
+                aria-label="Live demo"
               >
                 <svg
                   viewBox="0 0 32 32"

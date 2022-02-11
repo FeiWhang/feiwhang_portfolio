@@ -34,10 +34,12 @@ function observeProject() {
   const title = document.getElementById("ProjectTitle");
   const item0 = document.getElementsByClassName("ProjectItem")[0];
   const item1 = document.getElementsByClassName("ProjectItem")[1];
+  const item2 = document.getElementsByClassName("ProjectItem")[2];
   observeAnimated(subtitle, "32px", 0.25, 0.123);
   observeAnimated(title, "32px", 0.25, 0.234);
   observeAnimated(item0, "32px", 0.25, 0.234);
   observeAnimated(item1, "32px", 0.25, 0.234);
+  observeAnimated(item2, "32px", 0.25, 0.234);
 }
 
 function observeContact() {

@@ -25,7 +25,7 @@
     margin: 0 auto;
     align-self: center;
     text-align: center;
-    font-size: var(--fontXS);
+    font-size: var(--fontXXS);
     color: var(--bodyTextColor);
   }
 }

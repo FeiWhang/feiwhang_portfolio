@@ -1,0 +1,17 @@
+[debug] [2022-01-14T10:45:02.564Z] ----------------------------------------------------------------------
+[debug] [2022-01-14T10:45:02.566Z] Command:       /usr/local/Cellar/node/17.3.1/bin/node /usr/local/bin/firebase serve
+[debug] [2022-01-14T10:45:02.566Z] CLI Version:   10.1.0
+[debug] [2022-01-14T10:45:02.566Z] Platform:      darwin
+[debug] [2022-01-14T10:45:02.566Z] Node Version:  v17.3.1
+[debug] [2022-01-14T10:45:02.567Z] Time:          Fri Jan 14 2022 17:45:02 GMT+0700 (Indochina Time)
+[debug] [2022-01-14T10:45:02.567Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-01-14T10:45:02.609Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-01-14T10:45:02.609Z] > authorizing via signed-in user (feiwhang@gmail.com)
+[debug] [2022-01-14T10:45:02.609Z] [iam] checking project feiwhang-com for permissions ["firebase.projects.get"]
+[debug] [2022-01-14T10:45:02.611Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2022-01-14T10:45:02.611Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-01-14T10:45:02.804Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Fri, 14 Jan 2022 10:45:03 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-01-14T10:45:02.855Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/feiwhang-com:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}

@@ -152,14 +152,16 @@
           </svg>
           <p>{{ isDark ? "Dark" : "Light" }}</p>
         </div>
-        <button
+        <a
+          href="./resume.pdf"
+          target="_blank"
           class="Header__cta"
           :class="'Header__cta--' + screen.type.value"
-          v-if="!['sm', 'xs'].includes(screen.type.value)"
           title="Download resume pdf file"
+          v-if="!['sm', 'xs'].includes(screen.type.value)"
         >
           Resume
-        </button>
+        </a>
         <a
           class="Header__navButton"
           v-if="['sm', 'xs'].includes(screen.type.value)"
@@ -203,13 +205,15 @@
           <nav class="Header__mobileLink">
             <HeaderNav />
             <br />
-            <button
+            <a
+              href="./resume.pdf"
+              target="_blank"
               class="Header__cta"
               :class="'Header__cta--' + screen.type.value"
               title="Download resume pdf file"
             >
               Resume
-            </button>
+            </a>
           </nav>
         </div>
       </nav>
@@ -230,8 +234,7 @@ function setTheme() {
   // save user-theme to storage, get after next reload
   localStorage.setItem("user-theme", isDark.value ? "light" : "dark");
   isDark.value = !isDark.value;
-  const bgColor = isDark.value ? "#2d2d2e" : "#f6f2ff";
-  document.querySelector("body").setAttribute("style", "background:" + bgColor);
+  // const bgColor = isDark.value ? "#2d2d2e" : "#f6f2ff";
 }
 const headerStyle = computed(() => {
   return {

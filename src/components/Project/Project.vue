@@ -31,7 +31,6 @@
             :src="project.imgSrc"
             alt=""
             class="ProjectItem__image"
-            :class="'ProjectItem__image--' + index"
             v-if="index % 2 != 0 && !['xs'].includes(screen.type.value)"
           />
           <div
@@ -153,22 +152,31 @@ const screen = inject("screen");
 const isDark = inject("isDark");
 const projects = [
   {
+    category: "Paid project",
+    title: "The Archive",
+    description:
+      "A showcase website for a luxurious fashion brand. Implement in an elegant theme of black and white. With smooth page transitions. Using firebase as the backend to store all products where users can sort by price or query by brands and categories.",
+    tag: ["Vue.js", "Vite", "TypeScript", "Firebase"],
+    imgSrc: require("@/assets/project_0.webp"),
+    demoUrl: "https://the-archive-com.web.app/",
+  },
+  {
     category: "Side project",
     title: "Blockchain Visual",
     description:
       "A visualisation website for blockchain. You can see the building block of the blockchain and how are all the blocks chained together to create a secure and immutable distributed database.",
-    tag: ["HTML", "CSS", "Vue.js"],
-    imgSrc: require("@/assets/project_0.png"),
-    githubUrl: "https://github.com/FeiWhang/code340",
-    demoUrl: "https://cs340prj.web.app/",
+    tag: ["Vue.js", "Vite", "TypeScript"],
+    imgSrc: require("@/assets/project_1.webp"),
+    githubUrl: "https://github.com/FeiWhang/blockchain_visual",
+    demoUrl: "https://blockchain-visual.web.app/",
   },
   {
     category: "College project",
     title: "Code340",
     description:
       "A web platform prototype for an online marketplace for all kinds of code. An itemcode, voucher, giftcards. Register or login to post your product for sell or buy from other sellers.",
-    tag: ["HTML", "CSS", "Vue.js", "FirebaseAuth", "Firestore"],
-    imgSrc: require("@/assets/project_1.png"),
+    tag: ["Vue.js", "FirebaseAuth", "Firestore"],
+    imgSrc: require("@/assets/project_2.webp"),
     githubUrl: "https://github.com/FeiWhang/code340",
     demoUrl: "https://cs340prj.web.app/",
   },
@@ -220,11 +228,11 @@ const projects = [
       filter: saturate(0.88) opacity(0.88)
         drop-shadow(0 0 4px var(--shadowColor));
     }
-    &--0 {
-      --offset: 16px;
+    &:nth-child(even) {
+      --offset: 8px;
     }
-    &--1 {
-      --offset: -16px;
+    &:nth-child(odd) {
+      --offset: -8px;
     }
   }
   &__mobileImage {
@@ -292,7 +300,7 @@ const projects = [
     transform: translate3d(0, 0, 0);
   }
   25% {
-    transform: translate3d(var(--offset), 0, 0) rotateY(8deg);
+    transform: translate3d(var(--offset), 0, 0) rotateY(4deg);
   }
   100% {
     transform: translate3d(0, 0, 0);
